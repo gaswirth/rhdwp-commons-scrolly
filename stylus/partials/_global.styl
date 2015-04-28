@@ -1,0 +1,92 @@
+/* ==========================================================================
+	Global Stylus Variables
+   ========================================================================== */
+
+// Variables
+$peach = #e78b59
+$dull-peach = #aa6741
+$gray = #888888
+
+
+// Classes
+
+.unselectable
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+
+
+.invisible
+	position absolute
+	visibility hidden
+	margin 0
+
+
+.blackback
+	background-color rgba(0,0,0,0.35)
+
+
+// Manual Flexbox
+
+.flexbox
+	text-align justify
+
+	&:after
+		width 100%
+		display inline-block
+		content ''
+
+.flexitem
+	display inline-block
+
+
+// Functions
+
+wrapper( $topMargin = false, $bottomMargin = false )
+	width 90%
+	position relative
+
+	if $topMargin == false
+		$topMargin = 0
+	if $bottomMargin == false
+		$bottomMargin = 0
+
+	margin $topMargin auto $bottomMargin auto
+
+
+body-shadow( $yPos )
+	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
+
+
+placeholder-props( $famVal, $color)
+	&::-webkit-input-placeholder
+		font-family $famVal
+		color $color
+	&:-moz-placeholder /* Firefox 18- */
+		font-family $famVal
+		color $color
+	&::-moz-placeholder  /* Firefox 19+ */
+		font-family $famVal
+		color $color
+	&:-ms-input-placeholder
+		font-family $famVal
+		color $color
+
+
+opacity( $val )
+	-moz-opacity $val
+	-webkit-opacity $val
+	opacity $val
+
+
+transform( $val )
+	-webkit-transform $val
+	transform $val
+
+
+border-radius( $rad )
+	-webkit-border-radius $rad
+	-moz-border-radius $rad
+	border-radius $rad

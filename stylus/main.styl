@@ -1,0 +1,455 @@
+@require "partials/_global.styl"
+@require "partials/_fonts.styl"
+@require "partials/_hamburger.styl"
+@require "partials/_helpers.styl"
+@require "partials/_galleries.styl"
+@require "partials/_overrides.styl"
+
+/* ==========================================================================
+	Main Styles
+   ========================================================================== */
+
+html
+	width 100%
+	text-shadow 0 0 1px transparent
+	font-size 16px
+	margin 0
+	font-family Muli, sans-serif
+	font-weight 400
+	background black
+
+
+body
+	@extends html
+
+	&.admin-bar
+		#wpadminbar
+			position fixed
+			top 0
+
+
+a
+	outline 0 !important
+
+
+a:link
+a:visited
+	text-decoration none
+
+
+a:link
+	color $peach
+
+
+a:visited
+	color $dull-peach
+
+
+a:hover
+a:active
+a:focus
+	text-decoration underline
+
+
+#main
+	box-sizing border-box
+
+
+#primary
+	width 100%
+	margin 0 auto
+	position relative
+	box-sizing border-box
+
+
+#colophon
+	width 100%
+	background $gray
+	padding 2em 0
+	margin-bottom 4em
+
+	.site-info
+		margin 0
+		padding 1em 0
+		text-align center
+		line-height 1.7
+		font-size 1.1em
+		font-weight 300
+
+		a
+			color inherit
+			text-decoration none
+
+	#rhd-logo-footer
+		width 1.35em
+		height 1.35em
+		margin 0 0.05em
+		position relative
+		bottom -0.15em
+
+
+.section-title
+	font-family 'Julius Sans One', sans-serif
+	font-size 2em
+	text-align center;
+	margin 1em auto
+
+
+.wrapper
+	wrapper()
+
+
+#content
+	iframe
+		max-width 100%
+		display block
+
+		&[src*="youtube"]
+		&[src*="vimeo"]
+			margin 1em auto
+
+
+.front-page-content
+	section
+		width 100%
+		position relative
+
+#top
+	position relative
+	color white
+	background #000
+
+	#masthead
+		width 100%
+		height 100vh
+		background url(../img/home.jpg) no-repeat
+		background-size cover
+		background-position top right
+		text-align center
+		margin 0
+		color white
+		position relative
+		font-family 'Julius Sans One', sans-serif
+
+		.header-content
+			width 100%
+			padding 1em
+			position absolute
+			bottom 0
+			@extends .blackback
+			border-radius(3px)
+
+			#front-page-title
+				width 100%
+				margin 0 auto
+				font-size 2.5em
+
+			#site-navigation-container
+				width 95%
+				margin 0 auto
+				text-align center
+
+			#site-navigation
+				list-style none
+				padding-left 0
+				margin 0
+				@extends .flexbox
+
+				li
+					@extends .flexitem
+
+					a
+						text-decoration none
+
+					a:link
+					a:visited
+						color inherit;
+
+					a:hover
+					a:active
+					a:focus
+						color $peach;
+
+					.sub-menu
+						position absolute
+						padding-left 0
+						line-height 1.7
+						margin-top 0.2em
+						z-index 999 !important
+
+						li
+							display block
+							margin 0
+
+	#bio
+		padding 1em 0
+
+
+#news
+	background white
+	padding 1em 0 2em 0
+
+	.news-list
+		wrapper(2em)
+		list-style none
+		padding-left 0
+
+		.news-item
+			display block
+
+	nav
+		width 100%
+		position absolute
+		text-align center
+
+	.screen-reader-text
+		visibility hidden
+		height 0
+		margin 0
+
+	#loader
+		text-align center
+		position absolute
+		bottom 0
+
+	.nav-links
+		font-size 1.4em
+		text-align center
+
+		.page-numbers
+			display none
+
+			&.next
+			&.prev
+				display inline-block
+
+	li
+		width 75%
+		max-width 300px
+		margin 0.75em auto
+		display block
+		text-align center
+
+		img
+			width 100%
+			height auto
+			margin 0 auto 0.25em auto
+			display block
+			border-radius 3px
+
+
+#resume
+	height auto
+
+	.resume-bg
+		width 100%
+		height 25rem
+		position relative
+		overflow hidden
+
+		img
+			width auto
+			height (@height)
+			min-width 100%
+
+		figcaption
+			font-size 1.2em
+
+
+
+#media
+	background black
+	color white
+	padding 2em 0
+
+	.galleria.photocrati-nextgen_pro_horizontal_filmstrip
+		width 100%
+		max-width 60em
+		margin 2em auto
+
+
+#contact
+	background black
+	color white
+	padding 1em 0
+
+	.contact-form
+	#contact-info
+		width 80%
+		padding 2em 0
+		margin 0 auto
+
+	.contact-form
+		input
+			font-family Muli, sans-serif
+			font-size 1em
+			padding-left 0.25em
+			padding-right 0.25em
+
+			&[type="email"]
+			&[type="text"]
+				width 100%
+				height 2em
+
+			&[type="submit"]
+				width 6.25rem
+				border none
+				border-radius 0
+				padding 0.3em 0.5em
+				font-size 1.1em
+				text-align center
+				font-weight 300
+				margin 0 auto
+				display block
+				cursor pointer
+
+		textarea
+			width 100%
+			padding 0.25em
+
+	#contact-info
+		tr
+			td
+				padding-bottom 0.75em
+
+				&:first-child
+					vertical-align top
+					padding-right 0.75em
+					text-align right
+
+					.border
+						display inline-block
+						float right
+						margin-left 0.75em
+
+				&:last-child
+					padding-left 0.75em
+
+
+.full-bg
+	width 100%
+	height 100%
+	overflow hidden
+	position absolute
+
+	img
+		width auto
+		min-width 100%
+		height 100%
+		display block
+		top 0
+
+	figcaption
+		width 100%
+		background rgba( 255, 255, 255, 0.4 )
+		padding 1em 0
+		font-size 2em
+		font-family "Julius Sans One", sans-serif
+		color black
+		text-align center
+		position absolute
+		bottom 0
+
+		.download-res
+			color (@color)
+
+
+/* ==========================================================================
+	Media Queries
+   ========================================================================== */
+
+@media screen and (min-width 40em)
+	.front-page-content
+		#top
+			#masthead
+				.header-content
+					width 45%
+					height 100%
+					padding-top 6em
+					padding-bottom 3em
+					position absolute
+					top 0
+					left 3%
+					transform(none)
+
+					#front-page-title
+						font-size 3.7em
+
+			#bio
+				width 45%
+				position absolute
+				bottom 0
+				left 3%
+				padding 1em
+				text-align justify
+				border-radius(3px)
+
+		#news
+			.news-list
+				min-height 31em
+				text-align justify
+
+				&:after
+					width 100%
+					display inline-block
+					content ""
+
+				.news-item
+					width 30%
+					display inline-block
+					vertical-align top
+
+		#resume
+			height 100vh
+
+			.resume-bg
+				width 100%
+				height 100%
+				overflow hidden
+				position absolute
+
+				img
+					width auto
+					height 100%
+					display block
+					top 0
+
+		#contact
+			@extends .clearfix
+
+			#contact-form-7
+			#contact-info
+				width 49%
+
+			#contact-form-7
+				float left
+
+			#contact-info
+				float right
+
+	.full-bg
+		figcaption
+			font-size 2em
+
+	#resume
+		.full-bg
+			figcaption
+				font-size 2em
+
+
+/* ==========================================================================
+	EXTRAS
+   ========================================================================== */
+
+.current-page
+	visibility hidden
+	position absolute
+	bottom 0
+	right 0
+
+
+.first-news-pag
+		width 100%
+		text-align center
+		position absolute
+		bottom 1.75em
