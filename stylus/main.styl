@@ -1,5 +1,4 @@
 @require "partials/_global.styl"
-@require "partials/_fonts.styl"
 @require "partials/_hamburger.styl"
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
@@ -14,8 +13,7 @@ html
 	text-shadow 0 0 1px transparent
 	font-size 16px
 	margin 0
-	font-family Muli, sans-serif
-	font-weight 400
+	font-family Helvetica, sans-serif
 	background black
 
 
@@ -38,11 +36,11 @@ a:visited
 
 
 a:link
-	color $peach
+	color red
 
 
 a:visited
-	color $dull-peach
+	color DarkRed
 
 
 a:hover
@@ -64,7 +62,7 @@ a:focus
 
 #colophon
 	width 100%
-	background $gray
+	background #888
 	padding 2em 0
 	margin-bottom 4em
 
@@ -89,7 +87,6 @@ a:focus
 
 
 .section-title
-	font-family 'Julius Sans One', sans-serif
 	font-size 2em
 	text-align center;
 	margin 1em auto
@@ -126,21 +123,18 @@ a:focus
 	#masthead
 		width 100%
 		height 100vh
-		background url(../img/home.jpg) no-repeat
 		background-size cover
 		background-position top right
 		text-align center
 		margin 0
 		color white
 		position relative
-		font-family 'Julius Sans One', sans-serif
 
 		.header-content
 			width 100%
 			padding 1em
 			position absolute
 			bottom 0
-			@extends .blackback
 			border-radius(3px)
 
 			#front-page-title
@@ -167,12 +161,12 @@ a:focus
 
 					a:link
 					a:visited
-						color inherit;
+						color inherit
 
 					a:hover
 					a:active
 					a:focus
-						color $peach;
+						color DarkRed
 
 					.sub-menu
 						position absolute
@@ -269,7 +263,6 @@ a:focus
 
 	.contact-form
 		input
-			font-family Muli, sans-serif
 			font-size 1em
 			padding-left 0.25em
 			padding-right 0.25em
@@ -293,7 +286,7 @@ a:focus
 
 				&:hover
 				&:active
-					background $gray
+					background #888
 					color white
 
 		textarea
