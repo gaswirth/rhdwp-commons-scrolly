@@ -29,23 +29,23 @@ a
 	outline 0 !important
 
 
-a:link
-a:visited
-	text-decoration none
+	&:link
+	&:visited
+		text-decoration none
 
 
-a:link
-	color red
+	&:link
+		color red
 
 
-a:visited
-	color DarkRed
+	&:visited
+		color DarkRed
 
 
-a:hover
-a:active
-a:focus
-	text-decoration underline
+	&:hover
+	&:active
+	&:focus
+		text-decoration underline
 
 
 #main
@@ -158,14 +158,14 @@ a:focus
 					a
 						text-decoration none
 
-					a:link
-					a:visited
-						color inherit
+						&:link
+						&:visited
+							color inherit
 
-					a:hover
-					a:active
-					a:focus
-						color DarkRed
+						&:hover
+						&:active
+						&:focus
+							color DarkRed
 
 					.sub-menu
 						position absolute
