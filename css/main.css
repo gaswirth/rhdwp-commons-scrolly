@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:34:34 PM on 29-04-2015
+* RHD Dev: Compiled at 2:57:57 PM on 29-04-2015
 ***/
 
 .unselectable {
@@ -436,7 +436,7 @@ a:focus {
   height: 1.35em;
   margin: 0 0.05em;
   position: relative;
-  bottom: 0;
+  bottom: 0.25em;
 }
 .section-title {
   font-family: 'Julius Sans One', sans-serif;
@@ -460,6 +460,12 @@ a:focus {
 .front-page-content section {
   width: 100%;
   position: relative;
+}
+.front-page-content section > .section-content {
+  width: 90%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 2em 0;
 }
 #top {
   position: relative;
