@@ -64,6 +64,7 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'Slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/distribution/0.10.2/slidebars.min.js', array( 'jquery' ), '0.10.2', true );
 	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/dist/packery.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'ajax-loop', RHD_THEME_DIR . '/js/ajax-loop.js', array( 'jquery' ), null, true );
 
 	$main_deps = array( 'rhd-plugins', 'jquery' );
 
@@ -80,6 +81,7 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
 	wp_enqueue_script( 'modernizr' );
+	wp_enqueue_script( 'ajax-loop' );
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
 
@@ -88,6 +90,14 @@ function rhd_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 */
 
+	// Localize data for client-side use
+	global $wp_query;
+	$data = array(
+		'home_url' => home_url(),
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'query_vars' => json_encode( $wp_query->query )
+	);
+	wp_localize_script( 'ajax-loop', 'wp_data', $data);
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
