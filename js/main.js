@@ -4,12 +4,6 @@
 
 var $window = jQuery(window),
 	$body = jQuery('body'),
-	$mast = jQuery('#masthead'),
-	$branding = jQuery('#branding'),
-	$navCont = jQuery('#site-navigation-container'),
-	$nav = jQuery('#site-navigation'),
-	$hamburger = jQuery('#hamburger'),
-	$content = jQuery('#content'),
 	$main = jQuery('#main');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
@@ -78,7 +72,7 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 				$('#news .news-item').fadeOut(function(){
 					$(this).remove();
 				});
-				$('#news').append( '<div class="page-content" id="loader">Loading New Posts...</div>' );
+				$('#news').append( '<div class="page-content" id="loader">Loading Posts...</div>' );
 			},
 			success: function( html ) {
 				$('#news #loader').hide();
