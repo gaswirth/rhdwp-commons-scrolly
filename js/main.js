@@ -34,9 +34,17 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 			e.preventDefault();
 
 			var $a = $( '#' + $(this).attr('href').split('#').pop() );
+			var yOffset;
+
+			if ( $a.attr('data-offset').length > 0 )
+				yOffset = $a.data('offset');
+			else
+				yOffset = 0;
+
+			console.log(yOffset);
 
 			$('html, body').animate({
-				scrollTop: $a.offset().top
+				scrollTop: $a.offset().top - yOffset
 			}, 1000, 'easeInOutCubic');
 		});
 	}
