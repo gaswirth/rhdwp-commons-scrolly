@@ -4,7 +4,9 @@
 
 var $window = jQuery(window),
 	$body = jQuery('body'),
-	$main = jQuery('#main');
+	$main = jQuery('#main'),
+	$mast = jQuery('#masthead'),
+	$navLink = jQuery('#site-navigation a');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
@@ -26,8 +28,20 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 
 (function($){
 
+	// Fancy scrolly navigation
+	if ( isFrontPage ) {
+		$navLink.click(function(e){
+			e.preventDefault();
 
+			var $a = $( '#' + $(this).attr('href').split('#').pop() );
 
+			$('html, body').animate({
+				scrollTop: $a.offset().top
+			}, 1000, 'easeInOutCubic');
+		});
+	}
+
+	wpadminbarPush();
 })(jQuery);
 
 
