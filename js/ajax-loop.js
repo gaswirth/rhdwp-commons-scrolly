@@ -50,7 +50,7 @@ var templateUrl = wp_child_data.template_url,
 				$('#news .news-item').fadeOut(function(){
 					$(this).remove();
 				});
-				$('#news').append( '<div class="page-content" id="loader"><img src="'+templateUrl+'/img/preloader.gif" alt="Loading posts" /></div>' );
+				$('#news').append( '<div class="page-content" id="loader"><img src="'+parentUrl+'/img/preloader.gif" alt="Loading posts" /></div>' );
 			},
 			success: function( html ) {
 				$('#news #loader').hide();
