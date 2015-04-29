@@ -1,5 +1,6 @@
 // wp_data object
-var homeUrl = wp_data.home_url,
+var templateUrl = wp_child_data.template_url,
+	parentUrl = wp_child_data.parent_url,
 	ajaxUrl = wp_data.ajax_url,
 	queryVars = wp_data.query_vars;
 
@@ -49,7 +50,7 @@ var homeUrl = wp_data.home_url,
 				$('#news .news-item').fadeOut(function(){
 					$(this).remove();
 				});
-				$('#news').append( '<div class="page-content" id="loader"><img src="'+homeUrl+'" alt="Loaidng posts" /></div>' );
+				$('#news').append( '<div class="page-content" id="loader"><img src="'+templateUrl+'/img/preloader.gif" alt="Loading posts" /></div>' );
 			},
 			success: function( html ) {
 				$('#news #loader').hide();

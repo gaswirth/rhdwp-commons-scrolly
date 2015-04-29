@@ -93,7 +93,6 @@ function rhd_enqueue_scripts() {
 	// Localize data for client-side use
 	global $wp_query;
 	$data = array(
-		'home_url' => home_url(),
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query )
 	);
