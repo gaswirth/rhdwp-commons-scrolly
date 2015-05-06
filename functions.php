@@ -162,7 +162,7 @@ add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
 
 /* ==========================================================================
-   Roundhouse Admin Branding
+   Roundhouse Admin
    ========================================================================== */
 
 // Remove 'Editor' panel
