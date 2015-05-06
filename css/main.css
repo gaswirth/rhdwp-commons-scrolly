@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:34:39 PM on 29-04-2015
+* RHD Dev: Compiled at 9:08:53 PM on 02-05-2015
 ***/
 
 .unselectable {
@@ -230,14 +230,14 @@
   width: auto;
 }
 .clearfix:before,
-.front-page-content #contact:before,
+.front-page-content section > .section-content:before,
 .clearfix:after,
-.front-page-content #contact:after {
+.front-page-content section > .section-content:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
-.front-page-content #contact:after {
+.front-page-content section > .section-content:after {
   clear: both;
 }
 * {
@@ -455,9 +455,6 @@ a:focus {
   position: relative;
 }
 .front-page-content section > .section-content {
-  width: 90%;
-  position: relative;
-  margin: 0 auto 0 auto;
   padding: 2em 0;
 }
 #top {
@@ -603,7 +600,7 @@ a:focus {
   width: 80%;
   margin: 0 auto;
 }
-#contact #contact-form-7 {
+#contact .contact-form {
   margin: 1em auto 3em;
 }
 #contact .contact-form input {
@@ -723,17 +720,6 @@ a:focus {
     width: 30%;
     display: inline-block;
     vertical-align: top;
-  }
-  .front-page-content #contact #contact-form-7,
-  .front-page-content #contact #contact-info {
-    width: 49%;
-  }
-  .front-page-content #contact #contact-form-7 {
-    float: left;
-    margin: 0;
-  }
-  .front-page-content #contact #contact-info {
-    float: right;
   }
   .full-bg figcaption {
     font-size: 2em;

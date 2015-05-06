@@ -111,8 +111,9 @@ a
 		position relative
 
 		> .section-content
-			wrapper()
+			wrapper
 			padding 2em 0
+			@extends .clearfix
 
 
 #top
@@ -258,10 +259,9 @@ a
 		width 80%
 		margin 0 auto
 
-	#contact-form-7
+	.contact-form
 		margin 1em auto 3em
 
-	.contact-form
 		input
 			font-size 1em
 			padding-left 0.25em
@@ -383,20 +383,6 @@ a
 					width 30%
 					display inline-block
 					vertical-align top
-
-		#contact
-			@extends .clearfix
-
-			#contact-form-7
-			#contact-info
-				width 49%
-
-			#contact-form-7
-				float left
-				margin 0
-
-			#contact-info
-				float right
 
 	.full-bg
 		figcaption
