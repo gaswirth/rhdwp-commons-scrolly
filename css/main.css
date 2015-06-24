@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:45:52 PM on 24-06-2015
+* RHD Dev: Compiled at 7:34:25 PM on 24-06-2015
 ***/
 
 .unselectable {
@@ -46,8 +46,6 @@
   -moz-appearance: none;
   appearance: none;
   box-shadow: none;
-  -webkit-border-radius: none;
-  -moz-border-radius: none;
   border-radius: none;
   border: none;
   cursor: pointer;
@@ -93,7 +91,6 @@
   background-color: #1d89b3;
 }
 .cmn-toggle-switch__rot.active span {
-  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .cmn-toggle-switch__htx {
@@ -126,12 +123,10 @@
 }
 .cmn-toggle-switch__htx.active span::before {
   top: 0;
-  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .cmn-toggle-switch__htx.active span::after {
   bottom: 0;
-  -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 .cmn-toggle-switch__htla {
@@ -153,7 +148,6 @@
   background-color: #20b94d;
 }
 .cmn-toggle-switch__htla.active span {
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .cmn-toggle-switch__htla.active span::before,
@@ -162,13 +156,11 @@
 }
 .cmn-toggle-switch__htla.active span::before {
   top: 0;
-  -webkit-transform: translateX(15.75px);
-  transform: translateX(15.75px);
+  transform: translateX(15.75px) translateY(1.125px) rotate(45deg);
 }
 .cmn-toggle-switch__htla.active span::after {
   bottom: 0;
-  -webkit-transform: translateX(15.75px);
-  transform: translateX(15.75px);
+  transform: translateX(15.75px) translateY(-1.125px) rotate(-45deg);
 }
 .cmn-toggle-switch__htra {
   background-color: #000;
@@ -189,7 +181,6 @@
   background-color: #ff6e0d;
 }
 .cmn-toggle-switch__htra.active span {
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .cmn-toggle-switch__htra.active span::before,
@@ -198,13 +189,11 @@
 }
 .cmn-toggle-switch__htra.active span::before {
   top: 0;
-  -webkit-transform: translateX(-2.25px);
-  transform: translateX(-2.25px);
+  transform: translateX(-2.25px) translateY(1.125px) rotate(-45deg);
 }
 .cmn-toggle-switch__htra.active span::after {
   bottom: 0;
-  -webkit-transform: translateX(-2.25px);
-  transform: translateX(-2.25px);
+  transform: translateX(-2.25px) translateY(-1.125px) rotate(45deg);
 }
 .hidden {
   display: none !important;
@@ -429,12 +418,7 @@ a:focus {
 .section-title {
   font-size: 2em;
   text-align: center;
-  margin: 1em auto;
-}
-.wrapper {
-  width: 90%;
-  position: relative;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 1em auto;
 }
 #content iframe {
   max-width: 100%;
@@ -449,6 +433,9 @@ a:focus {
   position: relative;
 }
 .front-page-content section > .section-content {
+  width: 90%;
+  position: relative;
+  margin: 0 auto 0 auto;
   padding: 2em 0;
 }
 #top {
@@ -471,14 +458,12 @@ a:focus {
   padding: 1em;
   position: absolute;
   bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
 }
 #top #masthead .header-content #front-page-title {
   width: 100%;
   margin: 0 auto;
   font-size: 2.5em;
+  display: inline-block;
 }
 #top #masthead .header-content #site-navigation-container {
   width: 95%;
@@ -531,6 +516,9 @@ a:focus {
   width: 100%;
   position: absolute;
   text-align: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 #news .screen-reader-text {
   visibility: hidden;
@@ -555,7 +543,7 @@ a:focus {
   position: absolute;
 }
 #news .nav-links {
-  font-size: 1.4em;
+  font-size: 1.4rem;
   text-align: center;
 }
 #news .nav-links .page-numbers {
@@ -577,14 +565,7 @@ a:focus {
   height: auto;
   margin: 0 auto 0.25em auto;
   display: block;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   border-radius: 3px;
-}
-#contact {
-  background: #000;
-  color: #fff;
-  padding: 1em 0;
 }
 #contact .contact-form,
 #contact #contact-info {
@@ -609,8 +590,6 @@ a:focus {
   background: #fff;
   color: #000;
   border: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
   border-radius: 0;
   padding: 0.3em 0.5em;
   font-size: 1.1em;
@@ -671,15 +650,14 @@ a:focus {
    ========================================================================== */
 @media screen and (min-width: 40em) {
   .front-page-content #top #masthead .header-content {
-    width: 45%;
+    width: 40%;
+    min-width: 27em;
     height: 100%;
-    padding-top: 6em;
+    padding-top: 1em;
     padding-bottom: 3em;
     position: absolute;
     top: 0;
     left: 3%;
-    -webkit-transform: none;
-    transform: none;
   }
   .front-page-content #top #masthead .header-content #front-page-title {
     font-size: 3.7em;
@@ -691,9 +669,6 @@ a:focus {
     left: 3%;
     padding: 1em;
     text-align: justify;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
   }
   .front-page-content #news .first-news-pag {
     bottom: 4.5em;

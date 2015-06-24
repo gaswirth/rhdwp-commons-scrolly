@@ -78,11 +78,7 @@ a
 .section-title
 	font-size 2em
 	text-align center;
-	margin 1em auto
-
-
-.wrapper
-	wrapper()
+	margin 0 auto 1em auto
 
 
 #content
@@ -101,7 +97,7 @@ a
 		position relative
 
 		> .section-content
-			wrapper
+			wrapper()
 			padding 2em 0
 			@extends .clearfix
 
@@ -132,6 +128,7 @@ a
 				width 100%
 				margin 0 auto
 				font-size 2.5em
+				display inline-block
 
 			#site-navigation-container
 				width 95%
@@ -188,6 +185,8 @@ a
 		width 100%
 		position absolute
 		text-align center
+		top 50%
+		-transform(translateY(-50%))
 
 	.screen-reader-text
 		visibility hidden
@@ -212,7 +211,7 @@ a
 		position absolute
 
 	.nav-links
-		font-size 1.4em
+		font-size 1.4rem
 		text-align center
 
 		.page-numbers
@@ -238,10 +237,6 @@ a
 
 
 #contact
-	background black
-	color white
-	padding 1em 0
-
 	.contact-form
 	#contact-info
 		width 80%
@@ -333,9 +328,10 @@ a
 		#top
 			#masthead
 				.header-content
-					width 45%
+					width 40%
+					min-width 27em
 					height 100%
-					padding-top 6em
+					padding-top 1em
 					padding-bottom 3em
 					position absolute
 					top 0

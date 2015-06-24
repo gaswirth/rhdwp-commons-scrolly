@@ -55,9 +55,11 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', true );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', null, null, true );
-	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array( 'jquery' ), null, true );
+	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', null, null, true );
 
-	$main_deps = array( 'rhd-plugins', 'jquery', 'skrollr', 'fittext' );
+	$main_deps = array( 'rhd-plugins', 'jquery', 'fittext' );
+	if ( !wp_is_mobile() )
+		$main_deps[] = 'skrollr';
 
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
@@ -322,6 +324,7 @@ if ( ! function_exists( 'rhd_enhance_excerpts' ) ) {
  * @access public
  * @return void
  */
+/*
 if ( ! function_exists( 'rhd_archive_pagination' ) ) {
 	function rhd_archive_pagination() {
 		$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
@@ -335,6 +338,7 @@ if ( ! function_exists( 'rhd_archive_pagination' ) ) {
 		</div> <?php
 	}
 }
+*/
 
 
 /**
@@ -365,8 +369,8 @@ if ( ! function_exists( 'rhd_ajax_pagination' ) ) {
 
 		the_posts_pagination( array(
 			'mid_size' => 1,
-			'prev_text' => __( 'Previous', 'rhd' ),
-			'next_text' => __( 'Next', 'rhd' ),
+			'prev_text' => __( '&triangleleft;', 'rhd' ),
+			'next_text' => __( '&triangleright;', 'rhd' ),
 			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rhd' ) . ' </span>',
 		) );
 
