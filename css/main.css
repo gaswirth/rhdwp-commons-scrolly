@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:34:25 PM on 24-06-2015
+* RHD Dev: Compiled at 7:35:12 PM on 24-06-2015
 ***/
 
 .unselectable {
@@ -458,6 +458,9 @@ a:focus {
   padding: 1em;
   position: absolute;
   bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 #top #masthead .header-content #front-page-title {
   width: 100%;
@@ -565,6 +568,8 @@ a:focus {
   height: auto;
   margin: 0 auto 0.25em auto;
   display: block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
 }
 #contact .contact-form,
@@ -590,6 +595,8 @@ a:focus {
   background: #fff;
   color: #000;
   border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   padding: 0.3em 0.5em;
   font-size: 1.1em;
@@ -658,6 +665,8 @@ a:focus {
     position: absolute;
     top: 0;
     left: 3%;
+    -webkit-transform: none;
+    transform: none;
   }
   .front-page-content #top #masthead .header-content #front-page-title {
     font-size: 3.7em;
@@ -669,6 +678,9 @@ a:focus {
     left: 3%;
     padding: 1em;
     text-align: justify;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
   }
   .front-page-content #news .first-news-pag {
     bottom: 4.5em;
