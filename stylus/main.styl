@@ -28,19 +28,9 @@ body
 a
 	outline 0 !important
 
-
 	&:link
 	&:visited
 		text-decoration none
-
-
-	&:link
-		color red
-
-
-	&:visited
-		color DarkRed
-
 
 	&:hover
 	&:active
@@ -159,15 +149,13 @@ a
 
 					a
 						text-decoration none
+						-webkit-transition color 0.2s
+						transition color 0.2s
 
 						&:link
 						&:visited
 							color inherit
 
-						&:hover
-						&:active
-						&:focus
-							color DarkRed
 
 					.sub-menu
 						position absolute
