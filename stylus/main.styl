@@ -86,10 +86,10 @@ a
 		width 100%
 		position relative
 
-		> .section-content
-			wrapper()
-			padding 3em 0
-			@extends .clearfix
+	.section-content
+		wrapper()
+		padding 3em 0
+		@extends .clearfix
 
 	iframe
 		max-width 100%
@@ -169,8 +169,14 @@ a
 	background white
 	padding 1em 0 2em 0
 
+	.news-content
+		width 100%
+		max-width 75rem
+
 	.news-list
-		wrapper(2em)
+		width 85%
+		max-width 100%
+		margin 2em auto
 		list-style none
 		padding-left 0
 
@@ -201,27 +207,46 @@ a
 		text-align center
 
 		.page-numbers
+			width 5.5rem
+			height 5.5rem
+			padding 0.8em
 			display none
 			position relative
 			font-size 3.5em
 			text-decoration none
-			-transition(all 0.2s)
 			color inherit
+			-transition(all 0.2s)
 
-			&:hover
-			&:active
-			&:focus
-				color red
+			.pagination-button
+				width 4em
+				height (@height)
+				background-color blue
+				background-repeat no-repeat
+				background-size auto 88%
+				-border-radius(50em)
 
 			&.next
 				right 0
-				margin-right 1%
+				margin-right 0.25%
 				display inline-block
+
+				&:hover
+				&:active
+				&:focus
+					padding 1em
+
+				.pagination-button
+					background-image url(../img/right.png)
+					background-position left center
 
 			&.prev
 				left 0
-				margin-left 1%
+				margin-left 0.25%
 				display inline-block
+
+				.pagination-button
+					background-image url(../img/left.png)
+					background-position right center
 
 
 	li
@@ -377,12 +402,10 @@ a
 
 					&.next
 						right 0
-						margin-right 0.5%
 						display inline-block
 
 					&.prev
 						left 0
-						margin-left 0.5%
 						display inline-block
 
 	#contact

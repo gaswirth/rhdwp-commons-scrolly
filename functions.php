@@ -344,9 +344,11 @@ if ( ! function_exists( 'rhd_ajax_pagination' ) ) {
 
 		the_posts_pagination( array(
 			'mid_size' => 1,
-			'prev_text' => '<div class="pagination-button ltri">&ltri;</div>',
-			'next_text' => '<div class="pagination-button rtri">&rtri;</div>'
+			'prev_text' => '<div class="pagination-button left">&larr;</div>',
+			'next_text' => '<div class="pagination-button right">&rarr;</div>'
 		) );
+
+		echo '<script>jQuery(".pagination-button").text("");</script>';
 
 		die();
 	}

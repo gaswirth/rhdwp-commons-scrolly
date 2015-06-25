@@ -88,6 +88,9 @@ var s = null;
 			clearTimeout(resizeId);
 			resizeId = setTimeout(doneResizing, 500);
 		});
+
+		// Remove ajax pagination text glyph fallback
+		$(".pagination-button").text('');
 	});
 
 	wpadminbarPush();
