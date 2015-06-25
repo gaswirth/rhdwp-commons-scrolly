@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:55:48 PM on 25-06-2015
+* RHD Dev: Compiled at 6:44:53 PM on 25-06-2015
 ***/
 
 .unselectable {
@@ -13,20 +13,6 @@
   position: absolute;
   visibility: hidden;
   margin: 0;
-}
-.flexbox,
-#top #masthead .header-content #site-navigation {
-  text-align: justify;
-}
-.flexbox:after,
-#top #masthead .header-content #site-navigation:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
-.flexitem,
-#top #masthead .header-content #site-navigation li {
-  display: inline-block;
 }
 #hamburger {
   width: 40.5px;
@@ -431,7 +417,7 @@ a:focus {
   width: 90%;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 1em 0;
+  padding: 3em 0;
 }
 #content iframe {
   max-width: 100%;
@@ -476,6 +462,15 @@ a:focus {
   list-style: none;
   padding-left: 0;
   margin: 0;
+  text-align: justify;
+}
+#top #masthead .header-content #site-navigation:after {
+  width: 100%;
+  display: inline-block;
+  content: '';
+}
+#top #masthead .header-content #site-navigation li {
+  display: inline-block;
 }
 #top #masthead .header-content #site-navigation li a {
   text-decoration: none;
@@ -633,6 +628,9 @@ a:focus {
 #contact #contact-info img {
   max-width: 100%;
   margin-bottom: 1em;
+}
+#social {
+  width: 100%;
 }
 .full-bg {
   width: 100%;

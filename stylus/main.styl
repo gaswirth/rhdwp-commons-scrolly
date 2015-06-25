@@ -88,7 +88,7 @@ a
 
 		> .section-content
 			wrapper()
-			padding 1em 0
+			padding 3em 0
 			@extends .clearfix
 
 	iframe
@@ -136,10 +136,10 @@ a
 				list-style none
 				padding-left 0
 				margin 0
-				@extends .flexbox
+				flexbox()
 
 				li
-					@extends .flexitem
+					flexitem()
 
 					a
 						text-decoration none
@@ -291,6 +291,11 @@ a
 		img
 			max-width 100%
 			margin-bottom 1em
+
+
+#social
+	width 100%
+
 
 
 .full-bg

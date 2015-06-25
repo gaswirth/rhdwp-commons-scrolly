@@ -22,20 +22,6 @@ $color2 = red
 	margin 0
 
 
-// Manual Flexbox
-
-.flexbox
-	text-align justify
-
-	&:after
-		width 100%
-		display inline-block
-		content ''
-
-.flexitem
-	display inline-block
-
-
 // Functions
 
 wrapper( $topMargin = false, $bottomMargin = false )
@@ -48,6 +34,18 @@ wrapper( $topMargin = false, $bottomMargin = false )
 		$bottomMargin = 0
 
 	margin $topMargin auto $bottomMargin auto
+
+
+flexbox()
+	text-align justify
+
+	&:after
+		width 100%
+		display inline-block
+		content ''
+
+flexitem()
+	display inline-block
 
 
 body-shadow( $yPos )
