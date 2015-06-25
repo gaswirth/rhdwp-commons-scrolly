@@ -56,6 +56,7 @@ function rhd_enqueue_scripts() {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', null, null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', null, null, true );
+	wp_register_script( 'ajax-loop', RHD_THEME_DIR . '/js/ajax-loop.js', array( 'jquery' ), null, true );
 
 	$main_deps = array( 'rhd-plugins', 'jquery', 'fittext' );
 	if ( !wp_is_mobile() )
@@ -68,18 +69,14 @@ function rhd_enqueue_scripts() {
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
 
-/*
-	// Now in child theme:
-		// wp_register_script( 'ajax-loop', RHD_THEME_DIR . '/js/ajax-loop.js', array( 'jquery' ), null, true );
-
-		// Localize data for client-side use
-		global $wp_query;
-		$data = array(
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'query_vars' => json_encode( $wp_query->query )
-		);
-		wp_localize_script( 'ajax-loop', 'wp_data', $data);
-*/
+	// Localize data for client-side use
+	global $wp_query;
+	$data = array(
+		'theme_dir' => RHD_THEME_DIR,
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'query_vars' => json_encode( $wp_query->query )
+	);
+	wp_localize_script( 'ajax-loop', 'wp_data', $data);
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 

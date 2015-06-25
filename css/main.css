@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:49:06 PM on 25-06-2015
+* RHD Dev: Compiled at 5:13:47 PM on 25-06-2015
 ***/
 
 .unselectable {
@@ -363,7 +363,7 @@ body {
   text-shadow: 0 0 1px transparent;
   font-size: 16px;
   margin: 0;
-  background: #000;
+  background: #fff;
 }
 body.admin-bar #wpadminbar {
   position: fixed;
@@ -614,21 +614,8 @@ a:focus {
   width: 100%;
   padding: 0.25em;
 }
-#contact #contact-info tr td {
-  padding-bottom: 0.75em;
-}
-#contact #contact-info tr td:first-child {
-  vertical-align: top;
-  padding-right: 0.75em;
-  text-align: right;
-}
-#contact #contact-info tr td:first-child .border {
-  display: inline-block;
-  float: right;
-  margin-left: 0.75em;
-}
-#contact #contact-info tr td:last-child {
-  padding-left: 0.75em;
+#contact #contact-info {
+  text-align: center;
 }
 .full-bg {
   width: 100%;

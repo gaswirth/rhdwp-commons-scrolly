@@ -1,6 +1,5 @@
 // wp_data object
-var templateUrl = wp_child_data.template_url,
-	parentUrl = wp_child_data.parent_url,
+var themeDir = wp_data.theme_dir,
 	ajaxUrl = wp_data.ajax_url,
 	queryVars = wp_data.query_vars;
 
@@ -46,20 +45,24 @@ var templateUrl = wp_child_data.template_url,
 				page: page
 			},
 			beforeSend: function() {
-				$("#news nav").remove();
-				$('#news .news-item').fadeOut(function(){
+				$("#news .pagination").remove();
+				$('#news .news-item').animate({
+					opacity: 0
+				}, function(){
 					$(this).remove();
 				});
-				$('#news').append( '<div class="page-content" id="loader"><img src="'+parentUrl+'/img/preloader.gif" alt="Loading posts" /></div>' );
+				$('#news').append( '<div class="page-content" id="loader"><img src="'+themeDir+'/img/preloader.gif" alt="Loading posts" /></div>' );
 			},
 			success: function( html ) {
-				$('#news #loader').hide();
+				$('#news #loader').remove();
 				$('#news .current-page').text( page );
 				$('#news .news-list')
 					.animate({opacity: 0}, function(){
 						$(this)
 							.append(html)
 							.animate({opacity: 1});
+
+						$('.news-list nav').appendTo('#news');
 					});
 			}
 		});
