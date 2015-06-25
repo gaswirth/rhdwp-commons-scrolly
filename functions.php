@@ -347,8 +347,8 @@ if ( ! function_exists( 'rhd_ajax_pagination' ) ) {
 
 		the_posts_pagination( array(
 			'mid_size' => 1,
-			'prev_text' => __( '&ltri;', 'rhd' ),
-			'next_text' => __( '&rtri;', 'rhd' )
+			'prev_text' => '<div class="pagination-button ltri">&ltri;</div>',
+			'next_text' => '<div class="pagination-button rtri">&rtri;</div>'
 		) );
 
 		die();

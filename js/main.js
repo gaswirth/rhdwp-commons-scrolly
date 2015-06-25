@@ -22,9 +22,26 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
    ========================================================================== */
 
 (function($){
+	$(document).ready(function($){
+		if ( !isMobile && !isTablet ) {
+			// Skrollr parallax
+			$(".full-bg:nth-of-type(1)")
+				.attr("data-start", "background-position: center -100px")
+				.attr("data-top-bottom", "background-position: center 100px");
 
-	// Fancy scrolly navigation
-	if ( isFrontPage ) {
+			$(".full-bg:nth-of-type(n+2)")
+				.attr("data-bottom-top", "background-position: center -100px;")
+				.attr("data-top-bottom", "background-position: center 100px;");
+
+			var s = skrollr.init({
+				forceHeight: false
+			});
+		}
+
+		// FitText
+		fitText(document.getElementById('front-page-title'), 0.9);
+
+		// Fancy scrolly navigation
 		$navLink.click(function(e){
 			e.preventDefault();
 
@@ -42,7 +59,7 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 				scrollTop: $a.offset().top - yOffset
 			}, 1000, 'easeInOutCubic');
 		});
-	}
+	});
 
 	wpadminbarPush();
 })(jQuery);

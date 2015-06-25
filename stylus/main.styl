@@ -98,7 +98,7 @@ a
 
 		> .section-content
 			wrapper()
-			padding 2em 0
+			padding 1em 0
 			@extends .clearfix
 
 
@@ -183,9 +183,6 @@ a
 
 	.pagination
 		width 100%
-		position absolute
-		top 50%
-		-transform(translateY(-50%))
 
 	.screen-reader-text
 		visibility hidden
@@ -205,12 +202,12 @@ a
 			margin 0 auto
 
 	.nav-links
+		text-align center
+
 		.page-numbers
 			display none
-			position absolute
-			top 50%
-			-transform(translateY(-50%))
-			font-size 5rem
+			position relative
+			font-size 3.5em
 			text-decoration none
 			-transition(all 0.2s)
 			color inherit
@@ -374,6 +371,28 @@ a
 					width 30%
 					display inline-block
 					vertical-align top
+
+			.pagination
+				position absolute
+				top 50%
+				-transform(translateY(-50%))
+
+				.nav-links
+					.page-numbers
+						position absolute
+						top 50%
+						-transform(translateY(-50%))
+						font-size 5em
+
+						&.next
+							right 0
+							margin-right 0.5%
+							display inline-block
+
+						&.prev
+							left 0
+							margin-left 0.5%
+							display inline-block
 
 	.full-bg
 		figcaption

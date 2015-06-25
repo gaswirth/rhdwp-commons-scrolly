@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:25:13 PM on 24-06-2015
+* RHD Dev: Compiled at 4:49:06 PM on 25-06-2015
 ***/
 
 .unselectable {
@@ -436,7 +436,7 @@ a:focus {
   width: 90%;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 2em 0;
+  padding: 1em 0;
 }
 #top {
   position: relative;
@@ -514,10 +514,6 @@ a:focus {
 }
 #news .pagination {
   width: 100%;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 #news .screen-reader-text {
   visibility: hidden;
@@ -536,13 +532,13 @@ a:focus {
   display: block;
   margin: 0 auto;
 }
+#news .nav-links {
+  text-align: center;
+}
 #news .nav-links .page-numbers {
   display: none;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  font-size: 5rem;
+  position: relative;
+  font-size: 3.5em;
   text-decoration: none;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
@@ -693,6 +689,29 @@ a:focus {
     width: 30%;
     display: inline-block;
     vertical-align: top;
+  }
+  .front-page-content #news .pagination {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .front-page-content #news .pagination .nav-links .page-numbers {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 5em;
+  }
+  .front-page-content #news .pagination .nav-links .page-numbers.next {
+    right: 0;
+    margin-right: 0.5%;
+    display: inline-block;
+  }
+  .front-page-content #news .pagination .nav-links .page-numbers.prev {
+    left: 0;
+    margin-left: 0.5%;
+    display: inline-block;
   }
   .full-bg figcaption {
     font-size: 2em;
