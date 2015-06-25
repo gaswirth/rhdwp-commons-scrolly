@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:13:47 PM on 25-06-2015
+* RHD Dev: Compiled at 5:22:18 PM on 25-06-2015
 ***/
 
 .unselectable {
@@ -441,7 +441,6 @@ a:focus {
 #top {
   position: relative;
   color: #fff;
-  background: #000;
 }
 #top #masthead {
   width: 100%;
@@ -620,9 +619,8 @@ a:focus {
 .full-bg {
   width: 100%;
   height: 100vh;
-  position: relative;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 .full-bg .full-bg-caption {

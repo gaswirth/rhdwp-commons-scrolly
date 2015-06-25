@@ -21,21 +21,27 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 	Let 'er rip... (DOM Ready)
    ========================================================================== */
 
+// Initialize empty global skrollr object variable
+var s = null;
+
+
 (function($){
 	$(document).ready(function($){
 		if ( !isMobile && !isTablet ) {
 			// Skrollr parallax
 			$(".full-bg:nth-of-type(1)")
-				.attr("data-start", "background-position: center -100px")
-				.attr("data-top-bottom", "background-position: center 100px");
+				.attr("data-start", "background-position: center 0px")
+				.attr("data-top-bottom", "background-position: center 200px");
 
 			$(".full-bg:nth-of-type(n+2)")
 				.attr("data-bottom-top", "background-position: center -100px;")
 				.attr("data-top-bottom", "background-position: center 100px;");
 
-			var s = skrollr.init({
-				forceHeight: false
-			});
+			if ( $(window).width() > 640 ) {
+				s = skrollr.init({
+					forceHeight: false
+				});
+			}
 		}
 
 		// FitText
@@ -58,6 +64,29 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 			$('html, body').animate({
 				scrollTop: $a.offset().top - yOffset
 			}, 1000, 'easeInOutCubic');
+		});
+
+		// Window resizing
+		var resizeId;
+
+		function doneResizing(){
+			if ( $(window).width() < 640 ) {
+				if ( s ) {
+					s.destroy();
+					s = null;
+				}
+			} else {
+				if ( !s ) {
+					s = skrollr.init({
+						forceHeight: false
+					});
+				}
+			}
+		}
+
+		$(window).resize(function(){
+			clearTimeout(resizeId);
+			resizeId = setTimeout(doneResizing, 500);
 		});
 	});
 
