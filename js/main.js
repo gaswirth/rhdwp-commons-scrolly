@@ -38,9 +38,7 @@ var s = null;
 				.attr("data-top-bottom", "background-position: center 100px;");
 
 			if ( $(window).width() > 640 ) {
-				s = skrollr.init({
-					forceHeight: false
-				});
+				skrollrInit();
 			}
 		}
 
@@ -72,14 +70,16 @@ var s = null;
 		function doneResizing(){
 			if ( $(window).width() < 640 ) {
 				if ( s ) {
-					s.destroy();
-					s = null;
+					try {
+						s.destroy();
+						s = null;
+					} catch(err) {
+						throw "Warning: Skrollr disabled on this device.\n" . err;
+					}
 				}
 			} else {
 				if ( !s ) {
-					s = skrollr.init({
-						forceHeight: false
-					});
+					skrollrInit();
 				}
 			}
 		}
@@ -103,4 +103,15 @@ function wpadminbarPush() {
 	jQuery("#wpadminbar").css({
 		top: '50px',
 	});
+}
+
+
+function skrollrInit() {
+	try {
+		s = skrollr.init({
+			forceHeight: false
+		});
+	} catch(err) {
+		throw "Warning: Skrollr disabled on this device.\n" . err;
+	}
 }

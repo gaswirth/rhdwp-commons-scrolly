@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:22:18 PM on 25-06-2015
+* RHD Dev: Compiled at 5:55:48 PM on 25-06-2015
 ***/
 
 .unselectable {
@@ -219,14 +219,17 @@
   width: auto;
 }
 .clearfix:before,
-.front-page-content section > .section-content:before,
+#content section > .section-content:before,
+#contact .section-content:before,
 .clearfix:after,
-.front-page-content section > .section-content:after {
+#content section > .section-content:after,
+#contact .section-content:after {
   content: " ";
   display: table;
 }
 .clearfix:after,
-.front-page-content section > .section-content:after {
+#content section > .section-content:after,
+#contact .section-content:after {
   clear: both;
 }
 * {
@@ -420,6 +423,16 @@ a:focus {
   text-align: center;
   margin: 0 auto 1em auto;
 }
+#content section {
+  width: 100%;
+  position: relative;
+}
+#content section > .section-content {
+  width: 90%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  padding: 1em 0;
+}
 #content iframe {
   max-width: 100%;
   display: block;
@@ -427,16 +440,6 @@ a:focus {
 #content iframe[src*="youtube"],
 #content iframe[src*="vimeo"] {
   margin: 1em auto;
-}
-.front-page-content section {
-  width: 100%;
-  position: relative;
-}
-.front-page-content section > .section-content {
-  width: 90%;
-  position: relative;
-  margin: 0 auto 0 auto;
-  padding: 1em 0;
 }
 #top {
   position: relative;
@@ -572,49 +575,64 @@ a:focus {
   display: block;
   border-radius: 3px;
 }
-#contact .contact-form,
+#contact #contact-form,
 #contact #contact-info {
   width: 80%;
   margin: 0 auto;
 }
-#contact .contact-form {
+#contact #contact-form {
   margin: 1em auto 3em;
 }
-#contact .contact-form input {
+#contact #contact-form input,
+#contact #contact-form textarea {
   font-size: 1em;
   padding-left: 0.25em;
   padding-right: 0.25em;
+  -webkit-border-radius: 0.1em;
+  -moz-border-radius: 0.1em;
+  border-radius: 0.1em;
+  border: 2px solid #f0f0f0;
 }
-#contact .contact-form input[type="email"],
-#contact .contact-form input[type="text"] {
+#contact #contact-form input[type="email"],
+#contact #contact-form textarea[type="email"],
+#contact #contact-form input[type="text"],
+#contact #contact-form textarea[type="text"] {
   width: 100%;
   height: 2em;
 }
-#contact .contact-form input[type="submit"] {
+#contact #contact-form input[type="submit"],
+#contact #contact-form textarea[type="submit"] {
   width: 6.25rem;
-  background: #fff;
+  background: #808080;
   color: #000;
   border: none;
-  border-radius: 0;
-  padding: 0.3em 0.5em;
+  padding: 0.5em 0.2em 0.4em 0.2em;
   font-size: 1.1em;
   text-align: center;
   font-weight: 300;
   margin: 0 auto;
   display: block;
   cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
-#contact .contact-form input[type="submit"]:hover,
-#contact .contact-form input[type="submit"]:active {
-  background: #888;
+#contact #contact-form input[type="submit"]:hover,
+#contact #contact-form textarea[type="submit"]:hover,
+#contact #contact-form input[type="submit"]:active,
+#contact #contact-form textarea[type="submit"]:active {
+  background: #000;
   color: #fff;
 }
-#contact .contact-form textarea {
+#contact #contact-form textarea {
   width: 100%;
   padding: 0.25em;
 }
 #contact #contact-info {
   text-align: center;
+}
+#contact #contact-info img {
+  max-width: 100%;
+  margin-bottom: 1em;
 }
 .full-bg {
   width: 100%;
@@ -640,7 +658,7 @@ a:focus {
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 40em) {
-  .front-page-content #top #masthead .header-content {
+  #top #masthead .header-content {
     width: 40%;
     min-width: 27em;
     height: 100%;
@@ -650,10 +668,10 @@ a:focus {
     top: 0;
     left: 3%;
   }
-  .front-page-content #top #masthead .header-content #front-page-title {
+  #top #masthead .header-content #front-page-title {
     font-size: 3.7em;
   }
-  .front-page-content #top #bio {
+  #top #bio {
     width: 45%;
     position: absolute;
     bottom: 0;
@@ -661,42 +679,54 @@ a:focus {
     padding: 1em;
     text-align: justify;
   }
-  .front-page-content #news .news-list {
+  #news .news-list {
     min-height: 31em;
     text-align: justify;
   }
-  .front-page-content #news .news-list:after {
+  #news .news-list:after {
     width: 100%;
     display: inline-block;
     content: "";
   }
-  .front-page-content #news .news-list .news-item {
+  #news .news-list .news-item {
     width: 30%;
     display: inline-block;
     vertical-align: top;
   }
-  .front-page-content #news .pagination {
+  #news .pagination {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-  .front-page-content #news .pagination .nav-links .page-numbers {
+  #news .pagination .nav-links .page-numbers {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     font-size: 5em;
   }
-  .front-page-content #news .pagination .nav-links .page-numbers.next {
+  #news .pagination .nav-links .page-numbers.next {
     right: 0;
     margin-right: 0.5%;
     display: inline-block;
   }
-  .front-page-content #news .pagination .nav-links .page-numbers.prev {
+  #news .pagination .nav-links .page-numbers.prev {
     left: 0;
     margin-left: 0.5%;
     display: inline-block;
+  }
+  #contact .section-content {
+    margin: 2em auto;
+  }
+  #contact .section-content #contact-form {
+    width: 60%;
+    float: left;
+  }
+  #contact .section-content #contact-info {
+    width: 35%;
+    float: right;
+    margin-top: 3em;
   }
   .full-bg figcaption {
     font-size: 2em;

@@ -82,16 +82,6 @@ a
 
 
 #content
-	iframe
-		max-width 100%
-		display block
-
-		&[src*="youtube"]
-		&[src*="vimeo"]
-			margin 1em auto
-
-
-.front-page-content
 	section
 		width 100%
 		position relative
@@ -100,6 +90,14 @@ a
 			wrapper()
 			padding 1em 0
 			@extends .clearfix
+
+	iframe
+		max-width 100%
+		display block
+
+		&[src*="youtube"]
+		&[src*="vimeo"]
+			margin 1em auto
 
 
 #top
@@ -243,18 +241,21 @@ a
 
 
 #contact
-	.contact-form
+	#contact-form
 	#contact-info
 		width 80%
 		margin 0 auto
 
-	.contact-form
+	#contact-form
 		margin 1em auto 3em
 
 		input
+		textarea
 			font-size 1em
 			padding-left 0.25em
 			padding-right 0.25em
+			-border-radius(0.1em)
+			border 2px solid #F0F0F0
 
 			&[type="email"]
 			&[type="text"]
@@ -263,21 +264,21 @@ a
 
 			&[type="submit"]
 				width 6.25rem
-				background white
+				background gray
 				color black
 				border none
-				border-radius 0
-				padding 0.3em 0.5em
+				padding 0.5em 0.2em 0.4em 0.2em
 				font-size 1.1em
 				text-align center
 				font-weight 300
 				margin 0 auto
 				display block
 				cursor pointer
+				-transition(all 0.2s)
 
 				&:hover
 				&:active
-					background #888
+					background black
 					color white
 
 		textarea
@@ -286,6 +287,10 @@ a
 
 	#contact-info
 		text-align center
+
+		img
+			max-width 100%
+			margin-bottom 1em
 
 
 .full-bg
@@ -314,68 +319,83 @@ a
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	.front-page-content
-		#top
-			#masthead
-				.header-content
-					width 40%
-					min-width 27em
-					height 100%
-					padding-top 1em
-					padding-bottom 3em
-					position absolute
-					top 0
-					left 3%
-					transform(none)
-
-					#front-page-title
-						font-size 3.7em
-
-			#bio
-				width 45%
+	#top
+		#masthead
+			.header-content
+				width 40%
+				min-width 27em
+				height 100%
+				padding-top 1em
+				padding-bottom 3em
 				position absolute
-				bottom 0
+				top 0
 				left 3%
-				padding 1em
-				text-align justify
-				border-radius(3px)
+				transform(none)
 
-		#news
-			.news-list
-				min-height 31em
-				text-align justify
+				#front-page-title
+					font-size 3.7em
 
-				&:after
-					width 100%
-					display inline-block
-					content ""
+		#bio
+			width 45%
+			position absolute
+			bottom 0
+			left 3%
+			padding 1em
+			text-align justify
+			border-radius(3px)
 
-				.news-item
-					width 30%
-					display inline-block
-					vertical-align top
+	#news
+		.news-list
+			min-height 31em
+			text-align justify
 
-			.pagination
-				position absolute
-				top 50%
-				-transform(translateY(-50%))
+			&:after
+				width 100%
+				display inline-block
+				content ""
 
-				.nav-links
-					.page-numbers
-						position absolute
-						top 50%
-						-transform(translateY(-50%))
-						font-size 5em
+			.news-item
+				width 30%
+				display inline-block
+				vertical-align top
 
-						&.next
-							right 0
-							margin-right 0.5%
-							display inline-block
+		.pagination
+			position absolute
+			top 50%
+			-transform(translateY(-50%))
 
-						&.prev
-							left 0
-							margin-left 0.5%
-							display inline-block
+			.nav-links
+				.page-numbers
+					position absolute
+					top 50%
+					-transform(translateY(-50%))
+					font-size 5em
+
+					&.next
+						right 0
+						margin-right 0.5%
+						display inline-block
+
+					&.prev
+						left 0
+						margin-left 0.5%
+						display inline-block
+
+	#contact
+		.section-content
+			margin 2em auto
+
+			@extends .clearfix
+
+			#contact-form
+				width 60%
+				float left
+
+			#contact-info
+				width 35%
+				float right
+				margin-top 3em
+
 
 	.full-bg
 		figcaption
