@@ -122,7 +122,7 @@ a
 			padding 1em
 			position absolute
 			bottom 0
-			-border-radius(3px)
+			border-radius(3px)
 
 			#front-page-title
 				width 100%
@@ -181,10 +181,9 @@ a
 		.news-item
 			display block
 
-	nav
+	.pagination
 		width 100%
 		position absolute
-		text-align center
 		top 50%
 		-transform(translateY(-50%))
 
@@ -205,21 +204,32 @@ a
 			display block
 			margin 0 auto
 
-	.first-news-pag
-		width 100%
-		text-align center
-		position absolute
-
 	.nav-links
-		font-size 1.4rem
-		text-align center
-
 		.page-numbers
 			display none
+			position absolute
+			top 50%
+			-transform(translateY(-50%))
+			font-size 5rem
+			text-decoration none
+			-transition(all 0.2s)
+			color inherit
+
+			&:hover
+			&:active
+			&:focus
+				color red
 
 			&.next
-			&.prev
+				right 0
+				margin-right 1%
 				display inline-block
+
+			&.prev
+				left 0
+				margin-left 1%
+				display inline-block
+
 
 	li
 		width 75%
@@ -233,7 +243,7 @@ a
 			height auto
 			margin 0 auto 0.25em auto
 			display block
-			-border-radius(3px)
+			border-radius 3px
 
 
 #contact
@@ -260,7 +270,7 @@ a
 				background white
 				color black
 				border none
-				-border-radius(0)
+				border-radius 0
 				padding 0.3em 0.5em
 				font-size 1.1em
 				text-align center
@@ -336,7 +346,7 @@ a
 					position absolute
 					top 0
 					left 3%
-					-transform(none)
+					transform(none)
 
 					#front-page-title
 						font-size 3.7em
@@ -348,12 +358,9 @@ a
 				left 3%
 				padding 1em
 				text-align justify
-				-border-radius(3px)
+				border-radius(3px)
 
 		#news
-			.first-news-pag
-				bottom 4.5em
-
 			.news-list
 				min-height 31em
 				text-align justify

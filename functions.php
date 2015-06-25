@@ -318,28 +318,6 @@ if ( ! function_exists( 'rhd_enhance_excerpts' ) ) {
 	add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
 }
 
-/**
- * rhd_archive_pagination function.
- *
- * @access public
- * @return void
- */
-/*
-if ( ! function_exists( 'rhd_archive_pagination' ) ) {
-	function rhd_archive_pagination() {
-		$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
-
-		<div class="pagination">
-			<?php next_posts_link( '&larr; Older', null ); ?>
-			<?php if ( $sep ) : ?>
-				<div class="pag-sep"></div>
-				<?php previous_posts_link( 'Newer &rarr;', null ); ?>
-			<?php endif; ?>
-		</div> <?php
-	}
-}
-*/
-
 
 /**
  * rhd_ajax_pagination function.
@@ -369,9 +347,8 @@ if ( ! function_exists( 'rhd_ajax_pagination' ) ) {
 
 		the_posts_pagination( array(
 			'mid_size' => 1,
-			'prev_text' => __( '&triangleleft;', 'rhd' ),
-			'next_text' => __( '&triangleright;', 'rhd' ),
-			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rhd' ) . ' </span>',
+			'prev_text' => __( '&ltri;', 'rhd' ),
+			'next_text' => __( '&rtri;', 'rhd' )
 		) );
 
 		die();
