@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:50:08 PM on 25-06-2015
+* RHD Dev: Compiled at 8:49:00 PM on 25-06-2015
 ***/
 
 /**
@@ -549,12 +549,17 @@ a:focus {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
+#news .nav-links .page-numbers:hover,
+#news .nav-links .page-numbers:active,
+#news .nav-links .page-numbers:focus {
+  padding: 1em;
+}
 #news .nav-links .page-numbers .pagination-button {
   width: 4em;
   height: 5.5rem;
   background-color: #00f;
   background-repeat: no-repeat;
-  background-size: auto 88%;
+  background-size: auto 50%;
   -webkit-border-radius: 50em;
   -moz-border-radius: 50em;
   border-radius: 50em;
@@ -564,23 +569,18 @@ a:focus {
   margin-right: 0.25%;
   display: inline-block;
 }
-#news .nav-links .page-numbers.next:hover,
-#news .nav-links .page-numbers.next:active,
-#news .nav-links .page-numbers.next:focus {
-  padding: 1em;
-}
 #news .nav-links .page-numbers.next .pagination-button {
   background-image: url("../img/right.png");
-  background-position: left center;
+  background-position: 0.25em center;
 }
 #news .nav-links .page-numbers.prev {
-  left: 0;
+  left: -4em;
   margin-left: 0.25%;
   display: inline-block;
 }
 #news .nav-links .page-numbers.prev .pagination-button {
   background-image: url("../img/left.png");
-  background-position: right center;
+  background-position: 3.25em center;
 }
 #news li {
   width: 75%;
@@ -732,7 +732,7 @@ a:focus {
     display: inline-block;
   }
   #news .pagination .nav-links .page-numbers.prev {
-    left: 0;
+    left: -4em;
     display: inline-block;
   }
   #contact .section-content {
@@ -745,7 +745,7 @@ a:focus {
   #contact .section-content #contact-info {
     width: 35%;
     float: right;
-    margin-top: 3em;
+    margin-top: 1em;
   }
   .full-bg figcaption {
     font-size: 2em;
