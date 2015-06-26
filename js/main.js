@@ -5,7 +5,6 @@
 var $window = jQuery(window),
 	$body = jQuery('body'),
 	$main = jQuery('#main'),
-	$mast = jQuery('#masthead'),
 	$navLink = jQuery('#site-navigation a');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
@@ -37,7 +36,7 @@ var s = null;
 				.attr("data-bottom-top", "background-position: center -100px;")
 				.attr("data-top-bottom", "background-position: center 100px;");
 
-			if ( $(window).width() > 640 ) {
+			if ( $window.width() > 640 ) {
 				skrollrInit();
 			}
 		}
@@ -50,14 +49,15 @@ var s = null;
 			e.preventDefault();
 
 			var $a = $( '#' + $(this).attr('href').split('#').pop() );
+
+			// Set data-offset in HTML to add offset parameter
+			var offsetAttr = $a.attr('data-offset');
 			var yOffset;
 
-			if ( $a.attr('data-offset').length > 0 )
-				yOffset = $a.data('offset');
+			if ( offsetAttr )
+				yOffset = offsetAttr;
 			else
 				yOffset = 0;
-
-			console.log(yOffset);
 
 			$('html, body').animate({
 				scrollTop: $a.offset().top - yOffset
@@ -68,7 +68,7 @@ var s = null;
 		var resizeId;
 
 		function doneResizing(){
-			if ( $(window).width() < 640 ) {
+			if ( $window.width() < 640 ) {
 				if ( s ) {
 					try {
 						s.destroy();
@@ -84,7 +84,7 @@ var s = null;
 			}
 		}
 
-		$(window).resize(function(){
+		$window.resize(function(){
 			clearTimeout(resizeId);
 			resizeId = setTimeout(doneResizing, 500);
 		});
