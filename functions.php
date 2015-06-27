@@ -344,11 +344,26 @@ if ( ! function_exists( 'rhd_ajax_pagination' ) ) {
 
 		the_posts_pagination( array(
 			'mid_size' => 1,
-			'prev_text' => '<div class="pagination-button left">&larr;</div>',
-			'next_text' => '<div class="pagination-button right">&rarr;</div>'
+			'prev_text' => '<div class="pagination-button left">Newer</div>',
+			'next_text' => '<div class="pagination-button right">Older</div>'
 		) );
 
-		echo '<script>jQuery(".pagination-button").text("");</script>';
+		echo '
+			<script>
+				(function($){
+					$(".pagination-button").each(function(){
+						var text = $(this).text();
+						$(this).data("text", text);
+					});
+
+					if ( $(window).width() >= 640 ) {
+						$(".pagination-button").text("");
+					} else {
+						$(".pagination-button").text( $(".pagination-button").data("text") );
+					}
+				})(jQuery);
+			</script>
+		';
 
 		die();
 	}

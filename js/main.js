@@ -5,7 +5,8 @@
 var $window = jQuery(window),
 	$body = jQuery('body'),
 	$main = jQuery('#main'),
-	$navLink = jQuery('#site-navigation a');
+	$navLink = jQuery('#site-navigation a'),
+	$pagButton = jQuery(".pagination-button");
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
@@ -30,16 +31,17 @@ var s = null;
 			// Skrollr parallax
 			$(".full-bg:nth-of-type(1)")
 				.attr("data-start", "background-position: center 0px")
-				.attr("data-top-bottom", "background-position: center 200px");
+				.attr("data-top-bottom", "background-position: center 400px");
 
 			$(".full-bg:nth-of-type(n+2)")
-				.attr("data-bottom-top", "background-position: center -100px;")
-				.attr("data-top-bottom", "background-position: center 100px;");
+				.attr("data-bottom-top", "background-position: center -200px;")
+				.attr("data-top-bottom", "background-position: center 200px;");
 
 			if ( $window.width() > 640 ) {
 				skrollrInit();
 			}
 		}
+
 
 		// FitText
 		fitText(document.getElementById('front-page-title'), 0.9);
@@ -64,6 +66,17 @@ var s = null;
 			}, 1000, 'easeInOutCubic');
 		});
 
+
+		// Set pagination text
+		$pagButton.each(function(){
+			var text = $(this).text();
+			$(this).data('text', text);
+		});
+		// ...and set initial state:
+		if ( $window.width() >= 640 )
+			$pagButton.text('');
+
+
 		// Window resizing
 		var resizeId;
 
@@ -87,10 +100,13 @@ var s = null;
 		$window.resize(function(){
 			clearTimeout(resizeId);
 			resizeId = setTimeout(doneResizing, 500);
-		});
 
-		// Remove ajax pagination text glyph fallback
-		$(".pagination-button").text('');
+			if ( $window.width() >= 640 && $pagButton.text() !== '' ) {
+				$pagButton.text('');
+			} else if ( $window.width() < 640 && $pagButton.text() === '' ) {
+				$pagButton.text( $pagButton.data('text') );
+			}
+		});
 	});
 
 	wpadminbarPush();

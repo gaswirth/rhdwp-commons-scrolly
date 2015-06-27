@@ -128,7 +128,7 @@ a
 				display inline-block
 
 			#site-navigation-container
-				width 95%
+				width 99%
 				margin 0 auto
 				text-align center
 
@@ -166,6 +166,7 @@ a
 
 
 #news
+	min-height 100vh
 	background white
 	padding 1em 0 2em 0
 
@@ -182,9 +183,6 @@ a
 
 		.news-item
 			display block
-
-	.pagination
-		width 100%
 
 	.screen-reader-text
 		visibility hidden
@@ -203,50 +201,26 @@ a
 			display block
 			margin 0 auto
 
-	.nav-links
-		text-align center
+	.pagination
+		width 100%
 
-		.page-numbers
-			width 5.5rem
-			height 5.5rem
-			padding 0.8em
-			display none
-			position relative
-			font-size 3.5em
-			text-decoration none
-			color inherit
-			-transition(all 0.2s)
+		.nav-links
+			text-align center
 
-			&:hover
-			&:active
-			&:focus
-				padding 1em
+			a
+				font-size 1.5rem
 
-			.pagination-button
-				width 4em
-				height (@height)
-				background-color blue
-				background-repeat no-repeat
-				background-size auto 50%
-				-border-radius(50em)
+			.page-numbers
+				-transition(all 0.2s)
+				display none
 
-			&.next
-				right 0
-				margin-right 0.25%
-				display inline-block
+				&.next
+					padding-left 1em
+					display inline-block
 
-				.pagination-button
-					background-image url(../img/right.png)
-					background-position 0.25em center
-
-			&.prev
-				left -4em
-				margin-left 0.25%
-				display inline-block
-
-				.pagination-button
-					background-image url(../img/left.png)
-					background-position 3.25em center
+				&.prev
+					padding-right 1em
+					display inline-block
 
 
 	li
@@ -267,7 +241,7 @@ a
 #contact
 	#contact-form
 	#contact-info
-		width 80%
+		width 90%
 		margin 0 auto
 
 	#contact-form
@@ -287,7 +261,7 @@ a
 				height 2em
 
 			&[type="submit"]
-				width 6.25rem
+				width 100%
 				background gray
 				color black
 				border none
@@ -374,6 +348,8 @@ a
 			border-radius(3px)
 
 	#news
+		min-height 0
+
 		.news-list
 			min-height 31em
 			text-align justify
@@ -395,18 +371,48 @@ a
 
 			.nav-links
 				.page-numbers
+					width 5.5rem
+					height 5.5rem
+					padding 0.8em
+					font-size 3.5em
 					position absolute
+					text-decoration none
+					color blue
 					top 50%
 					-transform(translateY(-50%))
 					font-size 5em
 
+					&:hover
+					&:active
+					&:focus
+						padding 1em
+
 					&.next
 						right 0
+						margin-right 0.25%
 						display inline-block
+
+						.pagination-button
+							background-image url(../img/right.png)
+							background-position 0.25em center
 
 					&.prev
 						left -4em
+						margin-left 0.25%
 						display inline-block
+
+						.pagination-button
+							background-image url(../img/left.png)
+							background-position 3.25em center
+
+					.pagination-button
+						width 4em
+						height (@height)
+						background-color (@color)
+						background-repeat no-repeat
+						background-size auto 50%
+						-border-radius(50em)
+
 
 	#contact
 		.section-content
@@ -417,6 +423,10 @@ a
 			#contact-form
 				width 60%
 				float left
+
+				input
+					&[type="submit"]
+						width 6.25rem
 
 			#contact-info
 				width 35%

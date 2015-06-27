@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 8:49:00 PM on 25-06-2015
+* RHD Dev: Compiled at 8:16:49 PM on 26-06-2015
 ***/
 
 .unselectable {
@@ -455,7 +455,7 @@ a:focus {
   display: inline-block;
 }
 #top #masthead .header-content #site-navigation-container {
-  width: 95%;
+  width: 99%;
   margin: 0 auto;
   text-align: center;
 }
@@ -497,6 +497,7 @@ a:focus {
   padding: 1em 0;
 }
 #news {
+  min-height: 100vh;
   background: #fff;
   padding: 1em 0 2em 0;
 }
@@ -513,9 +514,6 @@ a:focus {
 }
 #news .news-list .news-item {
   display: block;
-}
-#news .pagination {
-  width: 100%;
 }
 #news .screen-reader-text {
   visibility: hidden;
@@ -534,53 +532,27 @@ a:focus {
   display: block;
   margin: 0 auto;
 }
-#news .nav-links {
+#news .pagination {
+  width: 100%;
+}
+#news .pagination .nav-links {
   text-align: center;
 }
-#news .nav-links .page-numbers {
-  width: 5.5rem;
-  height: 5.5rem;
-  padding: 0.8em;
-  display: none;
-  position: relative;
-  font-size: 3.5em;
-  text-decoration: none;
-  color: inherit;
+#news .pagination .nav-links a {
+  font-size: 1.5rem;
+}
+#news .pagination .nav-links .page-numbers {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  display: none;
 }
-#news .nav-links .page-numbers:hover,
-#news .nav-links .page-numbers:active,
-#news .nav-links .page-numbers:focus {
-  padding: 1em;
-}
-#news .nav-links .page-numbers .pagination-button {
-  width: 4em;
-  height: 5.5rem;
-  background-color: #00f;
-  background-repeat: no-repeat;
-  background-size: auto 50%;
-  -webkit-border-radius: 50em;
-  -moz-border-radius: 50em;
-  border-radius: 50em;
-}
-#news .nav-links .page-numbers.next {
-  right: 0;
-  margin-right: 0.25%;
+#news .pagination .nav-links .page-numbers.next {
+  padding-left: 1em;
   display: inline-block;
 }
-#news .nav-links .page-numbers.next .pagination-button {
-  background-image: url("../img/right.png");
-  background-position: 0.25em center;
-}
-#news .nav-links .page-numbers.prev {
-  left: -4em;
-  margin-left: 0.25%;
+#news .pagination .nav-links .page-numbers.prev {
+  padding-right: 1em;
   display: inline-block;
-}
-#news .nav-links .page-numbers.prev .pagination-button {
-  background-image: url("../img/left.png");
-  background-position: 3.25em center;
 }
 #news li {
   width: 75%;
@@ -598,7 +570,7 @@ a:focus {
 }
 #contact #contact-form,
 #contact #contact-info {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 #contact #contact-form {
@@ -623,7 +595,7 @@ a:focus {
 }
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
-  width: 6.25rem;
+  width: 100%;
   background: #808080;
   color: #000;
   border: none;
@@ -703,6 +675,9 @@ a:focus {
     padding: 1em;
     text-align: justify;
   }
+  #news {
+    min-height: 0;
+  }
   #news .news-list {
     min-height: 31em;
     text-align: justify;
@@ -724,19 +699,50 @@ a:focus {
     transform: translateY(-50%);
   }
   #news .pagination .nav-links .page-numbers {
+    width: 5.5rem;
+    height: 5.5rem;
+    padding: 0.8em;
+    font-size: 3.5em;
     position: absolute;
+    text-decoration: none;
+    color: #00f;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     font-size: 5em;
   }
+  #news .pagination .nav-links .page-numbers:hover,
+  #news .pagination .nav-links .page-numbers:active,
+  #news .pagination .nav-links .page-numbers:focus {
+    padding: 1em;
+  }
   #news .pagination .nav-links .page-numbers.next {
     right: 0;
+    margin-right: 0.25%;
     display: inline-block;
+  }
+  #news .pagination .nav-links .page-numbers.next .pagination-button {
+    background-image: url("../img/right.png");
+    background-position: 0.25em center;
   }
   #news .pagination .nav-links .page-numbers.prev {
     left: -4em;
+    margin-left: 0.25%;
     display: inline-block;
+  }
+  #news .pagination .nav-links .page-numbers.prev .pagination-button {
+    background-image: url("../img/left.png");
+    background-position: 3.25em center;
+  }
+  #news .pagination .nav-links .page-numbers .pagination-button {
+    width: 4em;
+    height: 5.5rem;
+    background-color: #00f;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
   }
   #contact .section-content {
     margin: 2em auto;
@@ -744,6 +750,9 @@ a:focus {
   #contact .section-content #contact-form {
     width: 60%;
     float: left;
+  }
+  #contact .section-content #contact-form input[type="submit"] {
+    width: 6.25rem;
   }
   #contact .section-content #contact-info {
     width: 35%;
