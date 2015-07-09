@@ -128,7 +128,8 @@ function wpadminbarPush() {
 function skrollrInit() {
 	try {
 		s = skrollr.init({
-			forceHeight: false
+			forceHeight: false,
+			smoothScrollingDuration: -100
 		});
 	} catch(err) {
 		throw "Warning: Skrollr disabled on this device.\n" . err;
