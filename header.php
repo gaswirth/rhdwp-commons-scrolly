@@ -30,6 +30,10 @@
 			$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 			$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
 			$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
+
+			// Blog name
+			$blog_details = get_blog_details( get_current_blog_id() );
+			$body_classes[] = substr( $blog_details->path, 1, -1);
 		?>
 
 		<?php wp_head(); ?>
