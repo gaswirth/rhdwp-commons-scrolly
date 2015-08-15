@@ -383,3 +383,22 @@ if ( ! function_exists( 'rhd_image_size_override' ) ) {
 		return array( 825, 510 );
 	}
 }
+
+
+/**
+ * rhd_archive_pagination function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_archive_pagination() {
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null; ?>
+
+	<div class="pagination">
+		<span class="pag-next"><?php next_posts_link( '&larr; Older', null ); ?></span>
+		<?php if ( $sep ) : ?>
+			<div class="pag-sep"></div>
+		<?php endif; ?>
+		<span class="pag-prev"><?php previous_posts_link( 'Newer &rarr;', null ); ?></span>
+	</div> <?php
+}
