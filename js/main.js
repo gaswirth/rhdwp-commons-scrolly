@@ -5,7 +5,6 @@
 var $window = jQuery(window),
 	$body = jQuery('body'),
 	$main = jQuery('#main'),
-	$navLink = jQuery('#site-navigation a'),
 	$pagButton = jQuery(".pagination-button");
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
@@ -27,6 +26,27 @@ var s = null;
 
 (function($){
 	$(document).ready(function($){
+		// Fancy scrolly navigation
+		$('#site-navigation a').on('click', function(e){
+			e.preventDefault();
+
+			var $a = $( '#' + $(this).attr('href').split('#').pop() );
+
+			// Set data-offset in HTML to add offset parameter
+			var offsetAttr = $a.attr('data-offset');
+			var yOffset;
+
+			if ( offsetAttr )
+				yOffset = offsetAttr;
+			else
+				yOffset = 0;
+
+			$('html, body').animate({
+				scrollTop: $a.offset().top - yOffset
+			}, 1000, 'easeInOutCubic');
+		});
+
+
 		if ( !isMobile && !isTablet ) {
 			// Skrollr parallax
 			$(".full-bg:nth-of-type(1)")
@@ -45,26 +65,6 @@ var s = null;
 
 		// FitText
 		fitText(document.getElementById('front-page-title'), 0.8);
-
-		// Fancy scrolly navigation
-		$navLink.click(function(e){
-			e.preventDefault();
-
-			var $a = $( '#' + $(this).attr('href').split('#').pop() );
-
-			// Set data-offset in HTML to add offset parameter
-			var offsetAttr = $a.attr('data-offset');
-			var yOffset;
-
-			if ( offsetAttr )
-				yOffset = offsetAttr;
-			else
-				yOffset = 0;
-
-			$('html, body').animate({
-				scrollTop: $a.offset().top - yOffset
-			}, 1000, 'easeInOutCubic');
-		});
 
 
 		// Set pagination text

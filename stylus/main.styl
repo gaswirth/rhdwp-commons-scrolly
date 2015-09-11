@@ -78,7 +78,6 @@ h6
 
 		a
 			color inherit
-			text-decoration none
 
 	#rhd-logo-footer
 		width 1.35em
@@ -286,8 +285,12 @@ h6
 			font-size 1em
 			padding-left 0.25em
 			padding-right 0.25em
-			--border-radius(0.1em)
-			border 2px solid #F0F0F0
+			-border-radius(0.1em)
+			border 2px solid $color3
+			transition 0.2s all
+
+			&:focus
+				border 2px solid $color2
 
 			&[type="email"]
 			&[type="text"]
@@ -327,7 +330,14 @@ h6
 
 #social
 	width 100%
+	-flexbox()
 
+	.social-item
+		width 26%
+		-flexitem()
+
+		img
+			width 100%
 
 
 .full-bg
@@ -461,7 +471,7 @@ h6
 						background-color (@color)
 						background-repeat no-repeat
 						background-size auto 50%
-						--border-radius(50em)
+						-border-radius(50em)
 
 
 	#contact
@@ -479,7 +489,7 @@ h6
 						width 6.25rem
 
 			#contact-info
-				width 35%
+				width 30%
 				float right
 				margin-top 1em
 

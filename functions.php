@@ -51,7 +51,6 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
 function rhd_enqueue_scripts()
 {
-	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', false );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
@@ -59,13 +58,12 @@ function rhd_enqueue_scripts()
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
-		'modernizr',
+		'jquery-effects-core',
 		'skrollr',
 		'fittext'
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
-	wp_enqueue_script( 'modernizr' );
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
 
@@ -142,7 +140,7 @@ function rhd_favicons()
 		<meta name="msapplication-TileColor" content="#da532c">
 		<meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
 		<meta name="msapplication-config" content="/favicon/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
+		<meta name="theme-color" content="#2b5797">
 	';
 }
 add_action( 'wp_head', 'rhd_favicons' );

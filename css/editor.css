@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:41:01 PM on 11-09-2015
+* RHD Dev: Compiled at 5:58:38 PM on 11-09-2015
 ***/
 
 /**
@@ -407,7 +407,6 @@ h6 {
 }
 #colophon .site-info a {
   color: inherit;
-  text-decoration: none;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -622,7 +621,15 @@ h6 {
   font-size: 1em;
   padding-left: 0.25em;
   padding-right: 0.25em;
+  -webkit-border-radius: 0.1em;
+  -moz-border-radius: 0.1em;
+  border-radius: 0.1em;
   border: 2px solid #f0f0f0;
+  transition: 0.2s all;
+}
+#contact #contact-form input:focus,
+#contact #contact-form textarea:focus {
+  border: 2px solid #034567;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -665,6 +672,20 @@ h6 {
   margin-bottom: 1em;
 }
 #social {
+  width: 100%;
+  text-align: justify;
+  padding: 0;
+}
+#social:after {
+  width: 100%;
+  display: inline-block;
+  content: '';
+}
+#social .social-item {
+  width: 26%;
+  display: inline-block;
+}
+#social .social-item img {
   width: 100%;
 }
 .full-bg {
@@ -790,6 +811,9 @@ h6 {
     background-color: #00f;
     background-repeat: no-repeat;
     background-size: auto 50%;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
   }
   #contact .section-content {
     margin: 2em auto;
@@ -802,7 +826,7 @@ h6 {
     width: 6.25rem;
   }
   #contact .section-content #contact-info {
-    width: 35%;
+    width: 30%;
     float: right;
     margin-top: 1em;
   }
