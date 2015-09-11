@@ -132,6 +132,6 @@ function skrollrInit() {
 			smoothScrollingDuration: -100
 		});
 	} catch(err) {
-		throw "Warning: Skrollr disabled on this device.\n" . err;
+		throw "Warning: Parallax effects disabled on this device.\n" . err;
 	}
 }
