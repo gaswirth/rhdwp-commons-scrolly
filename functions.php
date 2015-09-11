@@ -35,7 +35,7 @@ function rhd_enqueue_styles()
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Fanwood+Text|Julius+Sans+One' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Quattrocento:400,700' );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
@@ -53,12 +53,15 @@ function rhd_enqueue_scripts()
 {
 	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr-custom.js', null, '2.8.3', false );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	wp_register_script( 'packery', RHD_THEME_DIR . '/js/vendor/packery/packery.pkgd.min.js', array( 'jquery' ), null, true );
+	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
+	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
-		'modernizr'
+		'modernizr',
+		'skrollr',
+		'fittext'
 	);
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
@@ -102,7 +105,7 @@ add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Fanwood+Text|Julius+Sans+One';
+	$font_url = '//fonts.googleapis.com/css?family=Quattrocento:400,700';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -174,7 +177,6 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
-register_nav_menu( 'slidebar', 'Slidebar Site Navigation' );
 
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
@@ -581,18 +583,6 @@ function rhd_body_class( $body_classes )
 	$body_classes[] = ( rhd_is_mobile() ) ?  'mobile' : '';
 	$body_classes[] = ( wp_is_mobile() && !rhd_is_mobile() ) ? 'tablet' : '';
 	$body_classes[] = ( !wp_is_mobile() && !rhd_is_mobile() ) ? 'desktop' : '';
-
-	session_start();
-	if ( is_home() || is_single() || is_archive() || is_search() ) {
-		$body_classes[] = 'blog-area';
-
-		$_SESSION['blog_area'] = true;
-	} else {
-		$_SESSION['blog_area'] = false;
-	}
-
-	if ( is_page( 'how-it-works' || is_page( 'front-page' ) ) )
-		$body_classes[] = 'parallax';
 
 	return $body_classes;
 }

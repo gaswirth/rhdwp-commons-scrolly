@@ -24,13 +24,13 @@ $section_args = array(
 					<div class="header-content">
 						<h1 id="front-page-title"><?php bloginfo( 'name' ); ?></h1>
 						<?php
-							$nav_args_main = array(
+							$nav_args = array(
 								'menu_location' => 'primary',
 								'menu_id' => 'site-navigation',
 								'container' => 'nav',
 								'container_id' => 'site-navigation-container'
 							);
-							wp_nav_menu( $nav_args_main );
+							wp_nav_menu( $nav_args );
 						?>
 					</div>
 				</header>
@@ -62,6 +62,22 @@ $section_args = array(
 
 			<section id="full-bg-1" class="full-bg"></section>
 
+			<section id="bio">
+				<div class="section-content">
+					<?php
+						$section_args['name'] = 'bio';
+						$section = get_posts( $section_args );
+					?>
+					<?php
+						if ( $section ) {
+							echo apply_filters( 'the_content', $section[0]->post_content );
+						}
+					?>
+				</div>
+			</section>
+
+			<section id="full-bg-2" class="full-bg"></section>
+
 			<section id="resume">
 				<div class="section-content">
 					<?php
@@ -76,31 +92,12 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="full-bg-2" class="full-bg"></section>
-
-			<section id="photos">
-				<div class="section-content">
-					<?php
-						$section_args['name'] = 'photos';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
-				</div>
-			</section>
-
 			<section id="full-bg-3" class="full-bg"></section>
 
-			<section id="media">
+			<section id="photo">
 				<div class="section-content">
 					<?php
-						$section_args['name'] = 'media';
+						$section_args['name'] = 'photo';
 						$section = get_posts( $section_args );
 					?>
 
@@ -115,6 +112,25 @@ $section_args = array(
 			</section>
 
 			<section id="full-bg-4" class="full-bg"></section>
+
+			<section id="video">
+				<div class="section-content">
+					<?php
+						$section_args['name'] = 'video';
+						$section = get_posts( $section_args );
+					?>
+
+					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
+					<?php
+						if ( $section ) {
+							echo apply_filters( 'the_content', $section[0]->post_content );
+						}
+					?>
+				</div>
+			</section>
+
+			<section id="full-bg-5" class="full-bg"></section>
 
 			<section id="contact">
 				<div class="section-content">

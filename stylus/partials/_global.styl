@@ -3,7 +3,8 @@
    ========================================================================== */
 
 // Variables
-$color2 = red
+$color2 = #034567
+$ff-body = 'Quattrocento', serif
 
 
 // Classes
@@ -24,7 +25,7 @@ $color2 = red
 
 // Functions
 
-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
 	if $customWidth == false
 		$w = 85%
 	else
@@ -41,11 +42,11 @@ wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
 	margin $topMargin auto $bottomMargin auto
 
 
-unwrapper()
+-unwrapper()
 	width 100%
 
 
-flexbox()
+-flexbox()
 	text-align justify
 	padding 0
 
@@ -54,7 +55,7 @@ flexbox()
 		display inline-block
 		content ''
 
-flexitem()
+-flexitem()
 	display inline-block
 
 
@@ -92,8 +93,3 @@ placeholder-props( $famVal, $color)
 	-webkit-border-radius $val
 	-moz-border-radius $val
 	border-radius $val
-
-
--transition( $val )
-	-webkit-transition $val
-	transition $val

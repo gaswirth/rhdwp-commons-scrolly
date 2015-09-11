@@ -33,37 +33,5 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<?php
-			$nav_args_main = array(
-				'theme_location' => 'primary',
-				'menu_id' => 'site-navigation',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-container'
-			);
-
-			$nav_args_sb = array(
-				'theme_location' => 'slidebar',
-				'menu_id' => 'site-navigation-sb',
-				'menu_class' => 'site-navigation',
-				'container' => 'nav',
-				'container_id' => 'site-navigation-sb-container'
-			);
-		?>
-
-		<div class="sb-slidebar sb-left sb-style-push">
-			<?php wp_nav_menu( $nav_args_sb ); ?>
-		</div>
-
-		<div id="page" class="hfeed site sb-site-container">
-			<header id="masthead" class="site-header">
-				<h1 id="site-title" class="site-title"><?php bloginfo( 'name' ); ?></h1>
-
-				<?php wp_nav_menu( $nav_args_main ); ?>
-
-				<button id="hamburger" class="sb-toggle-left c-hamburger c-hamburger--htx">
-					<span>Toggle nav</span>
-				</button>
-			</header><!-- #masthead -->
-
+		<div id="page" class="hfeed site">
 			<main id="main" class="clearfix">

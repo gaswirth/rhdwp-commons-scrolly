@@ -44,7 +44,7 @@ var s = null;
 
 
 		// FitText
-		fitText(document.getElementById('front-page-title'), 0.9);
+		fitText(document.getElementById('front-page-title'), 0.8);
 
 		// Fancy scrolly navigation
 		$navLink.click(function(e){
