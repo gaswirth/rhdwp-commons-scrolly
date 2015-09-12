@@ -37,8 +37,8 @@ $section_args = array(
 			</section>
 
 			<section id="news">
+				<h2 class="section-title">Latest News</h2>
 				<div class="section-content">
-					<h2 class="section-title">Recently</h2>
 
 					<?php if ( have_posts() ) : ?>
 						<ul class="news-list">
@@ -84,6 +84,9 @@ $section_args = array(
 						$section_args['name'] = 'resume';
 						$section = get_posts( $section_args );
 					?>
+
+					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );

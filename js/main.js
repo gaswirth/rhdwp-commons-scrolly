@@ -64,7 +64,7 @@ var s = null;
 
 
 		// FitText
-		fitText(document.getElementById('front-page-title'), 0.8);
+		fitText(document.getElementById('front-page-title'), 0.75);
 
 
 		// Set pagination text

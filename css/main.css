@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:58:38 PM on 11-09-2015
+* RHD Dev: Compiled at 10:48:01 AM on 12-09-2015
 ***/
 
 .unselectable {
@@ -447,7 +447,7 @@ h6 {
   height: 100vh;
   background-image: url("//dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/home-temp.jpg");
   background-size: cover;
-  background-position: top right;
+  background-position: center;
   text-align: center;
   margin: 0;
   color: #fff;
@@ -471,45 +471,40 @@ h6 {
   line-height: 1;
 }
 #top #masthead .header-content #site-navigation-container {
-  width: 99%;
+  width: 94%;
   margin: 0 auto;
   text-align: center;
 }
-#top #masthead .header-content #site-navigation {
+#top #masthead .header-content #site-navigation-container #site-navigation {
   list-style: none;
   margin: 0;
-  text-align: justify;
-  padding: 0;
+  padding-left: 0;
+  line-height: 2;
 }
-#top #masthead .header-content #site-navigation:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
-#top #masthead .header-content #site-navigation li {
-  display: inline-block;
+#top #masthead .header-content #site-navigation-container #site-navigation li {
+  font-size: 1.2em;
   text-transform: uppercase;
 }
-#top #masthead .header-content #site-navigation li a {
+#top #masthead .header-content #site-navigation-container #site-navigation li a {
   text-decoration: none;
   transition: color 0.2s;
 }
-#top #masthead .header-content #site-navigation li a:link,
-#top #masthead .header-content #site-navigation li a:visited {
+#top #masthead .header-content #site-navigation-container #site-navigation li a:link,
+#top #masthead .header-content #site-navigation-container #site-navigation li a:visited {
   color: inherit;
 }
-#top #masthead .header-content #site-navigation li a:hover,
-#top #masthead .header-content #site-navigation li a:active {
+#top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
+#top #masthead .header-content #site-navigation-container #site-navigation li a:active {
   color: #034567;
 }
-#top #masthead .header-content #site-navigation li .sub-menu {
+#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu {
   position: absolute;
   padding-left: 0;
   line-height: 1.7;
   margin-top: 0.2em;
   z-index: 999 !important;
 }
-#top #masthead .header-content #site-navigation li .sub-menu li {
+#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu li {
   display: block;
   margin: 0;
 }
@@ -590,19 +585,20 @@ h6 {
   border-radius: 3px;
 }
 #resume ul {
-  text-align: justify;
-  padding: 0;
+  width: 85%;
+  max-width: 64em;
+  position: relative;
+  margin: 0 auto 0 auto;
   list-style: none;
   padding-left: 0;
 }
-#resume ul:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
 #resume ul li {
-  width: 49%;
-  display: inline-block;
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: 0.125rem;
+}
+#resume ul li:last-child {
+  margin-bottom: 0;
 }
 #resume ul li img {
   width: 100%;
@@ -641,14 +637,14 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background: #808080;
-  color: #000;
+  background: #034567;
+  color: #fff;
+  font-family: 'Quattrocento', serif;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
   font-size: 1.1em;
   text-align: center;
   font-weight: 300;
-  margin: 0 auto;
   display: block;
   cursor: pointer;
   transition: all 0.2s;
@@ -657,8 +653,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background: #000;
-  color: #fff;
+  background: #0390d8;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -713,6 +708,7 @@ h6 {
 }
 #full-bg-2 {
   background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/resume.jpg");
+  background-position: left;
 }
 #full-bg-3 {
   background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/photo1.jpg");
@@ -729,7 +725,7 @@ h6 {
 @media screen and (min-width: 40em) {
   #top #masthead .header-content {
     width: 40%;
-    min-width: 27em;
+    min-width: 30rem;
     height: 100%;
     padding-top: 1em;
     padding-bottom: 3em;
@@ -741,6 +737,19 @@ h6 {
   }
   #top #masthead .header-content #front-page-title {
     font-size: 3.7em;
+  }
+  #top #masthead .header-content #site-navigation-container #site-navigation {
+    text-align: justify;
+    padding: 0;
+    line-height: initial;
+  }
+  #top #masthead .header-content #site-navigation-container #site-navigation:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  #top #masthead .header-content #site-navigation-container #site-navigation li {
+    display: inline-block;
   }
   #top #bio {
     width: 45%;
@@ -817,6 +826,29 @@ h6 {
     -webkit-border-radius: 50em;
     -moz-border-radius: 50em;
     border-radius: 50em;
+  }
+  #resume ul {
+    width: 70%;
+    max-width: 64em;
+    position: relative;
+    margin: 0 auto 0 auto;
+    text-align: justify;
+    padding: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+  #resume ul:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  #resume ul li {
+    width: 34%;
+    display: inline-block;
+  }
+  #resume ul li img {
+    width: 100%;
+    height: auto;
   }
   #contact .section-content {
     margin: 2em auto;

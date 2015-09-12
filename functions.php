@@ -59,9 +59,12 @@ function rhd_enqueue_scripts()
 		'rhd-plugins',
 		'jquery',
 		'jquery-effects-core',
-		'skrollr',
 		'fittext'
 	);
+
+	if ( !wp_is_mobile() )
+		$main_deps[] = 'skrollr';
+
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
 
 	wp_enqueue_script( 'rhd-plugins' );

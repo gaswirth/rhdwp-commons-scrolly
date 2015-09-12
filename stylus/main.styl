@@ -120,7 +120,7 @@ h6
 		height 100vh
 		background-image url('//dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/home-temp.jpg')
 		background-size cover
-		background-position top right
+		background-position center
 		text-align center
 		margin 0
 		color white
@@ -142,42 +142,43 @@ h6
 				line-height 1
 
 			#site-navigation-container
-				width 99%
+				width 94%
 				margin 0 auto
 				text-align center
 
-			#site-navigation
-				list-style none
-				margin 0
-				-flexbox()
+				#site-navigation
+					list-style none
+					margin 0
+					padding-left 0
+					line-height 2
 
-				li
-					-flexitem()
-					text-transform uppercase
+					li
+						font-size 1.2em
+						text-transform uppercase
 
-					a
-						text-decoration none
-						transition color 0.2s
+						a
+							text-decoration none
+							transition color 0.2s
 
-						&:link
-						&:visited
-							color inherit
+							&:link
+							&:visited
+								color inherit
 
-						&:hover
-						&:active
-							color $color2
+							&:hover
+							&:active
+								color $color2
 
 
-					.sub-menu
-						position absolute
-						padding-left 0
-						line-height 1.7
-						margin-top 0.2em
-						z-index 999 !important
+						.sub-menu
+							position absolute
+							padding-left 0
+							line-height 1.7
+							margin-top 0.2em
+							z-index 999 !important
 
-						li
-							display block
-							margin 0
+							li
+								display block
+								margin 0
 
 	#bio
 		padding 1em 0
@@ -258,13 +259,17 @@ h6
 
 #resume
 	ul
-		-flexbox()
+		-wrapper()
 		list-style none
 		padding-left 0
 
 		li
-			width 49%
-			-flexitem()
+			width 100%
+			margin-bottom 1em
+			border-radius .125rem
+
+			&:last-child
+				margin-bottom 0
 
 			img
 				width 100%
@@ -286,7 +291,7 @@ h6
 			padding-left 0.25em
 			padding-right 0.25em
 			-border-radius(0.1em)
-			border 2px solid $color3
+			border 2px solid $color4
 			transition 0.2s all
 
 			&:focus
@@ -299,22 +304,21 @@ h6
 
 			&[type="submit"]
 				width 100%
-				background gray
-				color black
+				background $color2
+				color white
+				font-family $ff-body
 				border none
 				padding 0.5em 0.2em 0.4em 0.2em
 				font-size 1.1em
 				text-align center
 				font-weight 300
-				margin 0 auto
 				display block
 				cursor pointer
 				transition all 0.2s
 
 				&:hover
 				&:active
-					background black
-					color white
+					background $color3
 
 		textarea
 			width 100%
@@ -366,6 +370,7 @@ h6
 
 #full-bg-2
 	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/resume.jpg')
+	background-position left
 
 #full-bg-3
 	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/photo1.jpg')
@@ -386,7 +391,7 @@ h6
 		#masthead
 			.header-content
 				width 40%
-				min-width 27em
+				min-width 30rem
 				height 100%
 				padding-top 1em
 				padding-bottom 3em
@@ -397,6 +402,14 @@ h6
 
 				#front-page-title
 					font-size 3.7em
+
+				#site-navigation-container
+					#site-navigation
+						-flexbox()
+						line-height initial
+
+						li
+							-flexitem()
 
 		#bio
 			width 45%
@@ -472,6 +485,21 @@ h6
 						background-repeat no-repeat
 						background-size auto 50%
 						-border-radius(50em)
+
+	#resume
+		ul
+			-wrapper(0,0,70%)
+			-flexbox()
+			list-style none
+			padding-left 0
+
+			li
+				width 34%
+				-flexitem()
+
+				img
+					width 100%
+					height auto
 
 
 	#contact
