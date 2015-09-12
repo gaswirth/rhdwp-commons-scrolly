@@ -39,25 +39,46 @@ $section_args = array(
 			<section id="news">
 				<h2 class="section-title">Latest News</h2>
 				<div class="section-content">
+					<?php
+					$news_args = array(
+						'post_type'			=> 'post',
+						'post_status'		=> 'publish',
+						'posts_per_page'	=> 12
+					);
 
-					<?php if ( have_posts() ) : ?>
-						<ul class="news-list">
-						<?php while ( have_posts() ) : the_post(); ?>
+					$news = get_posts( $news_args );
+					?>
 
-							<?php get_template_part( 'content' ); ?>
+					<?php if ( $news ) : ?>
+						<div class="news-entries slideshow">
+						<?php foreach( $news as $post ) : setup_postdata( $post ); ?>
+							<?php if ( has_post_thumbnail() ) : ?>
+								<article id="news-<?php the_ID(); ?>" <?php post_class( 'news-entry' ); ?>>
+									<header class="news-header">
+										<?php the_post_thumbnail( 'news-item' ); ?>
+										<h2 class="news-title"><?php the_title(); ?></h2>
+									</header><!-- .entry-header -->
 
-						<?php endwhile; ?>
-						</ul>
+									<div class="news-content">
+										<?php the_content(); ?>
+									</div><!-- .entry-content -->
+
+									<footer class="entry-meta">
+										<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
+									</footer><!-- .entry-meta -->
+								</article><!-- #post -->
+							<?php endif; ?>
+						<?php endforeach; ?>
+						<?php wp_reset_postdata(); ?>
+
+						</div><!-- .news-entries -->
 					<?php endif; ?>
 				</div>
 
-				<?php
-					the_posts_pagination( array(
-						'mid_size' => 1,
-						'prev_text' => '<div class="pagination-button ltri">&ltri;</div>',
-						'next_text' => '<div class="pagination-button rtri">&rtri;</div>'
-					) );
-				?>
+				<div class="news-scroller">
+					<a id="next" href="#">></a>
+					<a id="prev" href="#"><</a>
+				</div>
 			</section>
 
 			<section id="full-bg-1" class="full-bg"></section>

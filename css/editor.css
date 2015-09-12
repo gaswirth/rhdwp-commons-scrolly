@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:48:01 AM on 12-09-2015
+* RHD Dev: Compiled at 5:48:33 PM on 12-09-2015
 ***/
 
 /**
@@ -429,7 +429,7 @@ h6 {
   max-width: 64em;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 3em 0;
+  padding: 1em 0;
 }
 #content iframe {
   max-width: 100%;
@@ -512,77 +512,51 @@ h6 {
   padding: 1em 0;
 }
 #news {
-  min-height: 100vh;
   background: #fff;
   padding: 1em 0 2em 0;
 }
-#news .news-content {
+#news .section-content .news-entries {
   width: 100%;
-  max-width: 75rem;
 }
-#news .news-list {
-  width: 85%;
-  max-width: 100%;
-  margin: 2em auto;
-  list-style: none;
-  padding-left: 0;
-}
-#news .news-list .news-item {
+#news .section-content .news-entries .news-entry {
+  width: auto;
+  padding: 0 1em;
   display: block;
+  vertical-align: top;
 }
-#news .screen-reader-text {
-  visibility: hidden;
-  height: 0;
-  margin: 0;
-}
-#news #loader {
+#news .section-content .news-entries .news-entry img {
   width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 4em;
-}
-#news #loader img {
-  width: 10em;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-#news .pagination {
-  width: 100%;
-}
-#news .pagination .nav-links {
-  text-align: center;
-}
-#news .pagination .nav-links a {
-  font-size: 1.5rem;
-}
-#news .pagination .nav-links .page-numbers {
-  transition: all 0.2s;
-  display: none;
-}
-#news .pagination .nav-links .page-numbers.next {
-  padding-left: 1em;
-  display: inline-block;
-}
-#news .pagination .nav-links .page-numbers.prev {
-  padding-right: 1em;
-  display: inline-block;
-}
-#news li {
-  width: 75%;
-  max-width: 300px;
-  margin: 0.75em auto;
-  display: block;
-  text-align: center;
-}
-#news li img {
-  width: 100%;
-  height: auto;
   margin: 0 auto 0.25em auto;
   display: block;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#news .section-content .news-entries .news-entry .news-title {
+  margin: 0.25em 0;
+  text-align: center;
+}
+#news .section-content .news-entries .news-entry .news-content {
+  white-space: normal;
+  text-align: center;
+}
+#news .news-scroller {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#news .news-scroller a {
+  position: absolute;
+  font-size: 5em;
+}
+#news .news-scroller a#prev {
+  left: 0;
+}
+#news .news-scroller a#next {
+  right: 0;
 }
 #resume ul {
   width: 85%;
@@ -720,6 +694,9 @@ h6 {
   background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/contact.jpg");
 }
 @media screen and (min-width: 40em) {
+  #content .section-content {
+    padding: 3em 0;
+  }
   #top #masthead .header-content {
     width: 40%;
     min-width: 30rem;
@@ -759,70 +736,9 @@ h6 {
     -moz-border-radius: 3px;
     border-radius: 3px;
   }
-  #news {
-    min-height: 0;
-  }
-  #news .news-list {
-    min-height: 31em;
-    text-align: justify;
-  }
-  #news .news-list:after {
-    width: 100%;
-    display: inline-block;
-    content: "";
-  }
-  #news .news-list .news-item {
-    width: 30%;
-    display: inline-block;
-    vertical-align: top;
-  }
-  #news .pagination {
-    position: absolute;
-    top: 50%;
-  }
-  #news .pagination .nav-links .page-numbers {
-    width: 5.5rem;
-    height: 5.5rem;
-    padding: 0.8em;
-    font-size: 3.5em;
-    position: absolute;
-    text-decoration: none;
-    color: #00f;
-    top: 50%;
-    font-size: 5em;
-  }
-  #news .pagination .nav-links .page-numbers:hover,
-  #news .pagination .nav-links .page-numbers:active,
-  #news .pagination .nav-links .page-numbers:focus {
-    padding: 1em;
-  }
-  #news .pagination .nav-links .page-numbers.next {
-    right: 0;
-    margin-right: 0.25%;
-    display: inline-block;
-  }
-  #news .pagination .nav-links .page-numbers.next .pagination-button {
-    background-image: url("../img/right.png");
-    background-position: 0.25em center;
-  }
-  #news .pagination .nav-links .page-numbers.prev {
-    left: -4em;
-    margin-left: 0.25%;
-    display: inline-block;
-  }
-  #news .pagination .nav-links .page-numbers.prev .pagination-button {
-    background-image: url("../img/left.png");
-    background-position: 3.25em center;
-  }
-  #news .pagination .nav-links .page-numbers .pagination-button {
-    width: 4em;
-    height: 5.5rem;
-    background-color: #00f;
-    background-repeat: no-repeat;
-    background-size: auto 50%;
-    -webkit-border-radius: 50em;
-    -moz-border-radius: 50em;
-    border-radius: 50em;
+  #news .section-content {
+    position: relative;
+    max-width: 58rem;
   }
   #resume ul {
     width: 70%;

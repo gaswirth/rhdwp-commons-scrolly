@@ -4,8 +4,7 @@
 
 var $window = jQuery(window),
 	$body = jQuery('body'),
-	$main = jQuery('#main'),
-	$pagButton = jQuery(".pagination-button");
+	$main = jQuery('#main');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
@@ -22,6 +21,7 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 
 // Initialize empty global skrollr object variable
 var s = null;
+var cycleType = null;
 
 
 (function($){
@@ -67,16 +67,6 @@ var s = null;
 		fitText(document.getElementById('front-page-title'), 0.75);
 
 
-		// Set pagination text
-		$pagButton.each(function(){
-			var text = $(this).text();
-			$(this).data('text', text);
-		});
-		// ...and set initial state:
-		if ( $window.width() >= 640 )
-			$pagButton.text('');
-
-
 		// Window resizing
 		var resizeId;
 
@@ -97,14 +87,53 @@ var s = null;
 			}
 		}
 
+		// News Scrolling
+		if ( $window.width() < 640 )
+			rhdCycleInit('scrollHorz');
+		else
+			rhdCycleInit('carousel');
+
+		function rhdCycleInit( type ) {
+			if ( type == 'carousel' ) {
+				$( '.news-entries' ).cycle({
+					fx: 'carousel',
+					timeout: 0,
+					autoHeight: "calc",
+					allowWrap: false,
+					next: "#next",
+					prev: "#prev",
+					slides: "> article",
+					carouselVisible: 3,
+					carouselFluid: true,
+					swipe: true
+				});
+				cycleType = 'multi';
+			} else {
+				$( '.news-entries' ).cycle({
+					fx: 'scrollHorz',
+					allowWrap: false,
+					timeout: 0,
+					next: "#next",
+					prev: "#prev",
+					slides: "> article",
+					swipe: true
+				});
+				cycleType = 'single';
+			}
+		}
+
+
+		// Resize event
 		$window.on('resize', function(){
 			clearTimeout(resizeId);
 			resizeId = setTimeout(doneResizing, 500);
 
-			if ( $window.width() >= 640 && $pagButton.text() !== '' ) {
-				$pagButton.text('');
-			} else if ( $window.width() < 640 && $pagButton.text() === '' ) {
-				$pagButton.text( $pagButton.data('text') );
+			if ( $window.width() < 640 && cycleType == 'multi' ) {
+				$('.news-entries').cycle('destroy');
+				rhdCycleInit('scrollHorz');
+			} else if ( $window.width() > 640 && cycleType == 'single' ) {
+				$('.news-entries').cycle('destroy');
+				rhdCycleInit('carousel');
 			}
 		});
 	});

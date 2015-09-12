@@ -54,12 +54,16 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
+	wp_register_script( 'cycle2', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/index.js', array(), '2', true );
+	wp_register_script( 'cycle2-carousel', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/jquery.cycle2.carousel.min.js', array( 'cycle2' ), '2', true );
 
 	$main_deps = array(
 		'rhd-plugins',
 		'jquery',
 		'jquery-effects-core',
-		'fittext'
+		'fittext',
+		'cycle2',
+		'cycle2-carousel'
 	);
 
 	if ( !wp_is_mobile() )
@@ -72,19 +76,6 @@ function rhd_enqueue_scripts()
 
 	if ( is_singular() )
 		wp_enqueue_script( 'comment-reply' );
-
-
-	// Localize data for client-side use
-	global $wp_query;
-	$data = array(
-		'home_url' => home_url(),
-		'theme_dir' => RHD_THEME_DIR,
-		'img_dir' => RHD_IMG_DIR,
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		'query_vars' => json_encode( $wp_query->query ),
-	);
-	wp_localize_script( 'rhd-plugins', 'wp_data', $data);
-
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
@@ -145,7 +136,7 @@ function rhd_skrollr_refresh()
 {
 	echo '
 		<script>
-			if ( typeof s !== "undefined" )
+			if ( typeof s != "undefined" && typeof s !== null )
 				jQuery(window).load(function(){s.refresh();});
 		</script>
 		';
@@ -220,7 +211,7 @@ add_theme_support( 'automatic-feed-links' );
 
 function rhd_image_sizes()
 {
-	// add_image_size( 'square', 200, 200, true );
+	add_image_size( 'news-item', 300, 300, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
 
@@ -443,104 +434,6 @@ function rhd_enhance_excerpts( $text )
 }
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
-
-
-/**
- * rhd_archive_pagination function.
- *
- * @access public
- * @return void
- */
-function rhd_archive_pagination()
-{
-	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
-
-	echo '<div class="pagination">';
-
-	echo '<span class="pag-next">' . next_posts_link( '&larr; Older', null ) . '</span>';
-
-	if ( $sep ) {
-		echo '<div class="pag-sep"></div>';
-	}
-
-	echo '<span class="pag-prev">' . previous_posts_link( 'Newer &rarr;', null ) . '</span>';
-	echo '</div>';
-}
-
-
-/**
- * rhd_lovely_single_pagination function.
- *
- * @access public
- * @return void
- */
-function rhd_single_pagination()
-{
-	$next = get_previous_post_link( '%link', '&lt; Older' );
-	$prev = get_next_post_link( '%link', 'Newer &gt;' );
-	$spacer = '<div class="pag-spacer"></div>';
-
-	echo "<div class='single-pagination'>\n";
-
-	echo ( $next != '' ) ? $next : $spacer;
-
-	echo  "<div class='pag-sep'></div>\n";
-
-	echo ( $prev != '' ) ? $prev : $spacer;
-
-	echo "</div>\n";
-}
-
-
-/**
- * rhd_ajax_pagination function.
- *
- * @access public
- * @return void
- */
-function rhd_ajax_pagination()
-{
-	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-	$query_vars['paged'] = $_POST['page'];
-	$posts = new WP_Query( $query_vars );
-	$GLOBALS['wp_query'] = $posts;
-
-	add_filter( 'editor_max_image_size', 'rhd_image_size_override' );
-
-	if( ! $posts->have_posts() ) {
-		get_template_part( 'content', 'none' );
-	} else {
-		while ( $posts->have_posts() ) {
-			$posts->the_post();
-			get_template_part( 'content' );
-		}
-	}
-
-	remove_filter( 'editor_max_image_size', 'rhd_image_size_override' );
-
-	the_posts_pagination( array(
-		'mid_size' => 1,
-		'prev_text' => __( 'Previous', 'rhd' ),
-		'next_text' => __( 'Next', 'rhd' ),
-		'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rhd' ) . ' </span>',
-	) );
-
-	die();
-}
-add_action( 'wp_ajax_nopriv_ajax_pagination', 'rhd_ajax_pagination' );
-add_action( 'wp_ajax_ajax_pagination', 'rhd_ajax_pagination' );
-
-
-/**
- * rhd_image_size_override function.
- *
- * @access public
- * @return void
- */
-function rhd_image_size_override()
-{
-	return array( 825, 510 );
-}
 
 
 /**
