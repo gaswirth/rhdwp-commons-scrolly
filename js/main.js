@@ -97,7 +97,7 @@ var s = null;
 			}
 		}
 
-		$window.resize(function(){
+		$window.on('resize', function(){
 			clearTimeout(resizeId);
 			resizeId = setTimeout(doneResizing, 500);
 
@@ -108,21 +108,12 @@ var s = null;
 			}
 		});
 	});
-
-	wpadminbarPush();
 })(jQuery);
 
 
 /* ==========================================================================
 	Functions
    ========================================================================== */
-
-
-function wpadminbarPush() {
-	jQuery("#wpadminbar").css({
-		top: '50px',
-	});
-}
 
 
 function skrollrInit() {

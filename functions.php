@@ -65,7 +65,7 @@ function rhd_enqueue_scripts()
 	if ( !wp_is_mobile() )
 		$main_deps[] = 'skrollr';
 
-	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, false );
+	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
 	wp_enqueue_script( 'rhd-plugins' );
 	wp_enqueue_script( 'rhd-main' );
@@ -88,20 +88,6 @@ function rhd_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
-
-/**
- * register_jquery function.
- *
- * @access public
- * @return void
- */
-function rhd_register_jquery()
-{
-	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', RHD_THEME_DIR . '/js/vendor/jquery/dist/jquery.min.js' );
-	wp_enqueue_script( 'jquery' );
-}
-add_action( 'wp_enqueuescripts', 'rhd_register_jquery' );
 
 function rhd_add_editor_styles()
 {
@@ -149,6 +135,23 @@ function rhd_favicons()
 add_action( 'wp_head', 'rhd_favicons' );
 
 
+/**
+ * rhd_skrollr_refresh function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_skrollr_refresh()
+{
+	echo '
+		<script>
+			if ( typeof s !== "undefined" )
+				jQuery(window).load(function(){s.refresh();});
+		</script>
+		';
+}
+add_action( 'wp_footer', 'rhd_skrollr_refresh', 999 );
+
 /* ==========================================================================
    Sidebars + Menus
    ========================================================================== */
@@ -162,15 +165,6 @@ function rhd_register_sidebars()
 		'before_title'	=> '<h2 class="widget-title">',
 		'after_title'	=> '</h2>',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-
-	register_sidebar(array(
-		'name'			=> __( 'Footer Widget Area', 'rhd' ),
-		'id'			=> 'footer-widget-area',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 		'after_widget'  => '</div>'
 	));
 }
