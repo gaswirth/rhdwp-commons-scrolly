@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:24:48 AM on 14-09-2015
+* RHD Dev: Compiled at 12:10:32 PM on 14-09-2015
 ***/
 
 /**
@@ -688,8 +688,19 @@ h6 {
   position: absolute;
   bottom: 0;
 }
-.full-bg .full-bg-caption .download-res {
-  color: #000;
+.full-bg .full-bg-caption a {
+  color: inherit;
+  text-decoration: none;
+}
+.full-bg .full-bg-caption a:hover,
+.full-bg .full-bg-caption a:active {
+  color: #034567;
+}
+.full-bg .full-bg-caption h1,
+.full-bg .full-bg-caption h2,
+.full-bg .full-bg-caption h3,
+.full-bg .full-bg-caption p {
+  margin: 0;
 }
 #full-bg-1 {
   background-image: url("//soemthing");

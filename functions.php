@@ -477,8 +477,21 @@ function rhd_body_class( $body_classes )
 add_filter( 'body_class', 'rhd_body_class' );
 
 
+/**
+ * rhd_full_bg_caption function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_full_bg_caption() {
+	$dl_post = get_posts( array( 'post_type' => 'page', 'post_status' => 'publish', 'name' => 'download-resume' ) );
+
+	echo "<div class='full-bg-caption'>" . $dl_post[0]->post_content . "</div>\n";
+}
+
+
 /* ==========================================================================
-	Theme Functions and Customizations
+	Meta Boxes
    ========================================================================== */
 
 /**

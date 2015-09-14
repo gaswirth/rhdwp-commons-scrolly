@@ -103,7 +103,9 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="full-bg-2" class="full-bg"></section>
+			<section id="full-bg-2" class="full-bg">
+				<?php rhd_full_bg_caption(); // EXAMPLE ONLY ?>
+			</section>
 
 			<section id="resume">
 				<div class="section-content">
