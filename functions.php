@@ -55,7 +55,7 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
 	wp_register_script( 'cycle2', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/index.js', array(), '2', true );
-	wp_register_script( 'cycle2-carousel', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/jquery.cycle2.carousel.min.js', array( 'cycle2' ), '2', true );
+	wp_register_script( 'cycle2-carousel', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/jquery.cycle2.carousel.js', array( 'cycle2' ), '2', true );
 
 	$main_deps = array(
 		'rhd-plugins',
@@ -136,8 +136,8 @@ function rhd_skrollr_refresh()
 {
 	echo '
 		<script>
-			if ( typeof s != "undefined" && typeof s !== null )
-				jQuery(window).load(function(){s.refresh();});
+			if ( typeof skr != "undefined" && typeof skr != null )
+				jQuery(window).load(function(){skr.refresh();});
 		</script>
 		';
 }

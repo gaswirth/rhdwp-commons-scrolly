@@ -20,7 +20,7 @@ var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
    ========================================================================== */
 
 // Initialize empty global skrollr object variable
-var s = null;
+var skr = null;
 var cycleType = null;
 
 
@@ -72,16 +72,16 @@ var cycleType = null;
 
 		function doneResizing(){
 			if ( $window.width() < 640 ) {
-				if ( s ) {
+				if ( skr ) {
 					try {
-						s.destroy();
-						s = null;
+						skr.destroy();
+						skr = null;
 					} catch(err) {
-						throw "Warning: Skrollr disabled on this device.\n" . err;
+						throw "Warning: Parallax disabled on this device.\n" . err;
 					}
 				}
 			} else {
-				if ( !s ) {
+				if ( !skr ) {
 					skrollrInit();
 				}
 			}
@@ -89,12 +89,12 @@ var cycleType = null;
 
 		// News Scrolling
 		if ( $window.width() < 640 )
-			rhdCycleInit('scrollHorz');
+			rhdCycleInit(false);
 		else
-			rhdCycleInit('carousel');
+			rhdCycleInit(true);
 
-		function rhdCycleInit( type ) {
-			if ( type == 'carousel' ) {
+		function rhdCycleInit( is_carousel ) {
+			if ( is_carousel === true ) {
 				$( '.news-entries' ).cycle({
 					fx: 'carousel',
 					timeout: 0,
@@ -125,16 +125,16 @@ var cycleType = null;
 
 		// Resize event
 		$window.on('resize', function(){
-			clearTimeout(resizeId);
-			resizeId = setTimeout(doneResizing, 500);
-
 			if ( $window.width() < 640 && cycleType == 'multi' ) {
 				$('.news-entries').cycle('destroy');
-				rhdCycleInit('scrollHorz');
+				rhdCycleInit(false);
 			} else if ( $window.width() > 640 && cycleType == 'single' ) {
 				$('.news-entries').cycle('destroy');
-				rhdCycleInit('carousel');
+				rhdCycleInit(true);
 			}
+
+			clearTimeout(resizeId);
+			resizeId = setTimeout(doneResizing, 500);
 		});
 	});
 })(jQuery);
@@ -147,7 +147,7 @@ var cycleType = null;
 
 function skrollrInit() {
 	try {
-		s = skrollr.init({
+		skr = skrollr.init({
 			forceHeight: false,
 			smoothScrollingDuration: -100
 		});
