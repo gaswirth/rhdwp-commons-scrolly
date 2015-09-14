@@ -1,6 +1,6 @@
 <?php
 /**
- * RHD Base
+ * RHD Jennifer Blood
  *
  * ROUNDHOUSE DESIGNS
  *
@@ -138,6 +138,7 @@ function rhd_skrollr_refresh()
 		<script>
 			if ( typeof skr != "undefined" && skr != null ) {
 				jQuery(window).load(function(){skr.refresh();});
+				console.log("run");
 			}
 		</script>
 		';

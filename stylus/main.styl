@@ -24,7 +24,7 @@ body
 
 a
 	outline 0 !important
-	color $color3
+	color $color2
 
 	&:link
 	&:visited
@@ -127,13 +127,12 @@ h6
 	#masthead
 		width 100%
 		height 100vh
-		background-image url('//something')
+		background-image url('../img/jenblood-top.jpg')
 		background-size cover
 		background-position center
 		text-align center
 		margin 0
 		position relative
-		color white
 
 		.header-content
 			width 100%
@@ -230,34 +229,34 @@ h6
 
 			&#prev
 				left -2em
-				background-image url('//something')
+				background-image url('../img/left.png')
 				background-position 2.1em center
 
 			&#next
 				right -2em
-				background-image url('//something')
+				background-image url('../img/right.png')
 				background-position 0.4em center
 
 			&.disabled
 				display none
 
 #resume
-	ul
-		-wrapper()
-		list-style none
-		padding-left 0
+	.resume-container
+		width 31em
+		max-width 98%
+		@extends .clearfix
+		margin 0 auto 2em auto
 
-		li
-			width 100%
-			margin-bottom 1em
-			border-radius .125rem
+		img
+			width 49%
+			height auto
+			margin 0
+
+			&:first-child
+				padding-right 1em
 
 			&:last-child
-				margin-bottom 0
-
-			img
-				width 100%
-				height auto
+				padding-left 1em
 
 
 #contact
@@ -317,22 +316,27 @@ h6
 
 
 #social
-	width 100%
+	width 11em
+	margin 1em auto 0
+	padding-left 0
+	list-style none
 	-flexbox()
 
 	.social-item
-		width 26%
+		width 76px
+		height auto
 		-flexitem()
 
 		img
-			width 100%
+			max-width 100%
+			height auto
 
 
 .full-bg
 	width 100%
 	height 100vh
 	background-size cover
-	background-position center top
+	background-position inherit top
 	background-repeat no-repeat
 
 	.full-bg-caption
@@ -361,10 +365,22 @@ h6
 
 
 #full-bg-1
-	background-image url('//something')
+	background-image url('../img/jenblood-news.jpg')
+	background-position center left
+
 
 #full-bg-2
-	background-image url('//something')
+	background-image url('../img/jenblood-photos.jpg')
+	background-position center left
+
+
+#full-bg-3
+	background-image url('../img/jenblood-media.jpg')
+
+
+#full-bg-4
+	background-image url('../img/jenblood-contact.jpg')
+	background-position -57px top
 
 
 /* ==========================================================================
@@ -429,8 +445,7 @@ h6
 	#contact
 		.section-content
 			margin 2em auto
-
-			@extends .clearfix
+			-clearfix()
 
 			#contact-form
 				width 60%
@@ -453,3 +468,13 @@ h6
 
 	#full-bg-2
 		background-position center
+
+
+	#social
+			margin 2em auto 0
+
+
+@media screen and (orientation landscape)
+	#content
+		.full-bg
+			background-position center center

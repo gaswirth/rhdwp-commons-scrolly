@@ -51,11 +51,11 @@ var cycleType = null;
 			// Skrollr parallax
 			$(".full-bg:nth-of-type(1)")
 				.attr("data-start", "background-position: center 0px")
-				.attr("data-top-bottom", "background-position: center 400px");
+				.attr("data-top-bottom", "background-position: inherit 400px");
 
 			$(".full-bg:nth-of-type(n+2)")
-				.attr("data-bottom-top", "background-position: center -200px;")
-				.attr("data-top-bottom", "background-position: center 200px;");
+				.attr("data-bottom-top", "background-position: inherit -200px;")
+				.attr("data-top-bottom", "background-position: inherit 200px;");
 
 			if ( $window.width() > 640 ) {
 				skrollrInit();
@@ -64,7 +64,7 @@ var cycleType = null;
 
 
 		// FitText
-		fitText(document.getElementById('site-title'), 0.75);
+		fitText(document.getElementById('site-title'),0.7);
 
 
 		// Window resizing
@@ -112,6 +112,7 @@ var cycleType = null;
 				$( '.news-entries' ).cycle({
 					fx: 'scrollHorz',
 					allowWrap: false,
+					autoHeight: "calc",
 					timeout: 0,
 					next: "#next",
 					prev: "#prev",
