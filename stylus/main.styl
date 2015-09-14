@@ -190,6 +190,7 @@ h6
 				padding 0 1em
 				display block
 				vertical-align top
+				z-index 100
 
 				img
 					width 100%
@@ -209,7 +210,7 @@ h6
 		-transform(translateY(-50%))
 
 		a
-			width 5em
+			width 4em
 			height 5em
 			position absolute
 			display block
@@ -217,25 +218,26 @@ h6
 			background-size 40% 90%
 			background-repeat no-repeat
 			transition all 0.2s
+			z-index 1
 
 			&:hover
 				background-color $color3
 
 			&#prev
-				left -1em
+				left -2em
 				background-image url(../img/left.png)
-				background-position 0.8em center
+				background-position 2.1em center
 
 				&:hover
-					left 0
+					left -1.5em
 
 			&#next
-				right -1em
+				right -2em
 				background-image url(../img/right.png)
-				background-position 2.2em center
+				background-position 0.4em center
 
 				&:hover
-					right 0
+					right -1.5em
 
 			&.disabled
 				display none

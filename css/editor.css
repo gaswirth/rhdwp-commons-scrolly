@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:02:31 AM on 14-09-2015
+* RHD Dev: Compiled at 11:24:48 AM on 14-09-2015
 ***/
 
 /**
@@ -517,6 +517,7 @@ h6 {
   padding: 0 1em;
   display: block;
   vertical-align: top;
+  z-index: 100;
 }
 #news .section-content .news-entries .news-entry img {
   width: 100%;
@@ -539,7 +540,7 @@ h6 {
   transform: translateY(-50%);
 }
 #news .news-scroller a {
-  width: 5em;
+  width: 4em;
   height: 5em;
   position: absolute;
   display: block;
@@ -547,25 +548,26 @@ h6 {
   background-size: 40% 90%;
   background-repeat: no-repeat;
   transition: all 0.2s;
+  z-index: 1;
 }
 #news .news-scroller a:hover {
   background-color: #0390d8;
 }
 #news .news-scroller a#prev {
-  left: -1em;
+  left: -2em;
   background-image: url("../img/left.png");
-  background-position: 0.8em center;
+  background-position: 2.1em center;
 }
 #news .news-scroller a#prev:hover {
-  left: 0;
+  left: -1.5em;
 }
 #news .news-scroller a#next {
-  right: -1em;
+  right: -2em;
   background-image: url("../img/right.png");
-  background-position: 2.2em center;
+  background-position: 0.4em center;
 }
 #news .news-scroller a#next:hover {
-  right: 0;
+  right: -1.5em;
 }
 #news .news-scroller a.disabled {
   display: none;
