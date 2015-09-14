@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:57:54 AM on 14-09-2015
+* RHD Dev: Compiled at 9:31:04 AM on 14-09-2015
 ***/
 
 /**
@@ -355,10 +355,6 @@ body {
   background: #fff;
   color: #000;
   font-family: 'Quattrocento', serif;
-}
-body.admin-bar #wpadminbar {
-  position: fixed;
-  top: 0;
 }
 a {
   outline: 0 !important;
