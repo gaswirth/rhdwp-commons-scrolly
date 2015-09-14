@@ -64,7 +64,7 @@ var cycleType = null;
 
 
 		// FitText
-		fitText(document.getElementById('front-page-title'), 0.75);
+		fitText(document.getElementById('site-title'), 0.75);
 
 
 		// Window resizing

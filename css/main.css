@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:41:37 AM on 14-09-2015
+* RHD Dev: Compiled at 12:49:04 AM on 14-09-2015
 ***/
 
 .unselectable {
@@ -460,7 +460,7 @@ h6 {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-#top #masthead .header-content #front-page-title {
+#top #masthead .header-content #site-title {
   width: 100%;
   margin: 0 auto;
   font-size: 2.5em;
@@ -700,7 +700,7 @@ h6 {
     -webkit-transform: none;
     transform: none;
   }
-  #top #masthead .header-content #front-page-title {
+  #top #masthead .header-content #site-title {
     font-size: 3.7em;
   }
   #top #masthead .header-content #site-navigation-container #site-navigation {
