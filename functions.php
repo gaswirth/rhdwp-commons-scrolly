@@ -136,8 +136,9 @@ function rhd_skrollr_refresh()
 {
 	echo '
 		<script>
-			if ( typeof skr != "undefined" && typeof skr != null )
+			if ( typeof skr != "undefined" && skr != null ) {
 				jQuery(window).load(function(){skr.refresh();});
+			}
 		</script>
 		';
 }
