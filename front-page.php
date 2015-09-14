@@ -61,9 +61,11 @@ $section_args = array(
 										<?php
 										if ( $ext_url )
 											echo "<a href='$ext_url'>";
+										?>
 
-										the_post_thumbnail( 'news-item' );
+										<?php the_post_thumbnail( 'news-item' ); ?>
 
+										<?php
 										if ( $ext_url )
 											echo '</a>';
 										?>
