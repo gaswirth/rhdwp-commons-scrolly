@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:48:33 PM on 12-09-2015
+* RHD Dev: Compiled at 10:11:06 PM on 13-09-2015
 ***/
 
 .unselectable {
@@ -395,7 +395,6 @@ h6 {
   background: #034567;
   padding: 2em 0;
   margin-bottom: 4em;
-  color: #fff;
 }
 #colophon .site-info {
   margin: 0;
@@ -445,12 +444,11 @@ h6 {
 #top #masthead {
   width: 100%;
   height: 100vh;
-  background-image: url("//dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/home-temp.jpg");
+  background-image: url("//something.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
   margin: 0;
-  color: #fff;
   position: relative;
 }
 #top #masthead .header-content {
@@ -678,20 +676,20 @@ h6 {
   color: #000;
 }
 #full-bg-1 {
-  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/bio.jpg");
+  background-image: url("//something.jpg");
 }
 #full-bg-2 {
-  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/resume.jpg");
+  background-image: url("//something.jpg");
   background-position: left;
 }
 #full-bg-3 {
-  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/photo1.jpg");
+  background-image: url("//something.jpg");
 }
 #full-bg-4 {
-  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/video1.jpg");
+  background-image: url("//something.jpg");
 }
 #full-bg-5 {
-  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/contact.jpg");
+  background-image: url("//something.jpg");
 }
 /* ==========================================================================
 	Media Queries
