@@ -54,17 +54,24 @@ $section_args = array(
 						<?php foreach( $news as $post ) : setup_postdata( $post ); ?>
 							<?php if ( has_post_thumbnail() ) : ?>
 								<article id="news-<?php the_ID(); ?>" <?php post_class( 'news-entry' ); ?>>
+
+									<?php $ext_url = esc_url( get_post_meta( get_the_ID(), '_ext-link', true ) ); ?>
+
 									<header class="news-header">
-										<?php the_post_thumbnail( 'news-item' ); ?>
+										<?php
+										if ( $ext_url )
+											echo "<a href='$ext_url'>";
+
+										the_post_thumbnail( 'news-item' );
+
+										if ( $ext_url )
+											echo '</a>';
+										?>
 									</header><!-- .entry-header -->
 
 									<div class="news-content">
 										<?php the_content(); ?>
 									</div><!-- .entry-content -->
-
-									<footer class="entry-meta">
-										<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
-									</footer><!-- .entry-meta -->
 								</article><!-- #post -->
 							<?php endif; ?>
 						<?php endforeach; ?>
