@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:25:24 PM on 13-09-2015
+* RHD Dev: Compiled at 12:34:21 AM on 14-09-2015
 ***/
 
 /**
@@ -530,10 +530,6 @@ h6 {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-#news .section-content .news-entries .news-entry .news-title {
-  margin: 0.25em 0;
-  text-align: center;
-}
 #news .section-content .news-entries .news-entry .news-content {
   white-space: normal;
   text-align: center;
@@ -555,6 +551,9 @@ h6 {
 }
 #news .news-scroller a#next {
   right: 0;
+}
+#news .news-scroller a.disabled {
+  display: none;
 }
 #resume ul {
   width: 85%;
