@@ -1,9 +1,5 @@
 /***
-<<<<<<< HEAD
-* RHD Dev: Compiled at 2:42:48 PM on 14-09-2015
-=======
-* RHD Dev: Compiled at 1:37:08 AM on 14-09-2015
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
+* RHD Dev: Compiled at 4:05:29 PM on 14-09-2015
 ***/
 
 /**
@@ -358,11 +354,11 @@ body {
   margin: 0;
   background: #fff;
   color: #000;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quattrocento', serif;
 }
 a {
   outline: 0 !important;
-  color: #ac0009;
+  color: #0390d8;
 }
 a:link,
 a:visited {
@@ -381,6 +377,10 @@ h5,
 h6 {
   font-weight: 400;
 }
+#page {
+  width: 100%;
+  overflow: hidden;
+}
 #main {
   box-sizing: border-box;
 }
@@ -392,7 +392,7 @@ h6 {
 }
 #colophon {
   width: 100%;
-  background: #000;
+  background: #034567;
   color: #fff;
   padding: 2em 0;
   margin-bottom: 4em;
@@ -415,7 +415,7 @@ h6 {
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #ac0009;
+  color: #0390d8;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -426,7 +426,6 @@ h6 {
 }
 .section-title {
   font-size: 2em;
-  font-family: 'Yellowtail', cursive;
   text-align: center;
   margin: 0 auto 1em auto;
 }
@@ -455,12 +454,13 @@ h6 {
 #top #masthead {
   width: 100%;
   height: 100vh;
-  background-image: url("//dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-top.jpg");
+  background-image: url("//dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/home-temp.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
   margin: 0;
   position: relative;
+  color: #fff;
 }
 #top #masthead .header-content {
   width: 100%;
@@ -478,7 +478,6 @@ h6 {
   display: inline-block;
   font-variant: small-caps;
   line-height: 1;
-  font-family: 'Yellowtail', cursive;
 }
 #top #masthead .header-content #site-navigation-container {
   width: 94%;
@@ -514,18 +513,7 @@ h6 {
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
 #top #masthead .header-content #site-navigation-container #site-navigation li a:active {
-  color: #000;
-}
-#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu {
-  position: absolute;
-  padding-left: 0;
-  line-height: 1.7;
-  margin-top: 0.2em;
-  z-index: 999 !important;
-}
-#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu li {
-  display: block;
-  margin: 0;
+  color: #034567;
 }
 #top #bio {
   padding: 1em 0;
@@ -573,30 +561,18 @@ h6 {
   background-color: #034567;
   background-size: 40% 90%;
   background-repeat: no-repeat;
-  transition: all 0.2s;
+  transition: all 0.3s ease 0.1s;
   z-index: 1;
-}
-#news .news-scroller a:hover {
-  background-color: #0390d8;
 }
 #news .news-scroller a#prev {
   left: -2em;
   background-image: url("../img/left.png");
   background-position: 2.1em center;
 }
-#news .news-scroller a#prev:hover {
-  left: -1.5em;
-}
 #news .news-scroller a#next {
   right: -2em;
   background-image: url("../img/right.png");
   background-position: 0.4em center;
-}
-#news .news-scroller a#next:hover {
-  right: -1.5em;
-}
-#news .news-scroller a.disabled {
-  display: none;
 }
 #news .news-scroller a.disabled {
   display: none;
@@ -637,19 +613,13 @@ h6 {
   -webkit-border-radius: 0.1em;
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
-<<<<<<< HEAD
-  border: 2px solid #f0f0f0;
-  transition: all 0.2s ease 0.1s;
+  border: 2px solid #034567;
   font-family: 'Quattrocento', serif;
-=======
-  border: 2px solid #000;
-  font-family: 'Montserrat', sans-serif;
   transition: 0.2s all;
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
-  border: 2px solid #ac0009;
+  border: 2px solid #0390d8;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -661,7 +631,7 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background: #000;
+  background: #034567;
   color: #fff;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
@@ -675,7 +645,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background: #ac0009;
+  background: #0390d8;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -737,11 +707,20 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-middle.jpg");
+  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/bio.jpg");
 }
 #full-bg-2 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-bottom.jpg");
-  background-position: -210px top;
+  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/resume.jpg");
+  background-position: left;
+}
+#full-bg-3 {
+  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/photo1.jpg");
+}
+#full-bg-4 {
+  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/video1.jpg");
+}
+#full-bg-5 {
+  background-image: url("http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/contact.jpg");
 }
 @media screen and (min-width: 40em) {
   #content .section-content {
@@ -752,10 +731,8 @@ h6 {
     min-width: 30rem;
     padding-top: 1em;
     padding-bottom: 3em;
-    top: 50%;
+    top: 0;
     left: 3%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
   }
   #top #masthead .header-content #site-title {
     font-size: 3.7em;
@@ -774,13 +751,10 @@ h6 {
   #news .section-content {
     position: relative;
     max-width: 64rem;
-<<<<<<< HEAD
-=======
   }
   #news .section-content .news-entries .news-entry {
     width: auto;
     padding: 2em;
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
   }
   #resume ul {
     width: 70%;
