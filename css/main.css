@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 9:31:04 AM on 14-09-2015
+* RHD Dev: Compiled at 11:02:31 AM on 14-09-2015
 ***/
 
 .unselectable {
@@ -539,13 +539,32 @@ h6 {
   transform: translateY(-50%);
 }
 #news .news-scroller a {
+  width: 5em;
+  height: 5em;
   position: absolute;
-  font-size: 5em;
+  display: block;
+  background-color: #034567;
+  background-size: 40% 90%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+}
+#news .news-scroller a:hover {
+  background-color: #0390d8;
 }
 #news .news-scroller a#prev {
+  left: -1em;
+  background-image: url("../img/left.png");
+  background-position: 0.8em center;
+}
+#news .news-scroller a#prev:hover {
   left: 0;
 }
 #news .news-scroller a#next {
+  right: -1em;
+  background-image: url("../img/right.png");
+  background-position: 2.2em center;
+}
+#news .news-scroller a#next:hover {
   right: 0;
 }
 #news .news-scroller a.disabled {
