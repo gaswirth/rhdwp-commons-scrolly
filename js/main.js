@@ -112,6 +112,7 @@ var cycleType = null;
 				$( '.news-entries' ).cycle({
 					fx: 'scrollHorz',
 					allowWrap: false,
+					autoHeight: "calc",
 					timeout: 0,
 					next: "#next",
 					prev: "#prev",

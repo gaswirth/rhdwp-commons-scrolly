@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:46:41 PM on 14-09-2015
+* RHD Dev: Compiled at 3:09:30 PM on 14-09-2015
 ***/
 
 /**
@@ -460,7 +460,7 @@ h6 {
 #top #masthead {
   width: 100%;
   height: 100vh;
-  background-image: url("//dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-top.jpg");
+  background-image: url("//ryanfoy.com/wp-content/uploads/2015/05/foy-top.jpg");
   background-size: cover;
   background-position: 69% center;
   text-align: center;
@@ -732,10 +732,10 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-middle.jpg");
+  background-image: url("http://ryanfoy.com/wp-content/uploads/2015/05/foy-middle.jpg");
 }
 #full-bg-2 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-bottom.jpg");
+  background-image: url("http://ryanfoy.com/wp-content/uploads/2015/05/foy-bottom.jpg");
   background-position: 28% top;
 }
 @media screen and (min-width: 40em) {
@@ -825,7 +825,7 @@ h6 {
     padding-left: 0;
   }
   #contact .section-content #contact-info #social li {
-    width: 23%;
+    width: 22%;
   }
   .full-bg figcaption {
     font-size: 2em;
