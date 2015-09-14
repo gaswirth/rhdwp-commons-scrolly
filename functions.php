@@ -35,7 +35,7 @@ function rhd_enqueue_styles()
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Quattrocento:400,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Yellowtail' );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
@@ -83,7 +83,7 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Quattrocento:400,700';
+	$font_url = '//fonts.googleapis.com/css?family=Montserrat:400,700|Yellowtail';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -481,3 +481,82 @@ add_filter( 'body_class', 'rhd_body_class' );
 	Theme Functions and Customizations
    ========================================================================== */
 
+/**
+ * rhd_add_ext_link_meta_boxes function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_add_ext_link_meta_boxes() {
+	add_meta_box(
+		'rhd_ext_link_meta',
+		__( 'External Link', 'rhd' ),
+		'rhd_ext_link_meta_callback',
+		'post',
+		'normal',
+		'high'
+	);
+}
+add_action( 'add_meta_boxes', 'rhd_add_ext_link_meta_boxes' );
+
+/**
+ * rhd_ext_link_meta_callback function.
+ *
+ * @access public
+ * @param mixed $post
+ * @return void
+ */
+function rhd_ext_link_meta_callback( $post ) {
+
+	// Add an nonce field so we can check for it later.
+	wp_nonce_field( 'rhd_ext_link_meta_meta_box', 'rhd_ext_link_meta_meta_box_nonce' );
+
+	$meta = get_post_meta( $post->ID );
+?>
+
+	<p>
+	    <label for="rhd-ext-link" class="rhd-ext-link"><?php _e( 'External URL', 'rhd' )?></label>
+	    <input type="url" name="rhd-ext-link" id="rhd-ext-link" value="<?php if ( isset ( $meta['_ext-link'] ) ) echo esc_url( $meta['_ext-link'][0] ); ?>" />
+	</p>
+<?php
+}
+
+function rhd_save_ext_link_meta_box_data( $post_id ) {
+
+	// Check if our nonce is set.
+	if ( ! isset( $_POST['rhd_ext_link_meta_meta_box_nonce'] ) ) {
+		return;
+	}
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $_POST['rhd_ext_link_meta_meta_box_nonce'], 'rhd_ext_link_meta_meta_box' ) ) {
+		return;
+	}
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	// Check the user's permissions.
+	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+
+		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+			return;
+		}
+
+	} else {
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
+	}
+
+	/* OK, it's safe for us to save the data now. */
+
+	// Checks for input and saves if needed
+	if( isset( $_POST[ 'rhd-ext-link' ] ) ) {
+		update_post_meta( $post_id, '_ext-link', esc_url_raw( $_POST[ 'rhd-ext-link' ] ) );
+	}
+}
+add_action( 'save_post', 'rhd_save_ext_link_meta_box_data' );

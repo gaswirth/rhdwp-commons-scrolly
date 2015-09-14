@@ -64,7 +64,7 @@ var cycleType = null;
 
 
 		// FitText
-		fitText(document.getElementById('front-page-title'), 0.75);
+		fitText(document.getElementById('site-title'),0.6);
 
 
 		// Window resizing
@@ -105,7 +105,8 @@ var cycleType = null;
 					slides: "> article",
 					carouselVisible: 3,
 					carouselFluid: true,
-					swipe: true
+					swipe: true,
+					log: false
 				});
 				cycleType = 'multi';
 			} else {
@@ -116,7 +117,8 @@ var cycleType = null;
 					next: "#next",
 					prev: "#prev",
 					slides: "> article",
-					swipe: true
+					swipe: true,
+					log: false
 				});
 				cycleType = 'single';
 			}

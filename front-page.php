@@ -22,7 +22,7 @@ $section_args = array(
 			<section id="top">
 				<header id="masthead" class="full-bg">
 					<div class="header-content">
-						<h1 id="front-page-title"><?php bloginfo( 'name' ); ?></h1>
+						<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
 						<?php
 							$nav_args = array(
 								'menu_location' => 'primary',
@@ -37,8 +37,8 @@ $section_args = array(
 			</section>
 
 			<section id="news">
-				<h2 class="section-title">Latest News</h2>
 				<div class="section-content">
+					<h2 class="section-title">Recently</h2>
 					<?php
 					$news_args = array(
 						'post_type'			=> 'post',
@@ -54,18 +54,24 @@ $section_args = array(
 						<?php foreach( $news as $post ) : setup_postdata( $post ); ?>
 							<?php if ( has_post_thumbnail() ) : ?>
 								<article id="news-<?php the_ID(); ?>" <?php post_class( 'news-entry' ); ?>>
+
+									<?php $ext_url = esc_url( get_post_meta( get_the_ID(), '_ext-link', true ) ); ?>
+
 									<header class="news-header">
-										<?php the_post_thumbnail( 'news-item' ); ?>
-										<h2 class="news-title"><?php the_title(); ?></h2>
+										<?php
+										if ( $ext_url )
+											echo "<a href='$ext_url'>";
+
+										the_post_thumbnail( 'news-item' );
+
+										if ( $ext_url )
+											echo '</a>';
+										?>
 									</header><!-- .entry-header -->
 
 									<div class="news-content">
 										<?php the_content(); ?>
 									</div><!-- .entry-content -->
-
-									<footer class="entry-meta">
-										<?php edit_post_link( __( 'Edit', 'rhd' ), '<span class="edit-link">', '</span>' ); ?>
-									</footer><!-- .entry-meta -->
 								</article><!-- #post -->
 							<?php endif; ?>
 						<?php endforeach; ?>
@@ -83,10 +89,10 @@ $section_args = array(
 
 			<section id="full-bg-1" class="full-bg"></section>
 
-			<section id="bio">
+			<section id="media">
 				<div class="section-content">
 					<?php
-						$section_args['name'] = 'bio';
+						$section_args['name'] = 'media';
 						$section = get_posts( $section_args );
 					?>
 					<?php
@@ -99,73 +105,12 @@ $section_args = array(
 
 			<section id="full-bg-2" class="full-bg"></section>
 
-			<section id="resume">
-				<div class="section-content">
-					<?php
-						$section_args['name'] = 'resume';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
-				</div>
-			</section>
-
-			<section id="full-bg-3" class="full-bg"></section>
-
-			<section id="photo">
-				<div class="section-content">
-					<?php
-						$section_args['name'] = 'photo';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
-				</div>
-			</section>
-
-			<section id="full-bg-4" class="full-bg"></section>
-
-			<section id="video">
-				<div class="section-content">
-					<?php
-						$section_args['name'] = 'video';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
-				</div>
-			</section>
-
-			<section id="full-bg-5" class="full-bg"></section>
-
 			<section id="contact">
 				<div class="section-content">
 					<?php
 						$section_args['name'] = 'contact';
 						$section = get_posts( $section_args );
-					?>
 
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
 						}
