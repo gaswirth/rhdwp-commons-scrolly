@@ -56,7 +56,6 @@ $section_args = array(
 								<article id="news-<?php the_ID(); ?>" <?php post_class( 'news-entry' ); ?>>
 									<header class="news-header">
 										<?php the_post_thumbnail( 'news-item' ); ?>
-										<h2 class="news-title"><?php the_title(); ?></h2>
 									</header><!-- .entry-header -->
 
 									<div class="news-content">
