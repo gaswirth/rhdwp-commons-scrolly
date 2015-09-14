@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:10:32 PM on 14-09-2015
+* RHD Dev: Compiled at 12:14:10 PM on 14-09-2015
 ***/
 
 .unselectable {
@@ -481,7 +481,7 @@ h6 {
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a {
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease 0.1s;
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a:link,
 #top #masthead .header-content #site-navigation-container #site-navigation li a:visited {
@@ -547,7 +547,7 @@ h6 {
   background-color: #034567;
   background-size: 40% 90%;
   background-repeat: no-repeat;
-  transition: all 0.2s;
+  transition: all 0.2s ease 0.1s;
   z-index: 1;
 }
 #news .news-scroller a:hover {
@@ -609,7 +609,7 @@ h6 {
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
   border: 2px solid #f0f0f0;
-  transition: 0.2s all;
+  transition: all 0.2s ease 0.1s;
   font-family: 'Quattrocento', serif;
 }
 #contact #contact-form input:focus,
@@ -635,7 +635,6 @@ h6 {
   font-weight: 300;
   display: block;
   cursor: pointer;
-  transition: all 0.2s;
 }
 #contact #contact-form input[type="submit"]:hover,
 #contact #contact-form textarea[type="submit"]:hover,
