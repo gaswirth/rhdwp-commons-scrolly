@@ -1,7 +1,26 @@
 @require "partials/_global.styl"
 
+#news
+	.news-scroller
+		a
+			&:hover
+				background-color $color3
 
-/* ==========================================================================
-	MEDIA QUERIES
-   ========================================================================== */
+			&#prev
+				left -2em
+				background-image url(../img/left.png)
+				background-position 2.1em center
 
+				&:hover
+					left -1.5em
+
+			&#next
+				right -2em
+				background-image url(../img/right.png)
+				background-position 0.4em center
+
+				&:hover
+					right -1.5em
+
+			&.disabled
+				display none

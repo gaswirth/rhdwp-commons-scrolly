@@ -98,7 +98,6 @@ h6
 
 .section-title
 	font-size 2em
-	font-family $ff-title
 	text-align center;
 	margin 0 auto 1em auto
 
@@ -134,6 +133,7 @@ h6
 		text-align center
 		margin 0
 		position relative
+		color white
 
 		.header-content
 			width 100%
@@ -149,7 +149,6 @@ h6
 				display inline-block
 				font-variant small-caps
 				line-height 1
-				font-family $ff-title
 
 			#site-navigation-container
 				width 94%
@@ -180,10 +179,6 @@ h6
 							&:hover
 							&:active
 								color $color2
-
-							li
-								display block
-								margin 0
 
 	#bio
 		padding 1em 0
@@ -230,19 +225,13 @@ h6
 			background-color $color2
 			background-size 40% 90%
 			background-repeat no-repeat
-			transition all 0.2s
+			transition all 0.3s ease 0.1s
 			z-index 1
-
-			&:hover
-				background-color $color3
 
 			&#prev
 				left -2em
 				background-image url('//something')
 				background-position 2.1em center
-
-				&:hover
-					left -1.5em
 
 			&#next
 				right -2em
@@ -372,11 +361,26 @@ h6
 
 
 #full-bg-1
+<<<<<<< HEAD
 	background-image url('//something')
 
 #full-bg-2
 	background-image url('//something')
 	background-position -210px top
+
+#full-bg-2
+	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/resume.jpg')
+	background-position left
+
+#full-bg-3
+	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/photo1.jpg')
+
+#full-bg-4
+	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/video1.jpg')
+
+#full-bg-5
+	background-image url('http://dev.roundhouse-designs.com/rachelwomble/wp-content/uploads/2015/09/contact.jpg')
+>>>>>>> 21d37e8a6b29cda3a961ce2268d47ef4734f2b27
 
 
 /* ==========================================================================
@@ -395,9 +399,8 @@ h6
 				min-width 30rem
 				padding-top 1em
 				padding-bottom 3em
-				top 50%
+				top 0
 				left 3%
-				-transform(translateY(-50%))
 
 				#site-title
 					font-size 3.7em
