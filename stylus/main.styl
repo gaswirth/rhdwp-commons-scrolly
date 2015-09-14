@@ -159,12 +159,13 @@ h6
 					list-style none
 					margin 0
 					padding-left 0
-					line-height 2
-					-flexbox()
+					text-align center
 					line-height initial
 
 					li
-						-flexitem()
+						width 32%
+						display inline-block
+						line-height 2
 						font-size 1.2em
 						text-transform uppercase
 
@@ -396,8 +397,17 @@ h6
 				top 0
 				left 3%
 
-				#site-title
-					font-size 3.7em
+				#site-navigation-container
+					#site-navigation
+						-flexbox()
+
+						li
+							width auto
+							-flexitem()
+
+
+					#site-title
+						font-size 3.7em
 
 
 		#bio

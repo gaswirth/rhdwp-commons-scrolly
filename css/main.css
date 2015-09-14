@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:05:29 PM on 14-09-2015
+* RHD Dev: Compiled at 4:16:07 PM on 14-09-2015
 ***/
 
 .unselectable {
@@ -488,18 +488,13 @@ h6 {
   list-style: none;
   margin: 0;
   padding-left: 0;
-  line-height: 2;
-  text-align: justify;
-  padding: 0;
+  text-align: center;
   line-height: initial;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
 #top #masthead .header-content #site-navigation-container #site-navigation li {
+  width: 32%;
   display: inline-block;
+  line-height: 2;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -737,7 +732,20 @@ h6 {
     top: 0;
     left: 3%;
   }
-  #top #masthead .header-content #site-title {
+  #top #masthead .header-content #site-navigation-container #site-navigation {
+    text-align: justify;
+    padding: 0;
+  }
+  #top #masthead .header-content #site-navigation-container #site-navigation:after {
+    width: 100%;
+    display: inline-block;
+    content: '';
+  }
+  #top #masthead .header-content #site-navigation-container #site-navigation li {
+    width: auto;
+    display: inline-block;
+  }
+  #top #masthead .header-content #site-navigation-container #site-title {
     font-size: 3.7em;
   }
   #top #bio {
