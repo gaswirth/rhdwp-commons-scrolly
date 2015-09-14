@@ -105,7 +105,8 @@ var cycleType = null;
 					slides: "> article",
 					carouselVisible: 3,
 					carouselFluid: true,
-					swipe: true
+					swipe: true,
+					log: false
 				});
 				cycleType = 'multi';
 			} else {
@@ -116,7 +117,8 @@ var cycleType = null;
 					next: "#next",
 					prev: "#prev",
 					slides: "> article",
-					swipe: true
+					swipe: true,
+					log: false
 				});
 				cycleType = 'single';
 			}
