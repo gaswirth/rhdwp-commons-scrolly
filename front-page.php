@@ -82,12 +82,14 @@ $section_args = array(
 				</div>
 
 				<div class="news-scroller">
-					<a id="next" href="#">></a>
-					<a id="prev" href="#"><</a>
+					<a id="next" href="#"></a>
+					<a id="prev" href="#"></a>
 				</div>
 			</section>
 
-			<section id="full-bg-1" class="full-bg"></section>
+			<section id="full-bg-1" class="full-bg">
+				<?php rhd_full_bg_caption(); ?>
+			</section>
 
 			<section id="media">
 				<div class="section-content">

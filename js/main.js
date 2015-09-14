@@ -51,11 +51,11 @@ var cycleType = null;
 			// Skrollr parallax
 			$(".full-bg:nth-of-type(1)")
 				.attr("data-start", "background-position: center 0px")
-				.attr("data-top-bottom", "background-position: center 400px");
+				.attr("data-top-bottom", "background-position: inherit 400px");
 
 			$(".full-bg:nth-of-type(n+2)")
-				.attr("data-bottom-top", "background-position: center -200px;")
-				.attr("data-top-bottom", "background-position: center 200px;");
+				.attr("data-bottom-top", "background-position: inherit -200px;")
+				.attr("data-top-bottom", "background-position: inherit 200px;");
 
 			if ( $window.width() > 640 ) {
 				skrollrInit();
@@ -105,7 +105,6 @@ var cycleType = null;
 					slides: "> article",
 					carouselVisible: 3,
 					carouselFluid: true,
-					swipe: true,
 					log: false
 				});
 				cycleType = 'multi';
@@ -117,7 +116,6 @@ var cycleType = null;
 					next: "#next",
 					prev: "#prev",
 					slides: "> article",
-					swipe: true,
 					log: false
 				});
 				cycleType = 'single';

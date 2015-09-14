@@ -477,8 +477,38 @@ function rhd_body_class( $body_classes )
 add_filter( 'body_class', 'rhd_body_class' );
 
 
+/**
+ * rhd_redirect_post function.
+ *
+ * @access public
+ * @return void
+ *
+ * Redirects users who try to view a single post page
+ */
+function rhd_redirect_post() {
+	if ( is_single() && get_post_type() == 'post' ) {
+		wp_safe_redirect( home_url(), 301 );
+	exit;
+	}
+}
+add_action( 'template_redirect', 'rhd_redirect_post' );
+
+
+/**
+ * rhd_full_bg_caption function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_full_bg_caption() {
+	$dl_post = get_posts( array( 'post_type' => 'page', 'post_status' => 'publish', 'name' => 'download-resume' ) );
+
+	echo "<div class='full-bg-caption'>" . $dl_post[0]->post_content . "</div>\n";
+}
+
+
 /* ==========================================================================
-	Theme Functions and Customizations
+	Meta Boxes
    ========================================================================== */
 
 /**
@@ -521,6 +551,14 @@ function rhd_ext_link_meta_callback( $post ) {
 <?php
 }
 
+
+/**
+ * rhd_save_ext_link_meta_box_data function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @return void
+ */
 function rhd_save_ext_link_meta_box_data( $post_id ) {
 
 	// Check if our nonce is set.
