@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:00:40 PM on 14-09-2015
+* RHD Dev: Compiled at 4:01:55 PM on 14-09-2015
 ***/
 
 /**
@@ -516,14 +516,7 @@ h6 {
 #top #masthead .header-content #site-navigation-container #site-navigation li a:active {
   color: #000;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu {
-  position: absolute;
-  padding-left: 0;
-  line-height: 1.7;
-  margin-top: 0.2em;
-  z-index: 999 !important;
-}
-#top #masthead .header-content #site-navigation-container #site-navigation li .sub-menu li {
+#top #masthead .header-content #site-navigation-container #site-navigation li a li {
   display: block;
   margin: 0;
 }
