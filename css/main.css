@@ -1,9 +1,5 @@
 /***
-<<<<<<< HEAD
-* RHD Dev: Compiled at 2:42:48 PM on 14-09-2015
-=======
-* RHD Dev: Compiled at 1:37:08 AM on 14-09-2015
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
+* RHD Dev: Compiled at 3:40:25 PM on 14-09-2015
 ***/
 
 .unselectable {
@@ -455,7 +451,7 @@ h6 {
 #top #masthead {
   width: 100%;
   height: 100vh;
-  background-image: url("//dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-top.jpg");
+  background-image: url("//something");
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -570,18 +566,18 @@ h6 {
   height: 5em;
   position: absolute;
   display: block;
-  background-color: #034567;
+  background-color: #000;
   background-size: 40% 90%;
   background-repeat: no-repeat;
   transition: all 0.2s;
   z-index: 1;
 }
 #news .news-scroller a:hover {
-  background-color: #0390d8;
+  background-color: #ac0009;
 }
 #news .news-scroller a#prev {
   left: -2em;
-  background-image: url("../img/left.png");
+  background-image: url("//something");
   background-position: 2.1em center;
 }
 #news .news-scroller a#prev:hover {
@@ -589,14 +585,8 @@ h6 {
 }
 #news .news-scroller a#next {
   right: -2em;
-  background-image: url("../img/right.png");
+  background-image: url("//something");
   background-position: 0.4em center;
-}
-#news .news-scroller a#next:hover {
-  right: -1.5em;
-}
-#news .news-scroller a.disabled {
-  display: none;
 }
 #news .news-scroller a.disabled {
   display: none;
@@ -637,15 +627,9 @@ h6 {
   -webkit-border-radius: 0.1em;
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
-<<<<<<< HEAD
-  border: 2px solid #f0f0f0;
-  transition: all 0.2s ease 0.1s;
-  font-family: 'Quattrocento', serif;
-=======
   border: 2px solid #000;
   font-family: 'Montserrat', sans-serif;
   transition: 0.2s all;
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
@@ -728,7 +712,7 @@ h6 {
 }
 .full-bg .full-bg-caption a:hover,
 .full-bg .full-bg-caption a:active {
-  color: #034567;
+  color: #000;
 }
 .full-bg .full-bg-caption h1,
 .full-bg .full-bg-caption h2,
@@ -737,10 +721,10 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-middle.jpg");
+  background-image: url("//something");
 }
 #full-bg-2 {
-  background-image: url("http://dev.roundhouse-designs.com/ryanfoy/wp-content/uploads/2015/05/foy-bottom.jpg");
+  background-image: url("//something");
   background-position: -210px top;
 }
 /* ==========================================================================
@@ -777,13 +761,10 @@ h6 {
   #news .section-content {
     position: relative;
     max-width: 64rem;
-<<<<<<< HEAD
-=======
   }
   #news .section-content .news-entries .news-entry {
     width: auto;
     padding: 2em;
->>>>>>> 3d32bf639f444881e4a2a13eb29ef2c135e1ca24
   }
   #resume ul {
     width: 70%;
