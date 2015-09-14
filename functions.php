@@ -478,6 +478,23 @@ add_filter( 'body_class', 'rhd_body_class' );
 
 
 /**
+ * rhd_redirect_post function.
+ *
+ * @access public
+ * @return void
+ *
+ * Redirects users who try to view a single post page
+ */
+function rhd_redirect_post() {
+	if ( is_single() && get_post_type() == 'post' ) {
+		wp_safe_redirect( home_url(), 301 );
+	exit;
+	}
+}
+add_action( 'template_redirect', 'rhd_redirect_post' );
+
+
+/**
  * rhd_full_bg_caption function.
  *
  * @access public
