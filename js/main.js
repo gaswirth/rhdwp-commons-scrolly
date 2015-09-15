@@ -102,12 +102,10 @@ var playlistId = 'PLAYLIST_ID';
 				playlist: playlistId,
 				autoplay: false,
 			});
-		} else { // Fallback to one video
-			//var vid_id = 'EVrAL7DHySw';
+		} else { // Fallback to default YouTube playlist
 			$("#ytv")
 				.addClass('ytv-mobile')
-				.html('<a href="https://www.youtube.com/playlist?list=' + playlistId + '" target="_blank"><img src="' + siteData.imgDir + '/youtube-icon.png" alt="YouTube"></a>');
-				//.html('<iframe id="ytplayer" type="text/html" src="http://youtube.com/embed/EVrAL7DHySw" width="100%" height="100%" frameborder="0" />');
+				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
 		}
 
 
