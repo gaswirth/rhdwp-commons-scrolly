@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:32:52 PM on 15-09-2015
+* RHD Dev: Compiled at 4:05:51 PM on 15-09-2015
 ***/
 
 .unselectable {
@@ -585,6 +585,7 @@ h6 {
   position: relative;
   margin: 1em auto 1em auto;
   height: 50vh;
+  max-width: 100%;
 }
 #media #ytv.ytv-mobile {
   width: 18.75rem;
