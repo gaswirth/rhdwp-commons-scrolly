@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:46:34 PM on 14-09-2015
+* RHD Dev: Compiled at 3:32:52 PM on 15-09-2015
 ***/
 
 .unselectable {
@@ -578,6 +578,22 @@ h6 {
 }
 #news .news-scroller a.disabled {
   display: none;
+}
+#media #ytv {
+  width: 85%;
+  max-width: 64em;
+  position: relative;
+  margin: 1em auto 1em auto;
+  height: 50vh;
+}
+#media #ytv.ytv-mobile {
+  width: 18.75rem;
+  height: auto;
+  margin-bottom: 1em;
+}
+#media #ytv.ytv-mobile img {
+  width: 100%;
+  height: auto;
 }
 #resume ul {
   width: 85%;

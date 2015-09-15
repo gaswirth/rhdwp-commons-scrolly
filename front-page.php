@@ -152,6 +152,9 @@ $section_args = array(
 
 					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 
+					<!-- Youtube-TV -->
+					<div id="ytv"></div>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
