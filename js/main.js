@@ -10,19 +10,21 @@ var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
 	isPaged = $body.hasClass('paged');
 
-var isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false;
-var isMobile = ( $body.hasClass('mobile') === true ) ? true : false;
-var isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
+var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
+	isMobile = ( $body.hasClass('mobile') === true ) ? true : false,
+	isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
+
+// Site Data object: siteData
 
 
 /* ==========================================================================
 	Let 'er rip... (DOM Ready)
    ========================================================================== */
 
-// Initialize empty global skrollr object variable
+// Init
 var skr = null;
 var cycleType = null;
-
+var playlistId = 'PLJiJIfRMf1So8hI7-I69QsW1STmiiGm4q';
 
 (function($){
 	$(document).ready(function($){
@@ -77,7 +79,7 @@ var cycleType = null;
 						skr.destroy();
 						skr = null;
 					} catch(err) {
-						throw "Warning: Parallax disabled on this device.\n" . err;
+						throw "Error: Parallax disabled on this device.\n" . err;
 					}
 				}
 			} else {
@@ -93,33 +95,17 @@ var cycleType = null;
 		else
 			rhdCycleInit(true);
 
-		function rhdCycleInit( is_carousel ) {
-			if ( is_carousel === true ) {
-				$( '.news-entries' ).cycle({
-					fx: 'carousel',
-					timeout: 0,
-					autoHeight: "calc",
-					allowWrap: false,
-					next: "#next",
-					prev: "#prev",
-					slides: "> article",
-					carouselVisible: 3,
-					carouselFluid: true,
-					log: false
-				});
-				cycleType = 'multi';
-			} else {
-				$( '.news-entries' ).cycle({
-					fx: 'scrollHorz',
-					allowWrap: false,
-					timeout: 0,
-					next: "#next",
-					prev: "#prev",
-					slides: "> article",
-					log: false
-				});
-				cycleType = 'single';
-			}
+
+		// YouTube TV
+		if ( !isMobile ) {
+			$("#ytv").ytv({
+				playlist: playlistId,
+				autoplay: false,
+			});
+		} else { // Fallback to default YouTube playlist
+			$("#ytv")
+				.addClass('ytv-mobile')
+				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
 		}
 
 
@@ -137,21 +123,49 @@ var cycleType = null;
 			resizeId = setTimeout(doneResizing, 500);
 		});
 	});
-})(jQuery);
 
 
-/* ==========================================================================
-	Functions
-   ========================================================================== */
+	/* ==========================================================================
+		Functions
+	============================================================================= */
 
-
-function skrollrInit() {
-	try {
-		skr = skrollr.init({
-			forceHeight: false,
-			smoothScrollingDuration: -100
-		});
-	} catch(err) {
-		throw "Warning: Parallax effects disabled on this device.\n" . err;
+	function skrollrInit() {
+		try {
+			skr = skrollr.init({
+				forceHeight: false,
+				smoothScrollingDuration: -100
+			});
+		} catch(err) {
+			throw "Error: Parallax disabled on this device.\n" . err;
+		}
 	}
-}
+
+	function rhdCycleInit( is_carousel ) {
+		if ( is_carousel === true ) {
+			$( '.news-entries' ).cycle({
+				fx: 'carousel',
+				timeout: 0,
+				autoHeight: "calc",
+				allowWrap: false,
+				next: "#next",
+				prev: "#prev",
+				slides: "> article",
+				carouselVisible: 3,
+				carouselFluid: true,
+				log: false
+			});
+			cycleType = 'multi';
+		} else {
+			$( '.news-entries' ).cycle({
+				fx: 'scrollHorz',
+				allowWrap: false,
+				timeout: 0,
+				next: "#next",
+				prev: "#prev",
+				slides: "> article",
+				log: false
+			});
+			cycleType = 'single';
+		}
+	}
+})(jQuery);
