@@ -24,7 +24,7 @@ var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
 // Init
 var skr = null;
 var cycleType = null;
-var playlistId = 'PLJiJIfRMf1So8hI7-I69QsW1STmiiGm4q';
+var playlistId = 'PLAYLIST_ID';
 
 (function($){
 	$(document).ready(function($){
