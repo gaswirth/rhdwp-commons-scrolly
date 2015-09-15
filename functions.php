@@ -136,13 +136,15 @@ function rhd_skrollr_refresh()
 {
 	echo '
 		<script>
-			if ( typeof skr != "undefined" && skr != null ) {
-				jQuery(window).load(function(){skr.refresh();});
-			}
+			jQuery(window).load(function(){
+				if ( skr != null || typeof skr != "undefined" ) {
+					skr.refresh();
+				}
+			});
 		</script>
 		';
 }
-add_action( 'wp_footer', 'rhd_skrollr_refresh', 999 );
+add_action( 'wp_head', 'rhd_skrollr_refresh', 999 );
 
 /* ==========================================================================
    Sidebars + Menus
