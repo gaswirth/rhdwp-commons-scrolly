@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:14:17 PM on 15-09-2015
+* RHD Dev: Compiled at 4:30:22 PM on 15-09-2015
 ***/
 
 .unselectable {
@@ -446,10 +446,6 @@ h6 {
 #content iframe {
   max-width: 100%;
   display: block;
-}
-#content iframe[src*="youtube"],
-#content iframe[src*="vimeo"] {
-  margin: 1em auto;
 }
 #top {
   position: relative;
