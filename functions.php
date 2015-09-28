@@ -476,6 +476,53 @@ add_action( 'template_redirect', 'rhd_redirect_post' );
 
 
 /**
+ * rhd_archive_pagination function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_archive_pagination()
+{
+	$sep = ( get_previous_posts_link() != '' ) ? '<div class="pag-sep"></div>' : null;
+
+	echo '<div class="pagination">';
+
+	echo '<span class="pag-next">' . next_posts_link( '&larr; Older', null ) . '</span>';
+
+	if ( $sep ) {
+		echo '<div class="pag-sep"></div>';
+	}
+
+	echo '<span class="pag-prev">' . previous_posts_link( 'Newer &rarr;', null ) . '</span>';
+	echo '</div>';
+}
+
+
+/**
+ * rhd_single_pagination function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_single_pagination()
+{
+	$next = get_previous_post_link( '%link', '&lt; Older' );
+	$prev = get_next_post_link( '%link', 'Newer &gt;' );
+	$spacer = '<div class="pag-spacer"></div>';
+
+	echo "<div class='single-pagination'>\n";
+
+	echo ( $next != '' ) ? $next : $spacer;
+
+	echo  "<div class='pag-sep'></div>\n";
+
+	echo ( $prev != '' ) ? $prev : $spacer;
+
+	echo "</div>\n";
+}
+
+
+/**
  * rhd_full_bg_caption function.
  *
  * @access public
