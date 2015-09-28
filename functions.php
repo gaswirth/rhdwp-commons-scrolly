@@ -488,6 +488,24 @@ function rhd_full_bg_caption() {
 }
 
 
+/**
+ * rhd_svg_logo_main function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_svg_logo() {
+	echo '
+			<svg id="PLACEHOLDER">
+				<a href="hide-on-fallback">
+					<!-- SVG CODE HERE -->
+				</a>
+				<image src="' . RHD_IMG_DIR . '/logo-large.png" alt="' . get_bloginfo( 'name' ) . '" xlink:href="">
+			</svg>
+		';
+}
+
+
 /* ==========================================================================
 	Meta Boxes
    ========================================================================== */
