@@ -11,11 +11,12 @@
 html
 	width 100%
 	text-shadow 0 0 1px transparent
-	font-size 16px
+	font-size 18px
 	margin 0
 	background white
 	color black
-	font-family $ff-body
+	font-family $ff_body
+	font-weight 400
 
 
 body
@@ -24,16 +25,13 @@ body
 
 a
 	outline 0 !important
-	color $color3
-
-	&:link
-	&:visited
-		text-decoration none
+	color $rust
+	transition all 0.25s
+	text-decoration none
 
 	&:hover
 	&:active
-	&:focus
-		text-decoration underline
+		color $orange
 
 
 h1
@@ -42,7 +40,7 @@ h3
 h4
 h5
 h6
-	font-weight 400
+	font-weight 100
 
 
 #page
@@ -63,18 +61,16 @@ h6
 
 #colophon
 	width 100%
-	background $color2
+	background $gray
 	color white
-	padding 2em 0
-	margin-bottom 4em
+	padding 1em 0
 
 	.site-info
 		margin 0
-		padding 1em 0
 		text-align center
 		line-height 1.7
 		font-size 1.1em
-		font-weight 300
+		font-weight 100
 
 		a
 			text-decoration none
@@ -86,7 +82,7 @@ h6
 
 			&:hover
 			&:active
-				color $color3
+				color $orange
 
 	#rhd-logo-footer
 		width 1.35em
@@ -109,8 +105,18 @@ h6
 
 	.section-content
 		-wrapper()
+		-clearfix()
 		padding 1em 0
-		@extends .clearfix
+
+		& > *
+			&:first-child
+				margin-top 0
+
+		h2
+			font-size 2em
+
+		h3
+			font-size 1.8em
 
 	iframe
 		max-width 100%
@@ -119,158 +125,73 @@ h6
 
 #top
 	position relative
+	background-image url($updir + '/2015/09/edge-bg-home.jpg')
 
 	#masthead
-		width 100%
-		height 100vh
-		background-image url('//something')
-		background-size cover
-		background-position center
+		width 17%
+		min-width 13rem
+		height 100%
 		text-align center
-		margin 0
+		margin 0 auto
 		position relative
 
-		.header-content
+		#site-title
 			width 100%
-			padding 1em
+			height auto
 			position absolute
-			bottom 0
-			-border-radius(3px)
+			top 50%
+			left 0
+			-transform(translateY(-50%))
 
-			#site-title
-				width 100%
-				margin 0 auto
-				font-size 2.5em
-				display inline-block
-				font-variant small-caps
-				line-height 1
-
-			#site-navigation-container
-				width 94%
-				margin 0 auto
-				text-align center
-
-				#site-navigation
-					list-style none
-					margin 0
-					padding-left 0
-					line-height 2
-					-flexbox()
-					line-height initial
-
-					li
-						-flexitem()
-						font-size 1.2em
-						text-transform uppercase
-
-						a
-							text-decoration none
-							transition color 0.2s
-
-							&:link
-							&:visited
-								color inherit
-
-							&:hover
-							&:active
-								color $color2
-
-	#bio
-		padding 1em 0
+		#site-title-text
+			-invisible()
 
 
-#news
-	background white
-	padding 1em 0 2em 0
+#nav
+	height 5rem
+	background-color $gray
 
-	.section-content
-		.news-entries
-			width 100%
+	#nav-logo
+		width 12%
+		min-width 10rem
+		position relative
+		margin-left 1%
 
-			.news-entry
-				width 95%
-				margin 0 auto
-				padding 0 1.5em
-				display block
-				vertical-align top
-				z-index 100
-
-				img
-					width 100%
-					margin 0 auto 0.25em auto
-					display block
-					-border-radius(2px)
-
-				.news-content
-					white-space normal
-					text-align center
-
-	.news-scroller
-		width 100%
-		display block
-		position absolute
-		top 50%
-		-transform(translateY(-50%))
-
-		a
-			width 4em
-			height 5em
-			position absolute
-			display block
-			background-color $color2
-			background-size 40% 90%
-			background-repeat no-repeat
-			transition all 0.3s ease 0.1s
-			z-index 1
-
-			&#prev
-				left -2em
-				background-image url('../img/left.png')
-				background-position 2.1em center
-
-			&#next
-				right -2em
-				background-image url('../img/right.png')
-				background-position 0.4em center
-
-			&.disabled
-				display none
-
-#media
-	#ytv
-		-wrapper(1em, 1em)
-		height 50vh
-		max-width 100%
-
-		&.ytv-mobile
-			margin-bottom 1em
-
-			img
-				width 100%
-				height auto
-
-			iframe
-				width 100%
-				height 100%
-
-
-#resume
-	ul
-		-wrapper()
+	#site-navigation
 		list-style none
 		padding-left 0
 
 		li
-			width 100%
-			margin-bottom 1em
-			border-radius .125rem
+			text-transform uppercase
 
-			&:last-child
-				margin-bottom 0
+			a
+				text-decoration none
 
-			img
-				width 100%
-				height auto
+				&:link
+				&:visited
+					color white
+
+				&:active
+				&:hover
+					color $rust
+
+	#site-navigation-container
+		display none
+
+	#hamburger
+		font-size 1.2em // relative resizing
+		background-color black // sample bg animation color
+		position absolute
+		top 50%
+		right 0
+		-transform(translateY(-50%))
+
+		&.active
+			background-color gray // sample bg animation color
+
+
+#intro
+	color white
 
 
 #contact
@@ -289,12 +210,12 @@ h6
 			padding-left 0.25em
 			padding-right 0.25em
 			-border-radius(0.1em)
-			border 2px solid $color2
-			font-family $ff-body
+			border 2px solid $rust
+			font-family $ff_body
 			transition 0.2s all
 
 			&:focus
-				border 2px solid $color3
+				border 2px solid $orange
 
 			&[type="email"]
 			&[type="text"]
@@ -303,19 +224,19 @@ h6
 
 			&[type="submit"]
 				width 100%
-				background $color2
+				background $rust
 				color white
 				border none
 				padding 0.5em 0.2em 0.4em 0.2em
 				font-size 1.1em
 				text-align center
-				font-weight 300
+				font-weight 100
 				display block
 				cursor pointer
 
 				&:hover
 				&:active
-					background $color3
+					background $orange
 
 		textarea
 			width 100%
@@ -348,36 +269,154 @@ h6
 	background-position center top
 	background-repeat no-repeat
 
-	.full-bg-caption
-		width 100%
-		background rgba( 255, 255, 255, 0.75 )
-		padding 1em 0
-		font-size 2em
-		color black
-		text-align center
-		position absolute
-		bottom 0
-
-		a
-			color inherit
-			text-decoration none
-
-			&:hover
-			&:active
-				color $color2
-
-		h1
-		h2
-		h3
-		p
-			margin 0
-
 
 #full-bg-1
-	background-image url('//something')
+	background-image url($updir + '/2015/09/edge-bg-blog.jpg')
+
 
 #full-bg-2
-	background-image url('//something')
+	background-image url($updir + '/2015/09/edge-bg-teaching.jpg')
+
+
+#full-bg-3
+	background-image url($updir + '/2015/09/edge-bg-coaching.jpg')
+
+
+#full-bg-4
+	background-image url($updir + '/2015/09/edge-bg-about.jpg')
+
+
+.bg-white
+	background-color white
+
+.bg-blue
+.bg-orange
+.bg-rust
+.bg-pink
+	color white
+
+.bg-blue
+	background-color $blue
+
+.bg-orange
+	background-color $orange
+
+.bg-rust
+	background-color $rust
+
+.bg-pink
+	background-color $pink
+
+
+.section-content
+.entry-content
+	iframe
+		display block
+		margin 0 auto
+
+
+/* ==========================================================================
+	Ghost Buttons
+   ========================================================================== */
+
+.ghost-button
+	width auto
+	padding 0.5em 1em
+	text-decoration none !important
+	text-align center
+	transition all 0.25s
+	background-color transparent
+	color black
+	border 2px solid black
+
+	&:hover
+	&:active
+		color white
+		border-color black
+		background-color black
+
+
+.bg-blue
+	.ghost-button
+		color white
+		border-color white
+
+		&:hover
+		&:active
+			color $blue
+			border-color $blue
+			background-color white
+
+.bg-blue
+.bg-orange
+.bg-rust
+.bg-pink
+	.ghost-button
+		color white
+		border-color white
+
+		&:hover
+		&:active
+			background-color white
+
+
+.bg-blue
+	.ghost-button
+		&:hover
+		&:active
+			color $blue
+
+
+.bg-orange
+	.ghost-button
+		&:hover
+		&:active
+			color $orange
+
+
+.bg-rust
+	.ghost-button
+		&:hover
+		&:active
+			color $rust
+
+
+.bg-pink
+	.ghost-button
+		&:hover
+		&:active
+			color $pink
+
+/* ==========================================================================
+	Blog
+   ========================================================================== */
+
+.front-page
+.blog
+	.entry-title
+		margin 0.25em 0 0 0
+		font-weight 700
+		font-size 1.5em
+
+	.entry-details
+		margin-top 0
+		font-size 0.9em
+
+.front-page
+	.front-page-entry
+		-clearfix()
+
+	.front-page-entry-thumb
+		float left
+		margin-right 1em
+
+	.ghost-button
+		margin-top 2em
+		position relative
+		left 50%
+		font-size 1.2em
+		-transform(translateX(-50%))
+		display inline-block
 
 
 /* ==========================================================================
@@ -389,61 +428,12 @@ h6
 		.section-content
 			padding 3em 0
 
-	#top
-		#masthead
-			.header-content
-				width 40%
-				min-width 30rem
-				padding-top 1em
-				padding-bottom 3em
-				top 0
-				left 3%
-
-				#site-title
-					font-size 3.7em
-
-
-		#bio
-			width 45%
-			position absolute
-			bottom 0
-			left 3%
-			padding 1em
-			text-align justify
-			-border-radius(3px)
-
-	#news
-		.section-content
-			position relative
-			max-width 64rem
-
-			.news-entries
-				.news-entry
-					width auto
-					padding 2em
-
-
-	#resume
-		ul
-			-wrapper(0,0,70%)
-			-flexbox()
-			list-style none
-			padding-left 0
-
-			li
-				width 34%
-				-flexitem()
-
-				img
-					width 100%
-					height auto
-
 
 	#contact
 		.section-content
 			margin 2em auto
 
-			@extends .clearfix
+			-clearfix()
 
 			#contact-form
 				width 60%
@@ -459,10 +449,44 @@ h6
 				margin-top 1em
 
 
-	.full-bg
-		figcaption
-			font-size 2em
+	#primary
+		&.blog-index
+			#content
+				-wrapper(1em, 1em)
+
+			.post
+				width 47%
+				transition all 0.25s
+
+			.gutter-sizer
+				width 6%
 
 
-	#full-bg-2
-		background-position center
+@media screen and (min-width 60em)
+	#nav
+		#site-navigation-container
+			width 80%
+			position absolute
+			top 50%
+			right 2%
+			-transform(translateY(-50%))
+			display block
+
+			#site-navigation
+				-flexbox()
+
+				li
+					-flexitem()
+					font-size 1em
+					font-weight 100
+
+		#hamburger
+			display none
+
+
+@media screen and (min-width 64em)
+	#nav
+		#site-navigation-container
+			#site-navigation
+				li
+					font-size 1.1em

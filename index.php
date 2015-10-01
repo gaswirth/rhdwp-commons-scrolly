@@ -8,12 +8,15 @@
 
 get_header(); ?>
 
-	<section id="primary" class="site-content">
+	<section id="primary" class="site-content <?php echo ( !is_single() ) ? 'blog-index' : 'blog-single'; ?>">
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php /* Start the Loop */ ?>
+				<?php if ( !is_single() ) : ?>
+					<div class="gutter-sizer"></div>
+				<?php endif; ?>
+
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content' ); ?>
 				<?php endwhile; ?>

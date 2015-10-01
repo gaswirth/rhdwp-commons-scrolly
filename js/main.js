@@ -6,6 +6,11 @@ var $window = jQuery(window),
 	$body = jQuery('body'),
 	$main = jQuery('#main');
 
+
+var $packery = jQuery(".blog-index #content"),
+	packeryIsActive = false;
+
+
 var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
 	isPaged = $body.hasClass('paged');
@@ -23,8 +28,6 @@ var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
 
 // Init
 var skr = null;
-var cycleType = null;
-var playlistId = 'PLAYLIST_ID';
 
 (function($){
 	$(document).ready(function($){
@@ -65,8 +68,14 @@ var playlistId = 'PLAYLIST_ID';
 		}
 
 
+		// Slidebars
+		$.slidebars({
+			siteClose: false,
+		});
+
+
 		// FitText
-		fitText(document.getElementById('site-title'), 0.75);
+		// fitText(document.getElementById('site-title'), 0.75);
 
 
 		// Window resizing
@@ -89,38 +98,23 @@ var playlistId = 'PLAYLIST_ID';
 			}
 		}
 
-		// News Scrolling
-		if ( $window.width() < 640 )
-			rhdCycleInit(false);
-		else
-			rhdCycleInit(true);
 
+		// Packery
+		if ( !isMobile )
+			packeryInit();
 
-		// YouTube TV
-		if ( !isMobile ) {
-			$("#ytv").ytv({
-				playlist: playlistId,
-				autoplay: false,
-			});
-		} else { // Fallback to default YouTube playlist
-			$("#ytv")
-				.addClass('ytv-mobile')
-				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
-		}
+		$(window).resize(function(){
+			if ( $(window).width() < 640 && packeryIsActive ) {
+				$packery.packery('destroy');
+				packeryIsActive = false;
+			} else
+				packeryInit();
+		});
 
 
 		// Resize event
 		$window.on('resize', function(){
-			if ( $window.width() < 640 && cycleType == 'multi' ) {
-				$('.news-entries').cycle('destroy');
-				rhdCycleInit(false);
-			} else if ( $window.width() > 640 && cycleType == 'single' ) {
-				$('.news-entries').cycle('destroy');
-				rhdCycleInit(true);
-			}
 
-			clearTimeout(resizeId);
-			resizeId = setTimeout(doneResizing, 500);
 		});
 	});
 
@@ -140,32 +134,15 @@ var playlistId = 'PLAYLIST_ID';
 		}
 	}
 
-	function rhdCycleInit( is_carousel ) {
-		if ( is_carousel === true ) {
-			$( '.news-entries' ).cycle({
-				fx: 'carousel',
-				timeout: 0,
-				autoHeight: "calc",
-				allowWrap: false,
-				next: "#next",
-				prev: "#prev",
-				slides: "> article",
-				carouselVisible: 3,
-				carouselFluid: true,
-				log: false
+	function packeryInit() {
+		$packery.imagesLoaded( function(){
+			$packery.packery({
+				itemSelector: '.post',
+				percentPosition: true,
+				gutter: '.gutter-sizer'
 			});
-			cycleType = 'multi';
-		} else {
-			$( '.news-entries' ).cycle({
-				fx: 'scrollHorz',
-				allowWrap: false,
-				timeout: 0,
-				next: "#next",
-				prev: "#prev",
-				slides: "> article",
-				log: false
-			});
-			cycleType = 'single';
-		}
+		});
+
+		packeryIsActive = true;
 	}
 })(jQuery);

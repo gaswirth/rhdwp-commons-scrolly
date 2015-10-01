@@ -10,110 +10,105 @@ get_header();
 
 // General get_posts() arguments
 $section_args = array(
-  'post_type'   => 'page',
-  'post_status' => 'publish',
-  'numberposts' => 1
+	'post_type'   => 'page',
+	'post_status' => 'publish',
+	'numberposts' => 1
 );
 ?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
-			<section id="top">
-				<header id="masthead" class="full-bg">
-					<div class="header-content">
-						<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
-						<?php
-							$nav_args = array(
-								'menu_location' => 'primary',
-								'menu_id' => 'site-navigation',
-								'container' => 'nav',
-								'container_id' => 'site-navigation-container'
-							);
-							wp_nav_menu( $nav_args );
-						?>
-					</div>
+			<section id="top" class="full-bg">
+				<header id="masthead">
+					<h1 id="site-title-text"><?php bloginfo( 'name' ); ?></h1>
+					<?php rhd_svg_logo_main(); ?>
 				</header>
 			</section>
 
-			<section id="news">
-				<h2 class="section-title">Latest News</h2>
+			<section id="nav">
+				<?php rhd_site_navigation(); ?>
+			</section>
+
+			<section id="intro" class="bg-blue">
+				<?php
+				$section_args['name'] = 'intro';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title visuallyhidden"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-					$news_args = array(
-						'post_type'			=> 'post',
-						'post_status'		=> 'publish',
-						'posts_per_page'	=> 12
-					);
-
-					$news = get_posts( $news_args );
-					?>
-
-					<?php if ( $news ) : ?>
-						<div class="news-entries slideshow">
-						<?php foreach( $news as $post ) : setup_postdata( $post ); ?>
-							<?php if ( has_post_thumbnail() ) : ?>
-								<article id="news-<?php the_ID(); ?>" <?php post_class( 'news-entry' ); ?>>
-
-									<?php $ext_url = esc_url( get_post_meta( get_the_ID(), '_ext-link', true ) ); ?>
-
-									<header class="news-header">
-										<?php
-										if ( $ext_url )
-											echo "<a href='$ext_url'>";
-
-										the_post_thumbnail( 'news-item' );
-
-										if ( $ext_url )
-											echo '</a>';
-										?>
-									</header><!-- .entry-header -->
-
-									<div class="news-content">
-										<?php the_content(); ?>
-									</div><!-- .entry-content -->
-								</article><!-- #post -->
-							<?php endif; ?>
-						<?php endforeach; ?>
-						<?php wp_reset_postdata(); ?>
-
-						</div><!-- .news-entries -->
-					<?php endif; ?>
-				</div>
-
-				<div class="news-scroller">
-					<a id="next" href="#"></a>
-					<a id="prev" href="#"></a>
+					<?php echo apply_filters( 'the_content', $section[0]->post_content ); ?>
 				</div>
 			</section>
 
 			<section id="full-bg-1" class="full-bg"></section>
 
-			<section id="bio">
+			<section id="blog">
 				<div class="section-content">
 					<?php
-						$section_args['name'] = 'bio';
-						$section = get_posts( $section_args );
+					$blog_args = array(
+						'post_type' 			=> 'post',
+						'post_status'			=> 'publish',
+						'posts_per_page' 		=> '1',
+						'post__in'				=> get_option( 'sticky_posts' ),
+						'ignore_sticky_posts'	=> 1
+					);
+					$blog = new WP_Query( $blog_args );
 					?>
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
+					<?php if ( $blog->have_posts() ) : ?>
+						<?php while ( $blog->have_posts() ) : $blog->the_post(); ?>
+
+							<div class="front-page-entry">
+								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+									<?php if ( has_post_thumbnail() ) : ?>
+										<div class="front-page-entry-thumb">
+											<?php the_post_thumbnail( 'medium' ); ?>
+										</div>
+									<?php endif; ?>
+
+									<header class="entry-header">
+										<h3 class="entry-title"><?php the_title(); ?></h3>
+										<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
+									</header><!-- .entry-header -->
+
+									<div class="entry-summary">
+										<?php the_excerpt(); ?>
+									</div><!-- .entry-summary -->
+								</article><!-- #post -->
+							</div>
+
+							<a class="ghost-button" href="<?php home_url( '/blog' ); ?>">Read More Blog Posts</a>
+
+						<?php endwhile; ?>
+					<?php endif; ?>
 				</div>
 			</section>
 
 			<section id="full-bg-2" class="full-bg"></section>
 
-			<section id="resume">
+			<section id="teaching" class="bg-pink">
+				<?php
+				$section_args['name'] = 'teaching';
+				$section = get_posts( $section_args );
+				?>
+				<h2 class="section-title visuallyhidden"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'resume';
-						$section = get_posts( $section_args );
-					?>
+					<?php echo apply_filters( 'the_content', $section[0]->post_content ); ?>
+				</div>
+			</section>
 
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+			<section id="video">
+				<?php
+				$section_args['name'] = 'video';
+				$section = get_posts( $section_args );
+				?>
 
+				<h2 class="section-title visuallyhidden"><?php echo $section[0]->post_title; ?></h2>
+
+				<div class="section-content">
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -124,15 +119,15 @@ $section_args = array(
 
 			<section id="full-bg-3" class="full-bg"></section>
 
-			<section id="photo">
+			<section id="coaching" class="bg-orange">
+				<?php
+				$section_args['name'] = 'coaching';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title visuallyhidden"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'photo';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -143,18 +138,15 @@ $section_args = array(
 
 			<section id="full-bg-4" class="full-bg"></section>
 
-			<section id="video">
+			<section id="about" class="bg-rust">
+				<?php
+				$section_args['name'] = 'about';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title visuallyhidden"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'video';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<!-- Youtube-TV -->
-					<div id="ytv"></div>
-
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -163,22 +155,18 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="full-bg-5" class="full-bg"></section>
-
 			<section id="contact">
 				<div class="section-content">
 					<?php
 						$section_args['name'] = 'contact';
-						$section = get_posts( $section_args );
+						$section = new WP_Query( $section_args );
 					?>
 
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					<?php while ( $section->have_posts() ) : $section->the_post(); ?>
+						<h2 class="section-title"><?php the_title(); ?></h2>
 
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
+						<?php the_content(); ?>
+					<?php endwhile; ?>
 				</div>
 			</section>
 		</div><!-- #content -->

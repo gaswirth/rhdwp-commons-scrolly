@@ -1,38 +1,4 @@
 /***
-* RHD Dev: Compiled at 4:30:22 PM on 15-09-2015
+* RHD Dev: Compiled at 8:25:15 PM on 30-09-2015
 ***/
 
-.unselectable {
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
-  -o-user-select: none;
-  user-select: none;
-}
-.invisible {
-  position: absolute;
-  visibility: hidden;
-  margin: 0;
-}
-#news .news-scroller a:hover {
-  background-color: #0390d8;
-}
-#news .news-scroller a#prev {
-  left: -2em;
-  background-image: url("../img/left.png");
-  background-position: 2.1em center;
-}
-#news .news-scroller a#prev:hover {
-  left: -1.5em;
-}
-#news .news-scroller a#next {
-  right: -2em;
-  background-image: url("../img/right.png");
-  background-position: 0.4em center;
-}
-#news .news-scroller a#next:hover {
-  right: -1.5em;
-}
-#news .news-scroller a.disabled {
-  display: none;
-}
