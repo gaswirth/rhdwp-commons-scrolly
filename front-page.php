@@ -90,30 +90,29 @@ $section_args = array(
 			<section id="full-bg-1" class="full-bg"></section>
 
 			<section id="bio">
+				<?php
+					$section_args['name'] = 'bio';
+					$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'bio';
-						$section = get_posts( $section_args );
-					?>
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
+					<?php echo apply_filters( 'the_content', $section[0]->post_content ); ?>
 				</div>
 			</section>
 
 			<section id="full-bg-2" class="full-bg"></section>
 
 			<section id="resume">
+				<?php
+				$section_args['name'] = 'resume';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'resume';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -125,14 +124,14 @@ $section_args = array(
 			<section id="full-bg-3" class="full-bg"></section>
 
 			<section id="photo">
+				<?php
+				$section_args['name'] = 'photo';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'photo';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -166,14 +165,14 @@ $section_args = array(
 			<section id="full-bg-5" class="full-bg"></section>
 
 			<section id="contact">
+				<?php
+				$section_args['name'] = 'contact';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
 				<div class="section-content">
-					<?php
-						$section_args['name'] = 'contact';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
