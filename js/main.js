@@ -74,10 +74,6 @@ var skr = null;
 		});
 
 
-		// FitText
-		// fitText(document.getElementById('site-title'), 0.75);
-
-
 		// Window resizing
 		var resizeId;
 
