@@ -1,6 +1,6 @@
 <?php
 /**
- * RHD Jennifer Blood
+ * RHD Base
  *
  * ROUNDHOUSE DESIGNS
  *
@@ -35,7 +35,7 @@ function rhd_enqueue_styles()
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Quattrocento:400,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Yellowtail' );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
@@ -83,7 +83,7 @@ add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
-	$font_url = '//fonts.googleapis.com/css?family=Quattrocento:400,700';
+	$font_url = '//fonts.googleapis.com/css?family=Montserrat:400,700|Yellowtail';
 	$font_url = str_replace( ',', '%2C', $font_url );
 	$font_url = str_replace( ':', '%3A', $font_url );
     add_editor_style( $font_url );
@@ -136,14 +136,15 @@ function rhd_skrollr_refresh()
 {
 	echo '
 		<script>
-			if ( typeof skr != "undefined" && skr != null ) {
-				jQuery(window).load(function(){skr.refresh();});
-				console.log("run");
-			}
+			jQuery(window).load(function(){
+				if ( skr != null || typeof skr != "undefined" ) {
+					skr.refresh();
+				}
+			});
 		</script>
 		';
 }
-add_action( 'wp_footer', 'rhd_skrollr_refresh', 999 );
+add_action( 'wp_head', 'rhd_skrollr_refresh', 999 );
 
 /* ==========================================================================
    Sidebars + Menus
@@ -553,6 +554,14 @@ function rhd_ext_link_meta_callback( $post ) {
 <?php
 }
 
+
+/**
+ * rhd_save_ext_link_meta_box_data function.
+ *
+ * @access public
+ * @param mixed $post_id
+ * @return void
+ */
 function rhd_save_ext_link_meta_box_data( $post_id ) {
 
 	// Check if our nonce is set.

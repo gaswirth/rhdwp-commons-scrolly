@@ -53,9 +53,6 @@ get_header(); ?>
 			<?php endif; // end have_posts() check ?>
 
 		</div><!-- #content -->
-
-		<?php rhd_archive_pagination(); ?>
-
 	</section><!-- #primary -->
 
 <?php get_footer(); ?>
