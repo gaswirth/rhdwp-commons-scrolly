@@ -70,19 +70,32 @@ $updir = '//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads'
 	box-shadow 0em $yPos 0.45em 0em rgba(0,0,0,0.5)
 
 
--placeholder-props( $famVal, $color)
+-placeholder-props( $famVal, $color = null, $opacity = null )
 	&::-webkit-input-placeholder
 		font-family $famVal
-		color $color
+		if $color !=null
+			color $color
+
+		if $opacity != null
+			-opacity( $opacity )
+
 	&:-moz-placeholder /* Firefox 18- */
 		font-family $famVal
 		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
 	&::-moz-placeholder  /* Firefox 19+ */
 		font-family $famVal
 		color $color
+		if $opacity != null
+			-opacity( $opacity )
+
 	&:-ms-input-placeholder
 		font-family $famVal
 		color $color
+		if $opacity != null
+			opacity( $opacity )
 
 
 -opacity( $val )
