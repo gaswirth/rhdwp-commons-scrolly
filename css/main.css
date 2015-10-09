@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:35:50 AM on 07-10-2015
+* RHD Dev: Compiled at 7:51:33 PM on 09-10-2015
 ***/
 
 .unselectable {
@@ -353,15 +353,11 @@ body {
 a {
   outline: 0 !important;
   color: #0390d8;
-}
-a:link,
-a:visited {
   text-decoration: none;
 }
 a:hover,
-a:active,
-a:focus {
-  text-decoration: underline;
+a:active {
+  color: #f0f0f0;
 }
 h1,
 h2,
