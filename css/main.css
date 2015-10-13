@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:51:33 PM on 09-10-2015
+* RHD Dev: Compiled at 10:05:11 AM on 13-10-2015
 ***/
 
 .unselectable {
@@ -611,6 +611,7 @@ h6 {
 }
 #contact #contact-form input,
 #contact #contact-form textarea {
+  max-width: none;
   font-size: 1em;
   padding-left: 0.25em;
   padding-right: 0.25em;
@@ -620,6 +621,7 @@ h6 {
   border: 2px solid #034567;
   font-family: 'Quattrocento', serif;
   transition: 0.2s all;
+  outline: none;
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
@@ -635,7 +637,7 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background: #034567;
+  background-color: #034567;
   color: #fff;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
@@ -644,12 +646,13 @@ h6 {
   font-weight: 300;
   display: block;
   cursor: pointer;
+  transition: background-color 0.25s;
 }
 #contact #contact-form input[type="submit"]:hover,
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background: #0390d8;
+  background-color: #0390d8;
 }
 #contact #contact-form textarea {
   width: 100%;
