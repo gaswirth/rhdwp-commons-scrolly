@@ -28,7 +28,8 @@ $section_args = array(
 								'menu_location' => 'primary',
 								'menu_id' => 'site-navigation',
 								'container' => 'nav',
-								'container_id' => 'site-navigation-container'
+								'container_id' => 'site-navigation-container',
+								'walker' => new RHD_Walker_Nav
 							);
 							wp_nav_menu( $nav_args );
 						?>
