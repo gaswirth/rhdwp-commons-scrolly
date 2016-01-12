@@ -109,7 +109,7 @@ $section_args = array(
 
 			<section id="full-bg-2" class="full-bg"></section>
 
-			<section id="media">
+			<section id="media" class="full-bg">
 				<?php
 				$section_args['name'] = 'media';
 				$section = get_posts( $section_args );
@@ -120,7 +120,8 @@ $section_args = array(
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
+							//echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
 
