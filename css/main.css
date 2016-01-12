@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 1:07:50 PM on 12-01-2016
+* RHD Dev: Compiled at 5:33:19 PM on 12-01-2016
 ***/
 
 .unselectable {
@@ -204,10 +204,12 @@
 }
 .clearfix:before,
 #content .section-content:before,
+#resume .resume-container:before,
 #contact #contact-form:before,
 #contact .section-content:before,
 .clearfix:after,
 #content .section-content:after,
+#resume .resume-container:after,
 #contact #contact-form:after,
 #contact .section-content:after {
   content: " ";
@@ -215,6 +217,7 @@
 }
 .clearfix:after,
 #content .section-content:after,
+#resume .resume-container:after,
 #contact #contact-form:after,
 #contact .section-content:after {
   clear: both;
@@ -359,12 +362,13 @@ body {
 }
 a {
   outline: 0 !important;
-  color: #0390d8;
+  color: #4074ff;
   text-decoration: none;
+  transition: color 0.25s;
 }
 a:hover,
 a:active {
-  color: #f0f0f0;
+  color: #d66628;
 }
 h1,
 h2,
@@ -389,18 +393,21 @@ h6 {
 }
 #colophon {
   width: 100%;
-  background: #034567;
-  color: #fff;
-  padding: 2em 0;
-  margin-bottom: 4em;
+  color: #000;
+  padding: 2em 0 1em 0;
 }
 #colophon .site-info {
   margin: 0;
-  padding: 1em 0;
   text-align: center;
   line-height: 1.7;
   font-size: 1.1em;
   font-weight: 300;
+}
+#colophon .site-info p {
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 2em 5em 0 5em;
+  border-top: 1px solid #000;
 }
 #colophon .site-info a {
   text-decoration: none;
@@ -412,14 +419,14 @@ h6 {
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #0390d8;
+  color: #4074ff;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
   height: 1.35em;
   margin: 0 0.05em;
   position: relative;
-  bottom: 0.25em;
+  bottom: 0.15em;
 }
 .section-title {
   font-size: 2.5em;
@@ -505,7 +512,7 @@ h6 {
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
 #top #masthead .header-content #site-navigation-container #site-navigation li a:active {
-  color: #034567;
+  color: #4074ff;
 }
 #top #bio {
   padding: 1em 0;
@@ -551,7 +558,7 @@ h6 {
   height: 5em;
   position: absolute;
   display: block;
-  background-color: #034567;
+  background-color: #4074ff;
   background-size: 40% 90%;
   background-repeat: no-repeat;
   transition: all 0.3s ease 0.1s;
@@ -572,7 +579,6 @@ h6 {
 }
 #media {
   height: auto;
-  min-height: 100vh;
 }
 #media #ytv {
   width: 85%;
@@ -613,13 +619,28 @@ h6 {
   width: 100%;
   height: auto;
 }
+#resume .resume-container {
+  width: 50%;
+  max-width: 64em;
+  position: relative;
+  margin: 0 auto 0 auto;
+}
+#resume .resume-container a {
+  display: block;
+}
+#resume .section-title {
+  margin-top: 0.25em;
+}
+#contact .section-content {
+  margin-top: 1em;
+}
 #contact #contact-form,
 #contact #contact-info {
   width: 90%;
   margin: 0 auto;
 }
 #contact #contact-form {
-  margin: 1em auto;
+  margin: 2em auto 1em auto;
 }
 #contact #contact-form input,
 #contact #contact-form textarea {
@@ -630,14 +651,14 @@ h6 {
   -webkit-border-radius: 0.1em;
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
-  border: 2px solid #034567;
+  border: 2px solid #000;
   font-family: 'Adam', sans-serif;
   transition: 0.2s all;
   outline: none;
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
-  border: 2px solid #0390d8;
+  border: 2px solid #4074ff;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -649,7 +670,7 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background-color: #034567;
+  background-color: #4074ff;
   color: #fff;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
@@ -664,7 +685,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background-color: #0390d8;
+  background-color: #d66628;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -675,6 +696,9 @@ h6 {
 }
 #contact #contact-info img {
   max-width: 100%;
+}
+#contact .ninja-forms-required-items {
+  display: none;
 }
 #social {
   width: 60%;
@@ -719,7 +743,7 @@ h6 {
 }
 .full-bg .full-bg-caption a:hover,
 .full-bg .full-bg-caption a:active {
-  color: #034567;
+  color: #4074ff;
 }
 .full-bg .full-bg-caption h1,
 .full-bg .full-bg-caption h2,
@@ -731,7 +755,7 @@ h6 {
   background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
 }
 #full-bg-2 {
-  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_129.jpg");
+  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/nick-1.jpg");
 }
 #full-bg-3 {
   background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");

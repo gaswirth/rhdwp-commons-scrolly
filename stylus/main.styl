@@ -25,12 +25,13 @@ body
 
 a
 	outline 0 !important
-	color $color3
+	color $color2
 	text-decoration none
+	transition color 0.25s
 
 	&:hover
 	&:active
-		color $color4
+		color $color3
 
 h1
 h2
@@ -59,18 +60,21 @@ h6
 
 #colophon
 	width 100%
-	background $color2
-	color white
-	padding 2em 0
-	margin-bottom 4em
+	color black
+	padding 2em 0 1em 0
 
 	.site-info
 		margin 0
-		padding 1em 0
 		text-align center
 		line-height 1.7
 		font-size 1.1em
 		font-weight 300
+
+		p
+			font-size 0.9em
+			display inline-block
+			padding 2em 5em 0 5em
+			border-top 1px solid black
 
 		a
 			text-decoration none
@@ -82,14 +86,14 @@ h6
 
 			&:hover
 			&:active
-				color $color3
+				color $color2
 
 	#rhd-logo-footer
 		width 1.35em
 		height 1.35em
 		margin 0 0.05em
 		position relative
-		bottom 0.25em
+		bottom 0.15em
 
 
 .section-title
@@ -235,7 +239,6 @@ h6
 
 #media
 	height auto
-	min-height 100vh
 
 	#ytv
 		-wrapper(1em, 1em)
@@ -272,15 +275,28 @@ h6
 				width 100%
 				height auto
 
+	.resume-container
+		-wrapper( 0, 0, 50% )
+		-clearfix()
+
+		a
+			display block
+
+	.section-title
+		margin-top 0.25em
+
 
 #contact
+	.section-content
+		margin-top 1em
+
 	#contact-form
 	#contact-info
 		width 90%
 		margin 0 auto
 
 	#contact-form
-		margin 1em auto
+		margin 2em auto 1em auto
 		-clearfix()
 
 		input
@@ -290,13 +306,13 @@ h6
 			padding-left 0.25em
 			padding-right 0.25em
 			-border-radius(0.1em)
-			border 2px solid $color2
+			border 2px solid black
 			font-family $ff-body
 			transition 0.2s all
 			outline none
 
 			&:focus
-				border 2px solid $color3
+				border 2px solid $color2
 
 			&[type="email"]
 			&[type="text"]
@@ -329,6 +345,9 @@ h6
 
 		img
 			max-width 100%
+
+	.ninja-forms-required-items
+		display none
 
 
 #social
@@ -380,7 +399,8 @@ h6
 
 
 #full-bg-2
-	background-image url($updir + '/2016/01/NICK_GASWIRTH_129.jpg')
+	background-image url($updir + '/2016/01/nick-1.jpg')
+	//background-image url($updir + '/2016/01/NICK_GASWIRTH_129.jpg')
 
 
 #full-bg-3
