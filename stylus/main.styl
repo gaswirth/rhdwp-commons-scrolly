@@ -67,7 +67,7 @@ h6
 		margin 0
 		text-align center
 		line-height 1.7
-		font-size 1.1em
+		font-size 0.9em
 		font-weight 300
 
 		p
@@ -134,7 +134,7 @@ h6
 			width 100%
 			padding 1em
 			position absolute
-			bottom 0
+			top 0.75em
 			-border-radius(3px)
 			z-index 2
 
@@ -282,6 +282,10 @@ h6
 		a
 			display block
 
+		img
+			max-width 100%
+			height auto
+
 	.section-title
 		margin-top 0.25em
 
@@ -307,7 +311,7 @@ h6
 			padding-right 0.25em
 			-border-radius(0.1em)
 			border 2px solid black
-			font-family $ff-body
+			font-family $ff-input
 			transition 0.2s all
 			outline none
 
@@ -328,6 +332,7 @@ h6
 				font-size 1.1em
 				text-align center
 				font-weight 300
+				font-family $ff-body
 				display block
 				cursor pointer
 				transition background-color 0.25s
@@ -345,6 +350,7 @@ h6
 
 		img
 			max-width 100%
+			height auto
 
 	.ninja-forms-required-items
 		display none
@@ -427,7 +433,6 @@ h6
 				-wrapper(0, 0, 55%, 30rem)
 				padding-top 1em
 				padding-bottom 3em
-				top 0
 
 				#site-title
 					font-size 3.7em
@@ -496,3 +501,8 @@ h6
 
 	#full-bg-2
 		background-position center
+
+
+	#colophon
+		.site-info
+			font-size 1em

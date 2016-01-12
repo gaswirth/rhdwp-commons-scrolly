@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:33:19 PM on 12-01-2016
+* RHD Dev: Compiled at 6:07:54 PM on 12-01-2016
 ***/
 
 /**
@@ -400,7 +400,7 @@ h6 {
   margin: 0;
   text-align: center;
   line-height: 1.7;
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: 300;
 }
 #colophon .site-info p {
@@ -465,7 +465,7 @@ h6 {
   width: 100%;
   padding: 1em;
   position: absolute;
-  bottom: 0;
+  top: 0.75em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -628,6 +628,10 @@ h6 {
 #resume .resume-container a {
   display: block;
 }
+#resume .resume-container img {
+  max-width: 100%;
+  height: auto;
+}
 #resume .section-title {
   margin-top: 0.25em;
 }
@@ -652,7 +656,7 @@ h6 {
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
   border: 2px solid #000;
-  font-family: 'Adam', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   transition: 0.2s all;
   outline: none;
 }
@@ -677,6 +681,7 @@ h6 {
   font-size: 1.1em;
   text-align: center;
   font-weight: 300;
+  font-family: 'Adam', sans-serif;
   display: block;
   cursor: pointer;
   transition: background-color 0.25s;
@@ -696,6 +701,7 @@ h6 {
 }
 #contact #contact-info img {
   max-width: 100%;
+  height: auto;
 }
 #contact .ninja-forms-required-items {
   display: none;
@@ -776,7 +782,6 @@ h6 {
     margin: 0 auto 0 auto;
     padding-top: 1em;
     padding-bottom: 3em;
-    top: 0;
   }
   #top #masthead .header-content #site-title {
     font-size: 3.7em;
@@ -844,6 +849,9 @@ h6 {
   }
   #full-bg-2 {
     background-position: center;
+  }
+  #colophon .site-info {
+    font-size: 1em;
   }
 }
 /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
