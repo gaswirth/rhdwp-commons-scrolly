@@ -43,7 +43,7 @@ function rhd_enqueue_styles()
 		wp_enqueue_style( 'youtube-tv' );
 	}
 
-	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', $normalize_deps, null, 'all' );
+	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', null, null, 'all' );
 
 	wp_enqueue_style( 'rhd-main' );
 	wp_enqueue_style( 'normalize' );
@@ -143,7 +143,7 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
  * RHD_Walker_Nav class.
  *
  * Adds newlines after each </li> closing tag.
- * 
+ *
  * @extends Walker_Nav_Menu
  */
 class RHD_Walker_Nav extends Walker_Nav_Menu {
