@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:17:25 PM on 12-01-2016
+* RHD Dev: Compiled at 7:21:56 PM on 12-01-2016
 ***/
 
 .unselectable {
@@ -629,7 +629,8 @@ h6 {
   display: block;
 }
 #resume .resume-container img {
-  max-width: 100%;
+  width: 100%;
+  margin: 0.5em auto 0;
   height: auto;
 }
 #resume .section-title {
@@ -838,7 +839,7 @@ h6 {
     display: block;
   }
   #resume .resume-container img {
-    max-width: 46%;
+    width: 46%;
   }
   #contact .section-content {
     margin: 2em auto;
