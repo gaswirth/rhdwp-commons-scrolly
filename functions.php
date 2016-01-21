@@ -38,7 +38,7 @@ function rhd_enqueue_styles()
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400' );
 	wp_register_style( 'youtube-tv', RHD_THEME_DIR . '/js/vendor/youtube-tv/src/ytv.css', array(), null, 'all' );
 
-	if ( !rhd_is_mobile() ) {
+	if ( ! rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
 		wp_enqueue_style( 'youtube-tv' );
 	}
@@ -69,7 +69,7 @@ function rhd_enqueue_scripts()
 		'cycle2-carousel',
 	);
 
-	if ( !wp_is_mobile() )
+	if ( ! wp_is_mobile() )
 		$main_deps[] = 'skrollr';
 
 	if ( ! rhd_is_mobile() )
