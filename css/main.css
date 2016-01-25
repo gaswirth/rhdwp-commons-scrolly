@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 4:27:16 PM on 13-01-2016
+* RHD Dev: Compiled at 7:21:56 PM on 12-01-2016
 ***/
 
 .unselectable {
@@ -457,7 +457,7 @@ h6 {
   text-align: center;
   margin: 0;
   position: relative;
-  background-image: url("//nickgaswirth.com/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
+  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -759,14 +759,13 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("//nickgaswirth.com/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
+  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
 }
 #full-bg-2 {
-  background-image: url("//nickgaswirth.com/wp-content/uploads/2016/01/nick-1.jpg");
+  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/nick-1.jpg");
 }
 #full-bg-3 {
-  background-image: url("//nickgaswirth.com/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
-  background-position: left;
+  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
 }
 .hide-on-fallback {
   width: 0;
