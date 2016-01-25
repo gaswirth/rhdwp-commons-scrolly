@@ -90,21 +90,6 @@ $section_args = array(
 
 			<section id="full-bg-1" class="full-bg"></section>
 
-			<section id="bio">
-				<?php
-					$section_args['name'] = 'bio';
-					$section = get_posts( $section_args );
-				?>
-
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-				<div class="section-content">
-					<?php echo apply_filters( 'the_content', $section[0]->post_content ); ?>
-				</div>
-			</section>
-
-			<section id="full-bg-2" class="full-bg"></section>
-
 			<section id="resume">
 				<?php
 				$section_args['name'] = 'resume';
@@ -122,11 +107,11 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="full-bg-3" class="full-bg"></section>
+			<section id="full-bg-2" class="full-bg"></section>
 
-			<section id="photo">
+			<section id="media" class="full-bg">
 				<?php
-				$section_args['name'] = 'photo';
+				$section_args['name'] = 'media';
 				$section = get_posts( $section_args );
 				?>
 
@@ -135,35 +120,16 @@ $section_args = array(
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
+							//echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
+
+					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'media-slider', 'slug' ); } ?>
 				</div>
 			</section>
 
-			<section id="full-bg-4" class="full-bg"></section>
-
-			<section id="video">
-				<div class="section-content">
-					<?php
-						$section_args['name'] = 'video';
-						$section = get_posts( $section_args );
-					?>
-
-					<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
-					<!-- Youtube-TV -->
-					<div id="ytv"></div>
-
-					<?php
-						if ( $section ) {
-							echo apply_filters( 'the_content', $section[0]->post_content );
-						}
-					?>
-				</div>
-			</section>
-
-			<section id="full-bg-5" class="full-bg"></section>
+			<section id="full-bg-3" class="full-bg"></section>
 
 			<section id="contact">
 				<?php

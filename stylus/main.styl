@@ -1,5 +1,6 @@
 @require "partials/_global.styl"
 @require "partials/_hamburger.styl"
+@require "partials/_fonts.styl"
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
 @require "partials/_overrides.styl"
@@ -24,12 +25,13 @@ body
 
 a
 	outline 0 !important
-	color $color3
+	color $color2
 	text-decoration none
+	transition color 0.25s
 
 	&:hover
 	&:active
-		color $color4
+		color $color3
 
 h1
 h2
@@ -58,18 +60,21 @@ h6
 
 #colophon
 	width 100%
-	background $color2
-	color white
-	padding 2em 0
-	margin-bottom 4em
+	color black
+	padding 2em 0 1em 0
 
 	.site-info
 		margin 0
-		padding 1em 0
 		text-align center
 		line-height 1.7
-		font-size 1.1em
+		font-size 0.9em
 		font-weight 300
+
+		p
+			font-size 0.9em
+			display inline-block
+			padding 2em 5em 0 5em
+			border-top 1px solid black
 
 		a
 			text-decoration none
@@ -81,20 +86,20 @@ h6
 
 			&:hover
 			&:active
-				color $color3
+				color $color2
 
 	#rhd-logo-footer
 		width 1.35em
 		height 1.35em
 		margin 0 0.05em
 		position relative
-		bottom 0.25em
+		bottom 0.15em
 
 
 .section-title
-	font-size 2em
+	font-size 2.5em
 	text-align center;
-	margin 0 auto 1em auto
+	margin 1em auto 1rem auto
 
 
 #content
@@ -118,26 +123,26 @@ h6
 	#masthead
 		width 100%
 		height 100vh
-		background-image url($updir + '/2015/09/image.jpg')
-		background-size cover
-		background-position center
 		text-align center
 		margin 0
 		position relative
+		background-image url($updir + '/2016/01/NICK_GASWIRTH_075.jpg')
+		background-size cover
+		background-position center
 
 		.header-content
 			width 100%
 			padding 1em
 			position absolute
-			bottom 0
+			top 0.75em
 			-border-radius(3px)
+			z-index 2
 
 			#site-title
 				width 100%
 				margin 0 auto
-				font-size 2.5em
+				font-size 2.2em
 				display inline-block
-				font-variant small-caps
 				line-height 1
 
 			#site-navigation-container
@@ -192,6 +197,7 @@ h6
 
 				img
 					width 100%
+					max-width 300px
 					margin 0 auto 0.25em auto
 					display block
 					-border-radius(2px)
@@ -232,6 +238,8 @@ h6
 				display none
 
 #media
+	height auto
+
 	#ytv
 		-wrapper(1em, 1em)
 		height 50vh
@@ -267,15 +275,33 @@ h6
 				width 100%
 				height auto
 
+	.resume-container
+		-wrapper( 0, 0, 95% )
+		-clearfix()
+
+		a
+			display block
+
+		img
+			width 100%
+			margin 0.5em auto 0
+			height auto
+
+	.section-title
+		margin-top 0.25em
+
 
 #contact
+	.section-content
+		margin-top 1em
+
 	#contact-form
 	#contact-info
 		width 90%
 		margin 0 auto
 
 	#contact-form
-		margin 2em auto 3em
+		margin 2em auto 1em auto
 		-clearfix()
 
 		input
@@ -285,13 +311,13 @@ h6
 			padding-left 0.25em
 			padding-right 0.25em
 			-border-radius(0.1em)
-			border 2px solid $color2
-			font-family $ff-body
+			border 2px solid black
+			font-family $ff-input
 			transition 0.2s all
 			outline none
 
 			&:focus
-				border 2px solid $color3
+				border 2px solid $color2
 
 			&[type="email"]
 			&[type="text"]
@@ -307,6 +333,7 @@ h6
 				font-size 1.1em
 				text-align center
 				font-weight 300
+				font-family $ff-body
 				display block
 				cursor pointer
 				transition background-color 0.25s
@@ -324,15 +351,18 @@ h6
 
 		img
 			max-width 100%
-			margin-bottom 1em
+			height auto
+
+	.ninja-forms-required-items
+		display none
 
 
 #social
-	width 100%
+	-wrapper(0, 0, 60%)
 	-flexbox()
 
 	.social-item
-		width 26%
+		width 42%
 		-flexitem()
 
 		img
@@ -372,10 +402,17 @@ h6
 
 
 #full-bg-1
-	background-image url($updir + '/2015/09/image.jpg')
+	background-image url($updir + '/2016/01/NICK_GASWIRTH_235.jpg')
+
 
 #full-bg-2
-	background-image url($updir + '/2015/09/image.jpg')
+	background-image url($updir + '/2016/01/nick-1.jpg')
+	//background-image url($updir + '/2016/01/NICK_GASWIRTH_129.jpg')
+
+
+#full-bg-3
+	background-image url($updir + '/2016/01/NICK_GASWIRTH_269.jpg')
+	background-position left
 
 
 .hide-on-fallback
@@ -392,19 +429,12 @@ h6
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#content
-		.section-content
-			padding 3em 0
-
 	#top
 		#masthead
 			.header-content
-				width 40%
-				min-width 30rem
+				-wrapper(0, 0, 55%, 30rem)
 				padding-top 1em
 				padding-bottom 3em
-				top 0
-				left 3%
 
 				#site-title
 					font-size 3.7em
@@ -445,16 +475,25 @@ h6
 					width 100%
 					height auto
 
+		.resume-container
+			width 50% // Adjusts wrapper
+
+			a
+				display block
+
+			img
+				width 46%
+
 
 	#contact
 		.section-content
 			margin 2em auto
-
 			@extends .clearfix
 
 			#contact-form
 				width 60%
 				float left
+				margin-bottom 0
 
 				input
 					&[type="submit"]
@@ -473,3 +512,8 @@ h6
 
 	#full-bg-2
 		background-position center
+
+
+	#colophon
+		.site-info
+			font-size 1em

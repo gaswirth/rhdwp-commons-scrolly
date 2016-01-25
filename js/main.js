@@ -66,7 +66,7 @@ var playlistId = 'PLAYLIST_ID';
 
 
 		// FitText
-		fitText(document.getElementById('site-title'), 0.75);
+		fitText(document.getElementById('site-title'), 0.82);
 
 
 		// Window resizing

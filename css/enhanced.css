@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:05:11 AM on 13-10-2015
+* RHD Dev: Compiled at 4:27:16 PM on 13-01-2016
 ***/
 
 .unselectable {
@@ -15,7 +15,7 @@
   margin: 0;
 }
 #news .news-scroller a:hover {
-  background-color: #0390d8;
+  background-color: #d66628;
 }
 #news .news-scroller a#prev {
   left: -2em;
