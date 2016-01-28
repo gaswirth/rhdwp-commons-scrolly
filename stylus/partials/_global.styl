@@ -3,13 +3,12 @@
    ========================================================================== */
 
 // Variables
-$color2 = #4074ff
-$color3 = #d66628
-$color4 = #122149
-$ff-body = 'Adam', sans-serif
-$ff-input = 'Open Sans', sans-serif
+$color1 = #ACC3FE
+$color2 = #5E7BD1
+$ff_body = 'Roboto', sans-serif
+$ff_headline = 'Gabriel Sans Thin', sans-serif
 
-$updir = '//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads'
+$updir = '//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads'
 
 // Classes
 
@@ -29,11 +28,16 @@ $updir = '//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads'
 
 // Functions
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $customMax = false )
 	if $customWidth == false
 		$w = 85%
 	else
 		$w = $customWidth
+
+	if $customMax == false
+		$mw = 64rem
+	else
+		$mw = $customMax
 
 	if $topMargin == false
 		$topMargin = 0
@@ -41,7 +45,7 @@ $updir = '//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads'
 		$bottomMargin = 0
 
 	width $w
-	max-width 64em
+	max-width $mw
 	position relative
 	margin $topMargin auto $bottomMargin auto
 

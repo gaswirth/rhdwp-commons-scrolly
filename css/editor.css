@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 7:21:56 PM on 12-01-2016
+* RHD Dev: Compiled at 5:43:36 PM on 28-01-2016
 ***/
 
 /**
@@ -358,17 +358,17 @@ body {
   margin: 0;
   background: #fff;
   color: #000;
-  font-family: 'Adam', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 a {
   outline: 0 !important;
-  color: #4074ff;
+  color: #acc3fe;
   text-decoration: none;
   transition: color 0.25s;
 }
 a:hover,
 a:active {
-  color: #d66628;
+  color: #5e7bd1;
 }
 h1,
 h2,
@@ -419,7 +419,7 @@ h6 {
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #4074ff;
+  color: #acc3fe;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -439,7 +439,7 @@ h6 {
 }
 #content .section-content {
   width: 85%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
   padding: 1em 0;
@@ -457,7 +457,7 @@ h6 {
   text-align: center;
   margin: 0;
   position: relative;
-  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -512,7 +512,7 @@ h6 {
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
 #top #masthead .header-content #site-navigation-container #site-navigation li a:active {
-  color: #4074ff;
+  color: #acc3fe;
 }
 #top #bio {
   padding: 1em 0;
@@ -558,7 +558,7 @@ h6 {
   height: 5em;
   position: absolute;
   display: block;
-  background-color: #4074ff;
+  background-color: #acc3fe;
   background-size: 40% 90%;
   background-repeat: no-repeat;
   transition: all 0.3s ease 0.1s;
@@ -582,7 +582,7 @@ h6 {
 }
 #media #ytv {
   width: 85%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 1em auto 1em auto;
   height: 50vh;
@@ -601,7 +601,7 @@ h6 {
 }
 #resume ul {
   width: 85%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -621,7 +621,7 @@ h6 {
 }
 #resume .resume-container {
   width: 95%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
 }
@@ -657,13 +657,13 @@ h6 {
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
   border: 2px solid #000;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   transition: 0.2s all;
   outline: none;
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
-  border: 2px solid #4074ff;
+  border: 2px solid #acc3fe;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -675,14 +675,14 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background-color: #4074ff;
+  background-color: #acc3fe;
   color: #fff;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
   font-size: 1.1em;
   text-align: center;
   font-weight: 300;
-  font-family: 'Adam', sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: block;
   cursor: pointer;
   transition: background-color 0.25s;
@@ -691,7 +691,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background-color: #d66628;
+  background-color: #5e7bd1;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -709,7 +709,7 @@ h6 {
 }
 #social {
   width: 60%;
-  max-width: 64em;
+  max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
   text-align: justify;
@@ -750,7 +750,7 @@ h6 {
 }
 .full-bg .full-bg-caption a:hover,
 .full-bg .full-bg-caption a:active {
-  color: #4074ff;
+  color: #acc3fe;
 }
 .full-bg .full-bg-caption h1,
 .full-bg .full-bg-caption h2,
@@ -759,13 +759,13 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
 }
 #full-bg-2 {
-  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/nick-1.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/nick-1.jpg");
 }
 #full-bg-3 {
-  background-image: url("//dev.roundhouse-designs.com/nickgaswirth/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
 }
 .hide-on-fallback {
   width: 0;
@@ -778,7 +778,7 @@ h6 {
 @media screen and (min-width: 40em) {
   #top #masthead .header-content {
     width: 55%;
-    max-width: 64em;
+    max-width: 30rem;
     position: relative;
     margin: 0 auto 0 auto;
     padding-top: 1em;
@@ -808,7 +808,7 @@ h6 {
   }
   #resume ul {
     width: 70%;
-    max-width: 64em;
+    max-width: 64rem;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;
