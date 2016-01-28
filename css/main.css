@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:51:52 PM on 28-01-2016
+* RHD Dev: Compiled at 6:29:44 PM on 28-01-2016
 ***/
 
 .unselectable {
@@ -457,21 +457,22 @@ h6 {
   text-align: center;
   margin: 0;
   position: relative;
-  background-image: url("//dev.roundhouse-designs.com/sallywilfert/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
+  background-image: url("//dev.roundhouse-designs.com/sallywilfert/wp-content/uploads/2016/01/home.jpg");
   background-size: cover;
   background-position: center;
 }
-#top #masthead .header-content {
+#top #masthead #navbar {
   width: 100%;
-  padding: 1em;
+  padding: 1em 0;
   position: absolute;
-  top: 0.75em;
+  background: rgba(255,255,255,0.4);
+  bottom: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   z-index: 2;
 }
-#top #masthead .header-content #site-title {
+#top #masthead #navbar #site-title {
   width: 100%;
   margin: 0 auto;
   font-size: 2.2em;
@@ -479,12 +480,14 @@ h6 {
   line-height: 1;
   font-family: 'Gabriel Sans Thin', sans-serif;
 }
-#top #masthead .header-content #site-navigation-container {
-  width: 94%;
-  margin: 0 auto;
-  text-align: center;
+#top #masthead #navbar #site-navigation-container {
+  width: 85%;
+  max-width: 64rem;
+  position: relative;
+  margin: 0 auto 0 auto;
+  display: none;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation {
+#top #masthead #navbar #site-navigation-container #site-navigation {
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -493,30 +496,27 @@ h6 {
   padding: 0;
   line-height: initial;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation:after {
+#top #masthead #navbar #site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li {
+#top #masthead #navbar #site-navigation-container #site-navigation li {
   display: inline-block;
   font-size: 1.2em;
   text-transform: uppercase;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li a {
+#top #masthead #navbar #site-navigation-container #site-navigation li a {
   text-decoration: none;
   transition: color 0.2s;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li a:link,
-#top #masthead .header-content #site-navigation-container #site-navigation li a:visited {
+#top #masthead #navbar #site-navigation-container #site-navigation li a:link,
+#top #masthead #navbar #site-navigation-container #site-navigation li a:visited {
   color: inherit;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
-#top #masthead .header-content #site-navigation-container #site-navigation li a:active {
+#top #masthead #navbar #site-navigation-container #site-navigation li a:hover,
+#top #masthead #navbar #site-navigation-container #site-navigation li a:active {
   color: #acc3fe;
-}
-#top #bio {
-  padding: 1em 0;
 }
 #news {
   background: #fff;
@@ -728,46 +728,6 @@ h6 {
 #social .social-item img {
   width: 100%;
 }
-.full-bg {
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-.full-bg .full-bg-caption {
-  width: 100%;
-  background: rgba(255,255,255,0.75);
-  padding: 1em 0;
-  font-size: 2em;
-  color: #000;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-}
-.full-bg .full-bg-caption a {
-  color: inherit;
-  text-decoration: none;
-}
-.full-bg .full-bg-caption a:hover,
-.full-bg .full-bg-caption a:active {
-  color: #acc3fe;
-}
-.full-bg .full-bg-caption h1,
-.full-bg .full-bg-caption h2,
-.full-bg .full-bg-caption h3,
-.full-bg .full-bg-caption p {
-  margin: 0;
-}
-#full-bg-1 {
-  background-image: url("//dev.roundhouse-designs.com/sallywilfert/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
-}
-#full-bg-2 {
-  background-image: url("//dev.roundhouse-designs.com/sallywilfert/wp-content/uploads/2016/01/nick-1.jpg");
-}
-#full-bg-3 {
-  background-image: url("//dev.roundhouse-designs.com/sallywilfert/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
-}
 .hide-on-fallback {
   width: 0;
   height: 0;
@@ -780,27 +740,8 @@ h6 {
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 40em) {
-  #top #masthead .header-content {
-    width: 55%;
-    max-width: 30rem;
-    position: relative;
-    margin: 0 auto 0 auto;
-    padding-top: 1em;
-    padding-bottom: 3em;
-  }
-  #top #masthead .header-content #site-title {
-    font-size: 3.7em;
-  }
-  #top #bio {
-    width: 45%;
-    position: absolute;
-    bottom: 0;
-    left: 3%;
-    padding: 1em;
-    text-align: justify;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+  #site-navigation-container {
+    display: block;
   }
   #news .section-content {
     position: relative;
@@ -857,12 +798,6 @@ h6 {
     width: 30%;
     float: right;
     margin-top: 1em;
-  }
-  .full-bg figcaption {
-    font-size: 2em;
-  }
-  #full-bg-2 {
-    background-position: center;
   }
   #colophon .site-info {
     font-size: 1em;

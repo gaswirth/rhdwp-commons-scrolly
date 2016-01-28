@@ -126,15 +126,16 @@ h6
 		text-align center
 		margin 0
 		position relative
-		background-image url($updir + '/2016/01/NICK_GASWIRTH_075.jpg')
+		background-image url($updir + '/2016/01/home.jpg')
 		background-size cover
 		background-position center
 
-		.header-content
+		#navbar
 			width 100%
-			padding 1em
+			padding 1em 0
 			position absolute
-			top 0.75em
+			background rgba(255, 255, 255, 0.4)
+			bottom 0
 			-border-radius(3px)
 			z-index 2
 
@@ -147,9 +148,8 @@ h6
 				font-family $ff_headline
 
 			#site-navigation-container
-				width 94%
-				margin 0 auto
-				text-align center
+				-wrapper()
+				display none
 
 				#site-navigation
 					list-style none
@@ -175,9 +175,6 @@ h6
 							&:hover
 							&:active
 								color $color1
-
-	#bio
-		padding 1em 0
 
 
 #news
@@ -370,51 +367,6 @@ h6
 			width 100%
 
 
-.full-bg
-	width 100%
-	height 100vh
-	background-size cover
-	background-position center top
-	background-repeat no-repeat
-
-	.full-bg-caption
-		width 100%
-		background rgba( 255, 255, 255, 0.75 )
-		padding 1em 0
-		font-size 2em
-		color black
-		text-align center
-		position absolute
-		bottom 0
-
-		a
-			color inherit
-			text-decoration none
-
-			&:hover
-			&:active
-				color $color1
-
-		h1
-		h2
-		h3
-		p
-			margin 0
-
-
-#full-bg-1
-	background-image url($updir + '/2016/01/NICK_GASWIRTH_235.jpg')
-
-
-#full-bg-2
-	background-image url($updir + '/2016/01/nick-1.jpg')
-	//background-image url($updir + '/2016/01/NICK_GASWIRTH_129.jpg')
-
-
-#full-bg-3
-	background-image url($updir + '/2016/01/NICK_GASWIRTH_269.jpg')
-
-
 .hide-on-fallback
 	width 0
 	height 0
@@ -429,25 +381,8 @@ h6
    ========================================================================== */
 
 @media screen and (min-width 40em)
-	#top
-		#masthead
-			.header-content
-				-wrapper(0, 0, 55%, 30rem)
-				padding-top 1em
-				padding-bottom 3em
-
-				#site-title
-					font-size 3.7em
-
-
-		#bio
-			width 45%
-			position absolute
-			bottom 0
-			left 3%
-			padding 1em
-			text-align justify
-			-border-radius(3px)
+	#site-navigation-container
+		display block
 
 	#news
 		.section-content
@@ -503,15 +438,6 @@ h6
 				width 30%
 				float right
 				margin-top 1em
-
-
-	.full-bg
-		figcaption
-			font-size 2em
-
-
-	#full-bg-2
-		background-position center
 
 
 	#colophon
