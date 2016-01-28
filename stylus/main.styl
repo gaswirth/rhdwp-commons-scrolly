@@ -16,7 +16,7 @@ html
 	margin 0
 	background white
 	color black
-	font-family $ff-body
+	font-family $ff_body
 
 
 body
@@ -25,13 +25,13 @@ body
 
 a
 	outline 0 !important
-	color $color2
+	color $color1
 	text-decoration none
 	transition color 0.25s
 
 	&:hover
 	&:active
-		color $color3
+		color $color2
 
 h1
 h2
@@ -86,7 +86,7 @@ h6
 
 			&:hover
 			&:active
-				color $color2
+				color $color1
 
 	#rhd-logo-footer
 		width 1.35em
@@ -144,6 +144,7 @@ h6
 				font-size 2.2em
 				display inline-block
 				line-height 1
+				font-family $ff_headline
 
 			#site-navigation-container
 				width 94%
@@ -173,7 +174,7 @@ h6
 
 							&:hover
 							&:active
-								color $color2
+								color $color1
 
 	#bio
 		padding 1em 0
@@ -218,7 +219,7 @@ h6
 			height 5em
 			position absolute
 			display block
-			background-color $color2
+			background-color $color1
 			background-size 40% 90%
 			background-repeat no-repeat
 			transition all 0.3s ease 0.1s
@@ -312,12 +313,12 @@ h6
 			padding-right 0.25em
 			-border-radius(0.1em)
 			border 2px solid black
-			font-family $ff-input
+			font-family $ff_body
 			transition 0.2s all
 			outline none
 
 			&:focus
-				border 2px solid $color2
+				border 2px solid $color1
 
 			&[type="email"]
 			&[type="text"]
@@ -326,21 +327,21 @@ h6
 
 			&[type="submit"]
 				width 100%
-				background-color $color2
+				background-color $color1
 				color white
 				border none
 				padding 0.5em 0.2em 0.4em 0.2em
 				font-size 1.1em
 				text-align center
 				font-weight 300
-				font-family $ff-body
+				font-family $ff_body
 				display block
 				cursor pointer
 				transition background-color 0.25s
 
 				&:hover
 				&:active
-					background-color $color3
+					background-color $color2
 
 		textarea
 			width 100%
@@ -392,7 +393,7 @@ h6
 
 			&:hover
 			&:active
-				color $color2
+				color $color1
 
 		h1
 		h2
