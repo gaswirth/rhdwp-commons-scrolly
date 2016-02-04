@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:29:44 PM on 28-01-2016
+* RHD Dev: Compiled at 2:58:20 PM on 04-02-2016
 ***/
 
 /**
@@ -23,8 +23,8 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
-  width: 96px;
-  height: 96px;
+  width: 64px;
+  height: 64px;
   font-size: 0;
   text-indent: -9999px;
   -webkit-appearance: none;
@@ -42,10 +42,10 @@
 .c-hamburger span {
   display: block;
   position: absolute;
-  top: 44px;
-  left: 18px;
-  right: 18px;
-  height: 8px;
+  top: 29.333333335px;
+  left: 12px;
+  right: 12px;
+  height: 5.33333333px;
   background: #fff;
 }
 .c-hamburger span::before,
@@ -54,15 +54,15 @@
   display: block;
   left: 0;
   width: 100%;
-  height: 8px;
+  height: 5.33333333px;
   background-color: #fff;
   content: "";
 }
 .c-hamburger span::before {
-  top: -20px;
+  top: -13.33333333px;
 }
 .c-hamburger span::after {
-  bottom: -20px;
+  bottom: -13.33333333px;
 }
 .c-hamburger--rot {
   background-color: #28aadc;
@@ -137,11 +137,11 @@
 }
 .c-hamburger--htla.is-active span::before {
   top: 0;
-  transform: translateX(38px) translateY(4px) rotate(45deg);
+  transform: translateX(25.333333330000002px) translateY(2.666666665px) rotate(45deg);
 }
 .c-hamburger--htla.is-active span::after {
   bottom: 0;
-  transform: translateX(38px) translateY(-4px) rotate(-45deg);
+  transform: translateX(25.333333330000002px) translateY(-2.666666665px) rotate(-45deg);
 }
 .c-hamburger--htra {
   background-color: #ff9650;
@@ -169,11 +169,11 @@
 }
 .c-hamburger--htra.is-active span::before {
   top: 0;
-  transform: translateX(-8px) translateY(4px) rotate(-45deg);
+  transform: translateX(-5.33333333px) translateY(2.666666665px) rotate(-45deg);
 }
 .c-hamburger--htra.is-active span::after {
   bottom: 0;
-  transform: translateX(-8px) translateY(-4px) rotate(45deg);
+  transform: translateX(-5.33333333px) translateY(-2.666666665px) rotate(45deg);
 }
 @font-face {
   font-family: 'Gabriel Sans Thin';
@@ -439,7 +439,7 @@ h6 {
 }
 #content .section-content {
   width: 85%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 0 auto 0 auto;
   padding: 1em 0;
@@ -463,7 +463,7 @@ h6 {
 }
 #top #masthead #navbar {
   width: 100%;
-  padding: 1em 0;
+  height: 4rem;
   position: absolute;
   background: rgba(255,255,255,0.4);
   bottom: 0;
@@ -472,51 +472,76 @@ h6 {
   border-radius: 3px;
   z-index: 2;
 }
+#top #masthead #navbar .navbar-inner {
+  width: 100%;
+  height: 100%;
+}
 #top #masthead #navbar #site-title {
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   font-size: 2.2em;
   display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   line-height: 1;
+  text-align: left;
   font-family: 'Gabriel Sans Thin', sans-serif;
 }
-#top #masthead #navbar #site-navigation-container {
-  width: 85%;
-  max-width: 64rem;
-  position: relative;
-  margin: 0 auto 0 auto;
+#top #masthead #navbar #hamburger {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#site-navigation-container {
   display: none;
 }
-#top #masthead #navbar #site-navigation-container #site-navigation {
+#site-navigation-container #site-navigation {
   list-style: none;
   margin: 0;
   padding-left: 0;
-  line-height: 2;
   text-align: justify;
   padding: 0;
   line-height: initial;
 }
-#top #masthead #navbar #site-navigation-container #site-navigation:after {
+#site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#top #masthead #navbar #site-navigation-container #site-navigation li {
+#site-navigation-container #site-navigation li {
   display: inline-block;
-  font-size: 1.2em;
-  text-transform: uppercase;
+  font-size: 1.3em;
+  font-family: 'Gabriel Sans Thin', sans-serif;
 }
-#top #masthead #navbar #site-navigation-container #site-navigation li a {
+#site-navigation-container #site-navigation li a {
   text-decoration: none;
   transition: color 0.2s;
 }
-#top #masthead #navbar #site-navigation-container #site-navigation li a:link,
-#top #masthead #navbar #site-navigation-container #site-navigation li a:visited {
+#site-navigation-container #site-navigation li a:link,
+#site-navigation-container #site-navigation li a:visited {
   color: inherit;
 }
-#top #masthead #navbar #site-navigation-container #site-navigation li a:hover,
-#top #masthead #navbar #site-navigation-container #site-navigation li a:active {
+#site-navigation-container #site-navigation li a:hover,
+#site-navigation-container #site-navigation li a:active {
   color: #acc3fe;
+}
+#site-navigation-sb .menu-item {
+  font-size: 1.6em;
+}
+.section-thumb {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  overflow: hidden;
+}
+.section-thumb img {
+  width: 100%;
+  height: auto;
 }
 #news {
   background: #fff;
@@ -583,7 +608,7 @@ h6 {
 }
 #media #ytv {
   width: 85%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 1em auto 1em auto;
   height: 50vh;
@@ -602,7 +627,7 @@ h6 {
 }
 #resume ul {
   width: 85%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 0 auto 0 auto;
   list-style: none;
@@ -622,7 +647,7 @@ h6 {
 }
 #resume .resume-container {
   width: 95%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 0 auto 0 auto;
 }
@@ -710,7 +735,7 @@ h6 {
 }
 #social {
   width: 60%;
-  max-width: 64rem;
+  max-width: 70rem;
   position: relative;
   margin: 0 auto 0 auto;
   text-align: justify;
@@ -737,12 +762,32 @@ h6 {
   overflow: hidden;
 }
 @media screen and (min-width: 40em) {
-  #site-navigation-container {
+  #top #masthead #navbar {
+    height: 6em;
+    padding: 1em 0;
+  }
+  #top #masthead #navbar .navbar-inner {
+    width: 95%;
+    max-width: 70rem;
+    position: relative;
+    margin: 0 auto 0 auto;
+  }
+  #top #masthead #navbar #hamburger {
+    display: none;
+  }
+  #top #masthead #navbar #site-title {
+    font-size: 3.5em;
+  }
+  #top #masthead #navbar #site-navigation-container {
+    width: 61%;
     display: block;
+    position: absolute;
+    right: 0;
+    top: 30%;
   }
   #news .section-content {
     position: relative;
-    max-width: 64rem;
+    max-width: 70rem;
   }
   #news .section-content .news-entries .news-entry {
     width: auto;
@@ -750,7 +795,7 @@ h6 {
   }
   #resume ul {
     width: 70%;
-    max-width: 64rem;
+    max-width: 70rem;
     position: relative;
     margin: 0 auto 0 auto;
     text-align: justify;

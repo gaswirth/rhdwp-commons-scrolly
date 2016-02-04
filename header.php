@@ -51,5 +51,19 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<div id="page" class="hfeed site">
+		<?php
+		$nav_args_sb = array(
+			'menu_location' => 'primary',
+			'menu_id' => 'site-navigation-sb',
+			'container' => 'nav',
+			'container_id' => 'site-navigation-sb-container'
+		);
+		?>
+
+		<div class="sb-slidebar sb-right sb-style-push">
+			<?php wp_nav_menu( $nav_args_sb ); ?>
+		</div>
+
+
+		<div id="page" class="hfeed site sb-site-container">
 			<main id="main" class="clearfix">

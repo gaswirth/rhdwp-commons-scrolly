@@ -28,7 +28,16 @@ var playlistId = 'PLAYLIST_ID';
 
 (function($){
 	$(document).ready(function($){
+		//toggleBurger();
+
+		$.slidebars();
+
+		$("#site-navigation-sb a").on('click', function(){
+			$.slidebars.close();
+		});
+
 		// Fancy scrolly navigation
+		/*
 		$('#site-navigation a').on('click', function(e){
 			e.preventDefault();
 
@@ -47,6 +56,7 @@ var playlistId = 'PLAYLIST_ID';
 				scrollTop: $a.offset().top - yOffset
 			}, 1000, 'easeInOutCubic');
 		});
+		*/
 
 
 		if ( !isMobile && !isTablet ) {
@@ -63,10 +73,6 @@ var playlistId = 'PLAYLIST_ID';
 				skrollrInit();
 			}
 		}
-
-
-		// FitText
-		fitText(document.getElementById('site-title'), 0.82);
 
 
 		// Window resizing
@@ -167,5 +173,15 @@ var playlistId = 'PLAYLIST_ID';
 			});
 			cycleType = 'single';
 		}
+	}
+
+	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
+	function toggleBurger() {
+		var toggles = $(".c-hamburger");
+
+		toggles.click(function(e){
+			e.preventDefault();
+			$(this).toggleClass('is-active');
+		});
 	}
 })(jQuery);

@@ -22,17 +22,23 @@ $section_args = array(
 			<section id="top">
 				<header id="masthead">
 					<div id="navbar">
-						<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
-						<?php
-							$nav_args = array(
-								'menu_location' => 'primary',
-								'menu_id' => 'site-navigation',
-								'container' => 'nav',
-								'container_id' => 'site-navigation-container',
-								'walker' => new RHD_Walker_Nav
-							);
-							wp_nav_menu( $nav_args );
-						?>
+						<div class="navbar-inner">
+							<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
+							<?php
+								$nav_args = array(
+									'menu_location' => 'primary',
+									'menu_id' => 'site-navigation',
+									'container' => 'nav',
+									'container_id' => 'site-navigation-container',
+									'walker' => new RHD_Walker_Nav
+								);
+								wp_nav_menu( $nav_args );
+							?>
+
+							<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
+								<span>Toggle nav</span>
+	                        </button>
+						</div>
 					</div>
 				</header>
 			</section>
@@ -96,6 +102,10 @@ $section_args = array(
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 
+				<div class="section-thumb">
+					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
+				</div>
+
 				<div class="section-content">
 					<?php
 						if ( $section ) {
@@ -105,13 +115,37 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="media">
+			<section id="video">
 				<?php
 				$section_args['name'] = 'video';
 				$section = get_posts( $section_args );
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
+				<div class="section-content">
+					<?php
+						if ( $section ) {
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
+							//echo apply_filters( 'the_content', $section[0]->post_content );
+						}
+					?>
+
+					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'media-slider', 'slug' ); } ?>
+				</div>
+			</section>
+
+			<section id="audio">
+				<?php
+				$section_args['name'] = 'audio';
+				$section = get_posts( $section_args );
+				?>
+
+				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
+				<div class="section-thumb">
+					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
+				</div>
 
 				<div class="section-content">
 					<?php
@@ -152,6 +186,10 @@ $section_args = array(
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
+				<div class="section-thumb">
+					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
+				</div>
 
 				<div class="section-content">
 					<?php
