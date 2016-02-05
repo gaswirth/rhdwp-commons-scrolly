@@ -60,7 +60,6 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
-	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
 	wp_register_script( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.js', array( 'jquery' ), '0.10.3', true );
 	wp_register_script( 'cycle2', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/index.js', array(), '2', true );
@@ -76,9 +75,6 @@ function rhd_enqueue_scripts()
 		'cycle2-carousel',
 		//'fittext',
 	);
-
-	if ( !wp_is_mobile() )
-		$main_deps[] = 'skrollr';
 
 	if ( ! rhd_is_mobile() )
 		$main_deps[] = 'youtube-tv';
@@ -107,26 +103,6 @@ function rhd_add_editor_styles()
 }
 add_action( 'after_setup_theme', 'rhd_add_editor_styles' );
 
-
-/**
- * rhd_skrollr_refresh function.
- *
- * @access public
- * @return void
- */
-function rhd_skrollr_refresh()
-{
-	echo '
-		<script>
-			jQuery(window).load(function(){
-				if ( jQuery("body").hasClass("mobile") === false && ( skr != null || typeof skr != "undefined" ) ) {
-					skr.refresh();
-				}
-			});
-		</script>
-		';
-}
-add_action( 'wp_head', 'rhd_skrollr_refresh', 999 );
 
 /* ==========================================================================
    Sidebars + Menus

@@ -21,6 +21,8 @@ html
 
 body
 	@extends html
+	min-height 100%
+	position relative
 
 
 a
@@ -136,42 +138,49 @@ h6
 		background-size cover
 		background-position center
 
-		#navbar
-			width 100%
-			height 4rem
-			position absolute
-			background rgba(255, 255, 255, 0.4)
-			bottom 0
-			-border-radius(3px)
-			z-index 2
 
-			.navbar-inner
-				width 100%
-				height 100%
+#navbar
+	width 100%
+	height 4rem
+	position absolute
+	background-color rgba(255, 255, 255, 0.4)
+	bottom 0
+	-border-radius(3px)
+	z-index 2
 
-			#site-title
-				width 100%
-				margin 0
-				font-size 2.2em
-				display inline-block
-				position absolute
-				top 50%
-				left 0.5rem
-				-transform(translateY(-50%))
-				line-height 1
-				text-align left
-				font-family $ff_headline
+	&.sticky
+		position fixed
+		top 0
+		z-index 99
+		background-color rgba(255, 255, 255, 0.8)
 
-			#hamburger
-				width 4rem
-				height 4rem
-				position absolute
-				right 0
-				top 0
-				background-color $color1
+	.navbar-inner
+		width 100%
+		height 100%
 
-				&.is-active
-					background-color $color2
+	#site-title
+		width 100%
+		margin 0
+		font-size 2.2em
+		display inline-block
+		position absolute
+		top 50%
+		left 0.5rem
+		-transform(translateY(-50%))
+		line-height 1
+		text-align left
+		font-family $ff_headline
+
+	#hamburger
+		width 4rem
+		height 4rem
+		position absolute
+		right 0
+		top 0
+		background-color $color1
+
+		&.is-active
+			background-color $color2
 
 
 #site-navigation-container
@@ -214,7 +223,8 @@ h6
 	width 100%
 	height 80vh
 	background-position center top
-	background-size contain
+	background-size 100%
+	background-repeat no-repeat
 
 	img
 		width 100%
@@ -222,11 +232,16 @@ h6
 
 
 #news
-	background white
+	height auto !important
 	padding 1em 0 2em 0
 	border-top none !important
 
+	.section-title
+		margin 1em 0 0 0
+
 	.section-content
+		padding-top 1em
+
 		.news-entries
 			width 100%
 
@@ -391,32 +406,57 @@ h6
 		display none
 
 
+#rotate-device
+	width 100vw
+	height 100vh
+	background-color rgba(0, 0, 0, .8)
+	display block
+	position fixed
+	top 0
+	z-index 99999
+	display none
+
+	.rotate-content
+		color white
+		position absolute
+		top 50%
+		left 50%
+		-transform(translate(-50%, -50%))
+
+		p
+			text-align center
+			font-size 1.4em
+
+		img
+			width 40%
+			height auto
+			display block
+			margin 0 auto
+
+
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
-@media screen and (min-width 40em)
-	#top
-		#masthead
-			#navbar
-				height 6em
-				padding 1em 0
+@media screen and (min-width 56em)
+	#navbar
+		height 6em
 
-				.navbar-inner
-					-wrapper(0, 0, 95%)
+		.navbar-inner
+			-wrapper(0, 0, 95%)
 
-				#hamburger
-					display none
+		#hamburger
+			display none
 
-				#site-title
-					font-size 3.5em
+		#site-title
+			font-size 3.5em
 
-				#site-navigation-container
-					width 61%
-					display block
-					position absolute
-					right 0
-					top 34%
+		#site-navigation-container
+			width 61%
+			display block
+			position absolute
+			right 0
+			top 34%
 
 	#content
 		section

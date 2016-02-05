@@ -60,6 +60,13 @@
 		);
 		?>
 
+		<div id="rotate-device">
+			<div class="rotate-content">
+				<p>Please rotate your device.</p>
+				<img class="rotate" src="<?php echo RHD_IMG_DIR; ?>/rotate.png" alt="Rotate your device to portrait orientation">
+			</div>
+		</div>
+
 		<div class="sb-slidebar sb-right sb-style-push">
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>

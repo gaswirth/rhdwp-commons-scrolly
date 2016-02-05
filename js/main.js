@@ -30,56 +30,20 @@ var playlistId = 'PLAYLIST_ID';
 	var toggles = $(".c-hamburger");
 
 	$(document).ready(function($){
-		$.slidebars({
-			siteClose: false
-		});
+		rhdInit();
+
 
 		$(".c-hamburger").click(function(e){
 			e.preventDefault();
 			toggleBurger(toggles);
 		});
 
+
 		$("#site-navigation-sb a").on('click', function(){
 			$.slidebars.close();
 			toggleBurger(toggles);
 		});
 
-
-		if ( !isMobile && !isTablet ) {
-			// Skrollr parallax
-			$(".full-bg:nth-of-type(1)")
-				.attr("data-start", "background-position: center 0px")
-				.attr("data-top-bottom", "background-position: center 400px");
-
-			$(".full-bg:nth-of-type(n+2)")
-				.attr("data-bottom-top", "background-position: center -200px;")
-				.attr("data-top-bottom", "background-position: center 200px;");
-
-			if ( $window.width() > 640 ) {
-				skrollrInit();
-			}
-		}
-
-
-		// Window resizing
-		var resizeId;
-
-		function doneResizing(){
-			if ( $window.width() < 640 ) {
-				if ( skr ) {
-					try {
-						skr.destroy();
-						skr = null;
-					} catch(err) {
-						throw "Error: Parallax disabled on this device.\n" . err;
-					}
-				}
-			} else {
-				if ( !skr ) {
-					skrollrInit();
-				}
-			}
-		}
 
 		// News Scrolling
 		if ( $window.width() < 640 )
@@ -89,6 +53,7 @@ var playlistId = 'PLAYLIST_ID';
 
 
 		// YouTube TV
+/*
 		if ( !isMobile ) {
 			$("#ytv").ytv({
 				playlist: playlistId,
@@ -99,21 +64,27 @@ var playlistId = 'PLAYLIST_ID';
 				.addClass('ytv-mobile')
 				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
 		}
+*/
 
 
 		// Resize event
 		$window.on('resize', function(){
-			if ( $window.width() < 640 && cycleType == 'multi' ) {
-				$('.news-entries').cycle('destroy');
-				rhdCycleInit(false);
-			} else if ( $window.width() > 640 && cycleType == 'single' ) {
-				$('.news-entries').cycle('destroy');
-				rhdCycleInit(true);
-			}
+			rhdRotateDeviceCheck();
 
-			clearTimeout(resizeId);
-			resizeId = setTimeout(doneResizing, 500);
+			if ( !$("body").hasClass("mobile") && !$("body").hasClass("tablet") ) {
+				if ( $window.width() < 640 && cycleType == 'multi' ) {
+					$('.news-entries').cycle('destroy');
+					rhdCycleInit(false);
+				} else if ( $window.width() > 640 && cycleType == 'single' ) {
+					$('.news-entries').cycle('destroy');
+					rhdCycleInit(true);
+				}
+			}
 		});
+
+
+		// Scroll event
+		$(window).on('scroll', rhdStickyNav);
 	});
 
 
@@ -121,16 +92,15 @@ var playlistId = 'PLAYLIST_ID';
 		Functions
 	============================================================================= */
 
-	function skrollrInit() {
-		try {
-			skr = skrollr.init({
-				forceHeight: false,
-				smoothScrollingDuration: -100
-			});
-		} catch(err) {
-			throw "Error: Parallax disabled on this device.\n" . err;
-		}
+	function rhdInit() {
+		rhdStickyNav();
+		rhdRotateDeviceCheck();
+
+		$.slidebars({
+			siteClose: false
+		});
 	}
+
 
 	function rhdCycleInit( is_carousel ) {
 		if ( is_carousel === true ) {
@@ -161,8 +131,39 @@ var playlistId = 'PLAYLIST_ID';
 		}
 	}
 
+
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
 	function toggleBurger(elem) {
 		elem.toggleClass('is-active');
+	}
+
+
+	function rhdRotateDeviceCheck() {
+		if ( $("body").hasClass("tablet") || $("body").hasClass("mobile") ) {
+			if ( window.innerWidth > window.innerHeight ) {
+				$("#rotate-device").show();
+			} else {
+				$("#rotate-device").hide();
+			}
+		}
+	}
+
+
+	function rhdStickyNav() {
+		var $navbar = $("#navbar"),
+			navHeight = $(window).height() - $navbar.height(),
+			scrollTop = $(window).scrollTop();
+
+		if ( scrollTop > navHeight ) {
+			$navbar
+				.prependTo('body')
+				.addClass('sticky')
+				.addClass('sb-slide');
+		} else {
+			$navbar
+				.removeClass('sticky')
+				.removeClass('sb-slide')
+				.prependTo('#masthead');
+		}
 	}
 })(jQuery);
