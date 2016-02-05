@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:58:20 PM on 04-02-2016
+* RHD Dev: Compiled at 7:08:57 PM on 04-02-2016
 ***/
 
 .unselectable {
@@ -179,6 +179,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Gabriel Sans Light';
+  src: url("fonts/gabriel_sans_light-webfont.eot");
+  src: url("fonts/gabriel_sans_light-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/gabriel_sans_light-webfont.woff2") format('woff2'), url("fonts/gabriel_sans_light-webfont.woff") format('woff'), url("fonts/gabriel_sans_light-webfont.ttf") format('truetype'), url("fonts/gabriel_sans_light-webfont.svg#gabriel_sans_lightregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 .hidden {
   display: none !important;
   visibility: hidden;
@@ -205,12 +212,12 @@
 .clearfix:before,
 #content .section-content:before,
 #resume .resume-container:before,
-#contact #contact-form:before,
+#contact-form:before,
 #contact .section-content:before,
 .clearfix:after,
 #content .section-content:after,
 #resume .resume-container:after,
-#contact #contact-form:after,
+#contact-form:after,
 #contact .section-content:after {
   content: " ";
   display: table;
@@ -218,7 +225,7 @@
 .clearfix:after,
 #content .section-content:after,
 #resume .resume-container:after,
-#contact #contact-form:after,
+#contact-form:after,
 #contact .section-content:after {
   clear: both;
 }
@@ -394,20 +401,18 @@ h6 {
 #colophon {
   width: 100%;
   color: #000;
-  padding: 2em 0 1em 0;
 }
 #colophon .site-info {
   margin: 0;
   text-align: center;
   line-height: 1.7;
-  font-size: 0.9em;
   font-weight: 300;
 }
 #colophon .site-info p {
-  font-size: 0.9em;
   display: inline-block;
-  padding: 2em 5em 0 5em;
+  padding: 1em 5em 0 5em;
   border-top: 1px solid #000;
+  margin: 0;
 }
 #colophon .site-info a {
   text-decoration: none;
@@ -421,28 +426,35 @@ h6 {
 #colophon .site-info a:active {
   color: #acc3fe;
 }
-#colophon #rhd-logo-footer {
+#colophon .site-info #rhd-logo-footer {
   width: 1.35em;
   height: 1.35em;
   margin: 0 0.05em;
   position: relative;
   bottom: 0.15em;
 }
-.section-title {
-  font-size: 2.5em;
-  text-align: center;
-  margin: 1em auto 1rem auto;
+#content {
+  height: 100%;
 }
 #content section {
   width: 100%;
+  height: 100%;
   position: relative;
+  border-top: 2px solid #acc3fe;
+  border-bottom: 2px solid #acc3fe;
+}
+#content .section-title {
+  font-size: 2.5em;
+  text-align: center;
+  margin: 1em auto 1rem auto;
+  display: none;
 }
 #content .section-content {
   width: 85%;
   max-width: 70rem;
   position: relative;
   margin: 0 auto 0 auto;
-  padding: 1em 0;
+  padding: 2em 0;
 }
 #content iframe {
   max-width: 100%;
@@ -450,6 +462,8 @@ h6 {
 }
 #top {
   position: relative;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 #top #masthead {
   width: 100%;
@@ -515,8 +529,8 @@ h6 {
 }
 #site-navigation-container #site-navigation li {
   display: inline-block;
-  font-size: 1.3em;
-  font-family: 'Gabriel Sans Thin', sans-serif;
+  font-size: 1.2em;
+  font-family: 'Gabriel Sans Light', sans-serif;
 }
 #site-navigation-container #site-navigation li a {
   text-decoration: none;
@@ -528,16 +542,16 @@ h6 {
 }
 #site-navigation-container #site-navigation li a:hover,
 #site-navigation-container #site-navigation li a:active {
-  color: #acc3fe;
+  color: #5e7bd1;
 }
 #site-navigation-sb .menu-item {
   font-size: 1.6em;
 }
 .section-thumb {
   width: 100%;
-  height: auto;
+  height: 80vh;
   max-height: 100vh;
-  overflow: hidden;
+  background-position: center top;
 }
 .section-thumb img {
   width: 100%;
@@ -546,6 +560,7 @@ h6 {
 #news {
   background: #fff;
   padding: 1em 0 2em 0;
+  border-top: none !important;
 }
 #news .section-content .news-entries {
   width: 100%;
@@ -662,19 +677,15 @@ h6 {
 #resume .section-title {
   margin-top: 0.25em;
 }
-#contact .section-content {
+#contact .social {
+  text-align: center;
   margin-top: 1em;
 }
-#contact #contact-form,
-#contact #contact-info {
-  width: 90%;
-  margin: 0 auto;
+#contact-form {
+  border-bottom: none !important;
 }
-#contact #contact-form {
-  margin: 2em auto 1em auto;
-}
-#contact #contact-form input,
-#contact #contact-form textarea {
+#contact-form input,
+#contact-form textarea {
   max-width: none;
   font-size: 1em;
   padding-left: 0.25em;
@@ -687,19 +698,19 @@ h6 {
   transition: 0.2s all;
   outline: none;
 }
-#contact #contact-form input:focus,
-#contact #contact-form textarea:focus {
+#contact-form input:focus,
+#contact-form textarea:focus {
   border: 2px solid #acc3fe;
 }
-#contact #contact-form input[type="email"],
-#contact #contact-form textarea[type="email"],
-#contact #contact-form input[type="text"],
-#contact #contact-form textarea[type="text"] {
+#contact-form input[type="email"],
+#contact-form textarea[type="email"],
+#contact-form input[type="text"],
+#contact-form textarea[type="text"] {
   width: 100%;
   height: 2em;
 }
-#contact #contact-form input[type="submit"],
-#contact #contact-form textarea[type="submit"] {
+#contact-form input[type="submit"],
+#contact-form textarea[type="submit"] {
   width: 100%;
   background-color: #acc3fe;
   color: #fff;
@@ -713,53 +724,20 @@ h6 {
   cursor: pointer;
   transition: background-color 0.25s;
 }
-#contact #contact-form input[type="submit"]:hover,
-#contact #contact-form textarea[type="submit"]:hover,
-#contact #contact-form input[type="submit"]:active,
-#contact #contact-form textarea[type="submit"]:active {
+#contact-form input[type="submit"]:hover,
+#contact-form textarea[type="submit"]:hover,
+#contact-form input[type="submit"]:active,
+#contact-form textarea[type="submit"]:active {
   background-color: #5e7bd1;
 }
-#contact #contact-form textarea {
+#contact-form input textarea,
+#contact-form textarea textarea {
   width: 100%;
   padding: 0.25em;
 }
-#contact #contact-info {
-  text-align: center;
-}
-#contact #contact-info img {
-  max-width: 100%;
-  height: auto;
-}
-#contact .ninja-forms-required-items {
+#contact-form .ninja-forms-required-items,
+#contact-form .ninja-forms-req-symbol {
   display: none;
-}
-#social {
-  width: 60%;
-  max-width: 70rem;
-  position: relative;
-  margin: 0 auto 0 auto;
-  text-align: justify;
-  padding: 0;
-}
-#social:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
-#social .social-item {
-  width: 42%;
-  display: inline-block;
-}
-#social .social-item img {
-  width: 100%;
-}
-.hide-on-fallback {
-  width: 0;
-  height: 0;
-  display: block;
-  position: absolute;
-  left: -100%;
-  overflow: hidden;
 }
 /* ==========================================================================
 	Media Queries
@@ -786,7 +764,43 @@ h6 {
     display: block;
     position: absolute;
     right: 0;
-    top: 30%;
+    top: 34%;
+  }
+  #content section.thumb-left,
+  #content section.thumb-right {
+    overflow: hidden;
+  }
+  #content section.thumb-left:after,
+  #content section.thumb-right:after {
+    display: block;
+    position: absolute;
+    height: 100%;
+    content: "";
+  }
+  #content section.thumb-left .section-thumb,
+  #content section.thumb-right .section-thumb {
+    width: 37%;
+    background-size: cover;
+  }
+  #content section.thumb-left .section-content,
+  #content section.thumb-right .section-content {
+    width: 60%;
+    max-width: none;
+    margin: 0;
+    padding: 0 2em;
+    margin-top: 0;
+  }
+  #content section.thumb-left .section-thumb {
+    float: left;
+  }
+  #content section.thumb-left .section-content {
+    float: right;
+  }
+  #content section.thumb-right .section-thumb {
+    float: right;
+  }
+  #content section.thumb-right .section-content {
+    float: left;
   }
   #news .section-content {
     position: relative;
@@ -829,22 +843,33 @@ h6 {
     width: 46%;
   }
   #contact .section-content {
-    margin: 2em auto;
+    width: 75%;
+    max-width: 70rem;
+    position: relative;
+    margin: 0 auto 0 auto;
   }
-  #contact .section-content #contact-form {
-    width: 60%;
+  #contact .section-content .agent-info {
+    width: 40%;
     float: left;
-    margin-bottom: 0;
   }
-  #contact .section-content #contact-form input[type="submit"] {
-    width: 6.25rem;
-  }
-  #contact .section-content #contact-info {
-    width: 30%;
+  #contact .section-content .social {
+    width: 40%;
     float: right;
-    margin-top: 1em;
+    position: relative;
+    top: 6em;
+    margin-top: 0;
+  }
+  #contact-form .contact-form {
+    width: 60%;
+    margin: 3em auto 1em;
+  }
+  #contact-form .contact-form input[type="submit"] {
+    width: 6.25rem;
   }
   #colophon .site-info {
     font-size: 1em;
+  }
+  #colophon .site-info p {
+    border-top: none;
   }
 }

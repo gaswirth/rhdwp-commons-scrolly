@@ -94,17 +94,16 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="about">
+			<section id="about" class="thumb-left">
 				<?php
 				$section_args['name'] = 'about';
 				$section = get_posts( $section_args );
+				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 
-				<div class="section-thumb">
-					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
-				</div>
+				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
 					<?php
@@ -126,8 +125,7 @@ $section_args = array(
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
-							//echo apply_filters( 'the_content', $section[0]->post_content );
+							echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
 
@@ -135,23 +133,21 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="audio">
+			<section id="audio" class="thumb-right">
 				<?php
 				$section_args['name'] = 'audio';
 				$section = get_posts( $section_args );
+				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 
-				<div class="section-thumb">
-					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
-				</div>
+				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
-							//echo apply_filters( 'the_content', $section[0]->post_content );
+							echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
 
@@ -170,8 +166,7 @@ $section_args = array(
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
-							//echo apply_filters( 'the_content', $section[0]->post_content );
+							echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
 
@@ -179,17 +174,16 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="teaching">
+			<section id="teaching" class="thumb-left">
 				<?php
 				$section_args['name'] = 'teaching';
 				$section = get_posts( $section_args );
+				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 
-				<div class="section-thumb">
-					<?php echo get_the_post_thumbnail( $section[0]->ID, 'large' ); ?>
-				</div>
+				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
 					<?php
@@ -217,13 +211,16 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="contact-form">
+			<section id="contact-form" class="thumb-right">
 				<?php
 				$section_args['name'] = 'contact-form';
 				$section = get_posts( $section_args );
+				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
 				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+
+				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
 					<?php
@@ -231,6 +228,14 @@ $section_args = array(
 							echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
+
+					<footer id="colophon">
+						<div class="site-info">
+							<p>
+								<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br />' : '|&nbsp;'; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs">Designs</a>
+					        </p>
+					    </div>
+					</footer>
 				</div>
 			</section>
 		</div><!-- #content -->

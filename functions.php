@@ -35,7 +35,7 @@ function rhd_enqueue_styles()
 
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
-	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,400italic,700' );
+	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:100,400,400italic,700' );
 	wp_register_style( 'slidebars', RHD_THEME_DIR . '/js/vendor/Slidebars/dist/slidebars.min.css', array(), '0.10.3', 'screen' );
 	wp_register_style( 'youtube-tv', RHD_THEME_DIR . '/js/vendor/youtube-tv/src/ytv.css', array(), null, 'all' );
 
@@ -566,9 +566,7 @@ function rhd_full_bg_caption() {
 function rhd_svg_logo() {
 	echo '
 			<svg id="PLACEHOLDER">
-				<a href="hide-on-fallback">
-					<!-- SVG CODE HERE -->
-				</a>
+				<!-- SVG CODE HERE -->
 				<image src="' . RHD_IMG_DIR . '/logo-large.png" alt="' . get_bloginfo( 'name' ) . '" xlink:href="">
 			</svg>
 		';
@@ -658,3 +656,24 @@ function rhd_save_ext_link_meta_box_data( $post_id ) {
 	}
 }
 add_action( 'save_post', 'rhd_save_ext_link_meta_box_data' );
+
+
+/**
+ * rhd_get_thumbnail function.
+ *
+ * @access public
+ * @param mixed $post_id (default: null)
+ * @param string $size (default: 'full')
+ * @return void
+ */
+function rhd_get_thumbnail( $post_id = null, $size = 'full' )
+{
+	global $post;
+
+	$post_id = ( $post_id ) ? $post_id : $post->ID;
+
+	$thumb_id = get_post_thumbnail_id( $post_id );
+	$thumb_url = wp_get_attachment_image_src( $thumb_id, $size, true );
+
+	return $thumb_url;
+}

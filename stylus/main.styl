@@ -61,20 +61,18 @@ h6
 #colophon
 	width 100%
 	color black
-	padding 2em 0 1em 0
 
 	.site-info
 		margin 0
 		text-align center
 		line-height 1.7
-		font-size 0.9em
 		font-weight 300
 
 		p
-			font-size 0.9em
 			display inline-block
-			padding 2em 5em 0 5em
+			padding 1em 5em 0 5em
 			border-top 1px solid black
+			margin 0
 
 		a
 			text-decoration none
@@ -88,28 +86,33 @@ h6
 			&:active
 				color $color1
 
-	#rhd-logo-footer
-		width 1.35em
-		height 1.35em
-		margin 0 0.05em
-		position relative
-		bottom 0.15em
-
-
-.section-title
-	font-size 2.5em
-	text-align center;
-	margin 1em auto 1rem auto
+		#rhd-logo-footer
+			width 1.35em
+			height 1.35em
+			margin 0 0.05em
+			position relative
+			bottom 0.15em
 
 
 #content
+	height 100%
+
 	section
 		width 100%
+		height 100%
 		position relative
+		border-top 2px solid $color1
+		border-bottom 2px solid $color1
+
+	.section-title
+		font-size 2.5em
+		text-align center;
+		margin 1em auto 1rem auto
+		display none
 
 	.section-content
 		-wrapper()
-		padding 1em 0
+		padding 2em 0
 		@extends .clearfix
 
 	iframe
@@ -119,6 +122,8 @@ h6
 
 #top
 	position relative
+	border-top none !important
+	border-bottom none !important
 
 	#masthead
 		width 100%
@@ -176,8 +181,8 @@ h6
 
 		li
 			-flexitem()
-			font-size 1.3em
-			font-family $ff_headline
+			font-size 1.2em
+			font-family $ff_nav
 
 			a
 				text-decoration none
@@ -189,7 +194,7 @@ h6
 
 				&:hover
 				&:active
-					color $color1
+					color $color2
 
 
 #site-navigation-sb
@@ -199,9 +204,9 @@ h6
 
 .section-thumb
 	width 100%
-	height auto
+	height 80vh
 	max-height 100vh
-	overflow hidden
+	background-position center top
 
 	img
 		width 100%
@@ -211,6 +216,7 @@ h6
 #news
 	background white
 	padding 1em 0 2em 0
+	border-top none !important
 
 	.section-content
 		.news-entries
@@ -321,90 +327,60 @@ h6
 
 
 #contact
-	.section-content
+	.social
+		text-align center
 		margin-top 1em
 
-	#contact-form
-	#contact-info
-		width 90%
-		margin 0 auto
 
-	#contact-form
-		margin 2em auto 1em auto
-		-clearfix()
+#contact-form
+	border-bottom none !important
+	-clearfix()
 
-		input
-		textarea
-			max-width none
-			font-size 1em
-			padding-left 0.25em
-			padding-right 0.25em
-			-border-radius(0.1em)
-			border 2px solid black
+	input
+	textarea
+		max-width none
+		font-size 1em
+		padding-left 0.25em
+		padding-right 0.25em
+		-border-radius(0.1em)
+		border 2px solid black
+		font-family $ff_body
+		transition 0.2s all
+		outline none
+
+		&:focus
+			border 2px solid $color1
+
+		&[type="email"]
+		&[type="text"]
+			width 100%
+			height 2em
+
+		&[type="submit"]
+			width 100%
+			background-color $color1
+			color white
+			border none
+			padding 0.5em 0.2em 0.4em 0.2em
+			font-size 1.1em
+			text-align center
+			font-weight 300
 			font-family $ff_body
-			transition 0.2s all
-			outline none
+			display block
+			cursor pointer
+			transition background-color 0.25s
 
-			&:focus
-				border 2px solid $color1
-
-			&[type="email"]
-			&[type="text"]
-				width 100%
-				height 2em
-
-			&[type="submit"]
-				width 100%
-				background-color $color1
-				color white
-				border none
-				padding 0.5em 0.2em 0.4em 0.2em
-				font-size 1.1em
-				text-align center
-				font-weight 300
-				font-family $ff_body
-				display block
-				cursor pointer
-				transition background-color 0.25s
-
-				&:hover
-				&:active
-					background-color $color2
+			&:hover
+			&:active
+				background-color $color2
 
 		textarea
 			width 100%
 			padding 0.25em
 
-	#contact-info
-		text-align center
-
-		img
-			max-width 100%
-			height auto
-
 	.ninja-forms-required-items
+	.ninja-forms-req-symbol
 		display none
-
-
-#social
-	-wrapper(0, 0, 60%)
-	-flexbox()
-
-	.social-item
-		width 42%
-		-flexitem()
-
-		img
-			width 100%
-
-
-.hide-on-fallback
-	width 0
-	height 0
-	display block
-	position absolute
-	left -100%
-	overflow hidden
 
 
 /* ==========================================================================
@@ -432,7 +408,48 @@ h6
 					display block
 					position absolute
 					right 0
-					top 30%
+					top 34%
+
+	#content
+		section
+			&.thumb-left
+			&.thumb-right
+				overflow hidden
+
+				&:after
+					display block
+					position absolute
+					height 100%
+					content ""
+
+				.section-thumb
+					width 37%
+					background-size cover
+
+					img
+						-invisible()
+
+				.section-content
+					width 60%
+					max-width none
+					margin 0
+					padding 0 2em
+					margin-top 0
+
+			&.thumb-left
+				.section-thumb
+					float left
+
+				.section-content
+					float right
+
+			&.thumb-right
+				.section-thumb
+					float right
+
+				.section-content
+					float left
+
 
 	#news
 		.section-content
@@ -472,24 +489,34 @@ h6
 
 	#contact
 		.section-content
-			margin 2em auto
-			@extends .clearfix
+			-wrapper(0, 0, 75%)
+			-clearfix()
 
-			#contact-form
-				width 60%
+			.agent-info
+				width 40%
 				float left
-				margin-bottom 0
 
-				input
-					&[type="submit"]
-						width 6.25rem
-
-			#contact-info
-				width 30%
+			.social
+				width 40%
 				float right
-				margin-top 1em
+				position relative
+				top 6em
+				margin-top 0
+
+
+	#contact-form
+		.contact-form
+			width 60%
+			margin 3em auto 1em
+
+			input
+				&[type="submit"]
+					width 6.25rem
 
 
 	#colophon
 		.site-info
 			font-size 1em
+
+			p
+				border-top none

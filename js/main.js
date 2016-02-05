@@ -27,36 +27,22 @@ var cycleType = null;
 var playlistId = 'PLAYLIST_ID';
 
 (function($){
-	$(document).ready(function($){
-		//toggleBurger();
+	var toggles = $(".c-hamburger");
 
-		$.slidebars();
+	$(document).ready(function($){
+		$.slidebars({
+			siteClose: false
+		});
+
+		$(".c-hamburger").click(function(e){
+			e.preventDefault();
+			toggleBurger(toggles);
+		});
 
 		$("#site-navigation-sb a").on('click', function(){
 			$.slidebars.close();
+			toggleBurger(toggles);
 		});
-
-		// Fancy scrolly navigation
-		/*
-		$('#site-navigation a').on('click', function(e){
-			e.preventDefault();
-
-			var $a = $( '#' + $(this).attr('href').split('#').pop() );
-
-			// Set data-offset in HTML to add offset parameter
-			var offsetAttr = $a.attr('data-offset');
-			var yOffset;
-
-			if ( offsetAttr )
-				yOffset = offsetAttr;
-			else
-				yOffset = 0;
-
-			$('html, body').animate({
-				scrollTop: $a.offset().top - yOffset
-			}, 1000, 'easeInOutCubic');
-		});
-		*/
 
 
 		if ( !isMobile && !isTablet ) {
@@ -176,12 +162,7 @@ var playlistId = 'PLAYLIST_ID';
 	}
 
 	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
-	function toggleBurger() {
-		var toggles = $(".c-hamburger");
-
-		toggles.click(function(e){
-			e.preventDefault();
-			$(this).toggleClass('is-active');
-		});
+	function toggleBurger(elem) {
+		elem.toggleClass('is-active');
 	}
 })(jQuery);
