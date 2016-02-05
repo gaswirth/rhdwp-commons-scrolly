@@ -65,8 +65,9 @@ h6
 	.site-info
 		margin 0
 		text-align center
-		line-height 1.7
+		line-height 1.4
 		font-weight 300
+		font-size 0.9em
 
 		p
 			display inline-block
@@ -105,10 +106,10 @@ h6
 		border-bottom 2px solid $color1
 
 	.section-title
-		font-size 2.5em
+		font-size 2em
 		text-align center;
-		margin 1em auto 1rem auto
-		display none
+		margin 0 auto 1em auto
+		font-family $ff_nav
 
 	.section-content
 		-wrapper()
@@ -167,6 +168,10 @@ h6
 				position absolute
 				right 0
 				top 0
+				background-color $color1
+
+				&.is-active
+					background-color $color2
 
 
 #site-navigation-container
@@ -198,13 +203,16 @@ h6
 
 
 #site-navigation-sb
-	.menu-item
-		font-size 1.6em
+	font-size 1.7em
+	font-family $ff_nav
+	margin-top 1em
+	padding-left 0
+	text-align center
 
 
 .section-thumb
 	width 100%
-	height 100vh
+	height 80vh
 	background-position center top
 	background-size contain
 
@@ -333,7 +341,7 @@ h6
 
 
 #contact-form
-	border-bottom none !important
+	border-bottom-width 4px
 	-clearfix()
 
 	input
@@ -504,6 +512,27 @@ h6
 				margin-top 0
 
 
+	#audio
+		.section-content
+			position absolute
+			top 50%
+			-transform(translateY(-50%))
+
+		.wp-audio-shortcode
+			width 50% !important
+			min-width 300px
+			display block
+			margin 0 auto
+
+
+	#teaching
+		.section-content
+			position absolute
+			top 50%
+			right 0
+			-transform(translateY(-50%))
+
+
 	#contact-form
 		.contact-form
 			width 60%
@@ -517,6 +546,7 @@ h6
 	#colophon
 		.site-info
 			font-size 1em
+			line-height 1.7
 
 			p
 				border-top none

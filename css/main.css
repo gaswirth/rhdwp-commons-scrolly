@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:09:37 AM on 05-02-2016
+* RHD Dev: Compiled at 11:09:39 AM on 05-02-2016
 ***/
 
 .unselectable {
@@ -405,8 +405,9 @@ h6 {
 #colophon .site-info {
   margin: 0;
   text-align: center;
-  line-height: 1.7;
+  line-height: 1.4;
   font-weight: 300;
+  font-size: 0.9em;
 }
 #colophon .site-info p {
   display: inline-block;
@@ -444,10 +445,10 @@ h6 {
   border-bottom: 2px solid #acc3fe;
 }
 #content .section-title {
-  font-size: 2.5em;
+  font-size: 2em;
   text-align: center;
-  margin: 1em auto 1rem auto;
-  display: none;
+  margin: 0 auto 1em auto;
+  font-family: 'Gabriel Sans Light', sans-serif;
 }
 #content .section-content {
   width: 85%;
@@ -510,6 +511,10 @@ h6 {
   position: absolute;
   right: 0;
   top: 0;
+  background-color: #acc3fe;
+}
+#top #masthead #navbar #hamburger.is-active {
+  background-color: #5e7bd1;
 }
 #site-navigation-container {
   display: none;
@@ -544,12 +549,16 @@ h6 {
 #site-navigation-container #site-navigation li a:active {
   color: #5e7bd1;
 }
-#site-navigation-sb .menu-item {
-  font-size: 1.6em;
+#site-navigation-sb {
+  font-size: 1.7em;
+  font-family: 'Gabriel Sans Light', sans-serif;
+  margin-top: 1em;
+  padding-left: 0;
+  text-align: center;
 }
 .section-thumb {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background-position: center top;
   background-size: contain;
 }
@@ -682,7 +691,7 @@ h6 {
   margin-top: 1em;
 }
 #contact-form {
-  border-bottom: none !important;
+  border-bottom-width: 4px;
 }
 #contact-form input,
 #contact-form textarea {
@@ -859,6 +868,25 @@ h6 {
     top: 6em;
     margin-top: 0;
   }
+  #audio .section-content {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  #audio .wp-audio-shortcode {
+    width: 50% !important;
+    min-width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+  #teaching .section-content {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
   #contact-form .contact-form {
     width: 60%;
     margin: 3em auto 1em;
@@ -868,6 +896,7 @@ h6 {
   }
   #colophon .site-info {
     font-size: 1em;
+    line-height: 1.7;
   }
   #colophon .site-info p {
     border-top: none;

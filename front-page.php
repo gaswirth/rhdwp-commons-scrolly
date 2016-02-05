@@ -44,7 +44,10 @@ $section_args = array(
 			</section>
 
 			<section id="news">
-				<h2 class="section-title">Latest News</h2>
+				<header class="section-header">
+					<h2 class="section-title">Latest News</h2>
+				</header>
+
 				<div class="section-content">
 					<?php
 					$news_args = array(
@@ -101,11 +104,13 @@ $section_args = array(
 				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
+					<header class="section-header invisible">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -120,9 +125,11 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-content">
+					<header class="section-header">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -140,11 +147,13 @@ $section_args = array(
 				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
+					<header class="section-header">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -161,9 +170,11 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-content">
+					<header class="section-header">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -181,11 +192,13 @@ $section_args = array(
 				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
+					<header class="section-header">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -200,9 +213,11 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-content">
+					<header class="section-header invisible">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
@@ -218,11 +233,13 @@ $section_args = array(
 				$thumb_src = rhd_get_thumbnail( $section[0]->ID );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
-
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
 				<div class="section-content">
+					<header class="section-header invisible">
+						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+					</header>
+
 					<?php
 						if ( $section ) {
 							echo apply_filters( 'the_content', $section[0]->post_content );
