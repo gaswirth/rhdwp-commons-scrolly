@@ -55,6 +55,7 @@
 		$nav_args_sb = array(
 			'menu_location' => 'primary',
 			'menu_id' => 'site-navigation-sb',
+			'menu_class' => 'site-navigation',
 			'container' => 'nav',
 			'container_id' => 'site-navigation-sb-container'
 		);

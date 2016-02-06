@@ -28,6 +28,7 @@ $section_args = array(
 								$nav_args = array(
 									'menu_location' => 'primary',
 									'menu_id' => 'site-navigation',
+									'menu_class' => 'site-navigation',
 									'container' => 'nav',
 									'container_id' => 'site-navigation-container',
 									'walker' => new RHD_Walker_Nav
@@ -43,7 +44,7 @@ $section_args = array(
 				</header>
 			</section>
 
-			<section id="news">
+			<section id="news" class="hash">
 				<header class="section-header">
 					<h2 class="section-title">Latest News</h2>
 				</header>
@@ -97,7 +98,7 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="about" class="thumb-left">
+			<section id="about" class="hash thumb-left">
 				<?php
 				$section_args['name'] = 'about';
 				$section = get_posts( $section_args );
@@ -119,7 +120,7 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="video">
+			<section id="video" class="hash">
 				<?php
 				$section_args['name'] = 'video';
 				$section = get_posts( $section_args );
@@ -164,7 +165,7 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="photos">
+			<section id="photos" class="hash">
 				<?php
 				$section_args['name'] = 'photos';
 				$section = get_posts( $section_args );
@@ -185,7 +186,7 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="teaching" class="thumb-left">
+			<section id="teaching" class="hash thumb-left">
 				<?php
 				$section_args['name'] = 'teaching';
 				$section = get_posts( $section_args );
@@ -207,7 +208,7 @@ $section_args = array(
 				</div>
 			</section>
 
-			<section id="contact">
+			<section id="contact" class="hash">
 				<?php
 				$section_args['name'] = 'contact-info';
 				$section = get_posts( $section_args );

@@ -52,21 +52,6 @@ var playlistId = 'PLAYLIST_ID';
 			rhdCycleInit(true);
 
 
-		// YouTube TV
-/*
-		if ( !isMobile ) {
-			$("#ytv").ytv({
-				playlist: playlistId,
-				autoplay: false,
-			});
-		} else { // Fallback to default YouTube playlist
-			$("#ytv")
-				.addClass('ytv-mobile')
-				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
-		}
-*/
-
-
 		// Resize event
 		$window.on('resize', function(){
 			rhdRotateDeviceCheck();
@@ -79,6 +64,22 @@ var playlistId = 'PLAYLIST_ID';
 					$('.news-entries').cycle('destroy');
 					rhdCycleInit(true);
 				}
+			}
+		});
+
+
+		// Hash navigation with offsets
+		$(".site-navigation a").on('click', function(e){
+			e.preventDefault();
+
+			var aHref = $(this).attr('href');
+
+			if ( aHref.indexOf('#') === 0 ) {
+				var t = $(aHref).offset().top - $("#navbar").height();
+
+				console.log(aHref);
+
+				$(window).scrollTop(t);
 			}
 		});
 
