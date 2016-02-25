@@ -140,7 +140,7 @@ var playlistId = 'PLAYLIST_ID';
 
 
 	function rhdRotateDeviceCheck() {
-		if ( $("body").hasClass("tablet") || $("body").hasClass("mobile") ) {
+		if ( $("body").hasClass("mobile") ) {
 			if ( window.innerWidth > window.innerHeight ) {
 				$("#rotate-device").show();
 			} else {

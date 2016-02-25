@@ -23,7 +23,7 @@ $section_args = array(
 				<header id="masthead">
 					<div id="navbar">
 						<div class="navbar-inner">
-							<h1 id="site-title"><?php bloginfo( 'name' ); ?></h1>
+							<h1 id="site-title"><a href="#top"><?php bloginfo( 'name' ); ?></a></h1>
 							<?php
 								$nav_args = array(
 									'menu_location' => 'primary',

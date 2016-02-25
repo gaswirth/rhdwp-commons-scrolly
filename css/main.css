@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 12:45:49 PM on 06-02-2016
+* RHD Dev: Compiled at 10:01:42 PM on 24-02-2016
 ***/
 
 .unselectable {
@@ -484,7 +484,7 @@ h6 {
   width: 100%;
   height: 4rem;
   position: absolute;
-  background-color: rgba(255,255,255,0.4);
+  background-color: #fff;
   bottom: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -495,7 +495,6 @@ h6 {
   position: fixed;
   top: 0;
   z-index: 99;
-  background-color: rgba(255,255,255,0.8);
 }
 #navbar .navbar-inner {
   width: 100%;
@@ -514,6 +513,10 @@ h6 {
   line-height: 1;
   text-align: left;
   font-family: 'Gabriel Sans Thin', sans-serif;
+}
+#navbar #site-title a {
+  color: inherit;
+  text-decoration: none;
 }
 #navbar #hamburger {
   width: 4rem;
@@ -817,7 +820,7 @@ h6 {
     display: block;
     position: absolute;
     right: 0;
-    top: 34%;
+    top: 40%;
   }
   #content section.thumb-left,
   #content section.thumb-right {
