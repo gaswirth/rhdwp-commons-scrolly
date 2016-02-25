@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:01:42 PM on 24-02-2016
+* RHD Dev: Compiled at 6:07:02 PM on 25-02-2016
 ***/
 
 /**
@@ -484,7 +484,7 @@ h6 {
   width: 100%;
   height: 4rem;
   position: absolute;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.85);
   bottom: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -495,6 +495,7 @@ h6 {
   position: fixed;
   top: 0;
   z-index: 99;
+  background-color: #fff;
 }
 #navbar .navbar-inner {
   width: 100%;
@@ -795,6 +796,14 @@ h6 {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+.soliloquy-container {
+  max-height: none !important;
+  position: relative !important;
+}
+.soliloquy-container .soliloquy-caption {
+  position: relative !important;
+  margin-top: 1em;
 }
 @media screen and (min-width: 56em) {
   #navbar {
