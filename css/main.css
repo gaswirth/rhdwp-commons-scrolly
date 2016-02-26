@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:07:02 PM on 25-02-2016
+* RHD Dev: Compiled at 2:13:06 PM on 26-02-2016
 ***/
 
 .unselectable {
@@ -483,19 +483,14 @@ h6 {
 #navbar {
   width: 100%;
   height: 4rem;
-  position: absolute;
-  background-color: rgba(255,255,255,0.85);
-  bottom: 0;
+  position: fixed;
+  transform: translate3d(0, 0, 0);
+  background-color: rgba(255,255,255,0.7);
+  top: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  z-index: 2;
-}
-#navbar.sticky {
-  position: fixed;
-  top: 0;
-  z-index: 99;
-  background-color: #fff;
+  z-index: 1000;
 }
 #navbar .navbar-inner {
   width: 100%;

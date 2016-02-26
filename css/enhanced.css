@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:07:02 PM on 25-02-2016
+* RHD Dev: Compiled at 2:13:06 PM on 26-02-2016
 ***/
 
 .unselectable {
@@ -14,25 +14,14 @@
   visibility: hidden;
   margin: 0;
 }
-#news .news-scroller a:hover {
-  background-color: $color3;
+#masthead #navbar {
+  position: absolute;
+  bottom: 0;
+  top: initial;
 }
-#news .news-scroller a#prev {
-  left: -2em;
-  background-image: url("../img/left.png");
-  background-position: 2.1em center;
-}
-#news .news-scroller a#prev:hover {
-  left: -1.5em;
-}
-#news .news-scroller a#next {
-  right: -2em;
-  background-image: url("../img/right.png");
-  background-position: 0.4em center;
-}
-#news .news-scroller a#next:hover {
-  right: -1.5em;
-}
-#news .news-scroller a.disabled {
-  display: none;
+#masthead #navbar.sticky {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background-color: #fff;
 }

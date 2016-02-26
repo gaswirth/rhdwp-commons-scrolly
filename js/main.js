@@ -81,7 +81,8 @@ var cycleType = null;
 
 
 		// Scroll event
-		$(window).on('scroll', rhdStickyNav);
+		if ( !isMobile && !isTablet )
+			$(window).on('scroll', rhdStickyNav);
 	});
 
 
@@ -90,7 +91,9 @@ var cycleType = null;
 	============================================================================= */
 
 	function rhdInit() {
-		rhdStickyNav();
+		if ( !isMobile && !isTablet )
+			rhdStickyNav();
+
 		rhdRotateDeviceCheck();
 
 		$.slidebars({
