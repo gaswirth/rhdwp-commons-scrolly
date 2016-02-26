@@ -24,7 +24,6 @@ var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
 // Init
 var skr = null;
 var cycleType = null;
-var playlistId = 'PLAYLIST_ID';
 
 (function($){
 	$(document).ready(function($){
@@ -94,19 +93,6 @@ var playlistId = 'PLAYLIST_ID';
 			rhdCycleInit(false);
 		else
 			rhdCycleInit(true);
-
-
-		// YouTube TV
-		if ( !isMobile ) {
-			$("#ytv").ytv({
-				playlist: playlistId,
-				autoplay: false,
-			});
-		} else { // Fallback to default YouTube playlist
-			$("#ytv")
-				.addClass('ytv-mobile')
-				.html('<iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/videoseries?list=' + playlistId + '" width="100%" height="100%" frameborder="0" />');
-		}
 
 
 		// Resize event

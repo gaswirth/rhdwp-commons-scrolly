@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 3:02:48 PM on 26-02-2016
+* RHD Dev: Compiled at 5:12:20 PM on 26-02-2016
 ***/
 
 .unselectable {
@@ -197,10 +197,12 @@
 }
 .clearfix:before,
 #content .section-content:before,
+#resume .resume-container:before,
 #contact #contact-form:before,
 #contact .section-content:before,
 .clearfix:after,
 #content .section-content:after,
+#resume .resume-container:after,
 #contact #contact-form:after,
 #contact .section-content:after {
   content: " ";
@@ -208,6 +210,7 @@
 }
 .clearfix:after,
 #content .section-content:after,
+#resume .resume-container:after,
 #contact #contact-form:after,
 #contact .section-content:after {
   clear: both;
@@ -364,7 +367,7 @@ a {
 }
 a:hover,
 a:active {
-  color: #5e7bd1;
+  color: #40206e;
 }
 h1,
 h2,
@@ -412,7 +415,7 @@ h6 {
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #5e7bd1;
+  color: #40206e;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -422,9 +425,10 @@ h6 {
   bottom: 0.25em;
 }
 .section-title {
-  font-size: 2em;
+  font-size: 2.4em;
   text-align: center;
-  margin: 0 auto 1em auto;
+  margin: 1em auto;
+  font-family: 'Fonjava', cursive;
 }
 #content section {
   width: 100%;
@@ -570,44 +574,33 @@ h6 {
 #news .news-scroller a.disabled {
   display: none;
 }
-#media #ytv {
-  width: 85%;
-  max-width: 64rem;
-  position: relative;
-  margin: 1em auto 1em auto;
-  height: 50vh;
-  max-width: 100%;
-}
-#media #ytv.ytv-mobile {
-  margin-bottom: 1em;
-}
-#media #ytv.ytv-mobile img {
-  width: 100%;
-  height: auto;
-}
-#media #ytv.ytv-mobile iframe {
-  width: 100%;
-  height: 100%;
-}
-#resume ul {
-  width: 85%;
+#resume .resume-container {
+  width: 95%;
   max-width: 64rem;
   position: relative;
   margin: 0 auto 0 auto;
-  list-style: none;
-  padding-left: 0;
 }
-#resume ul li {
+#resume .resume-container a {
+  display: block;
+}
+#resume .resume-container img {
   width: 100%;
-  margin-bottom: 1em;
-  border-radius: 0.125rem;
-}
-#resume ul li:last-child {
-  margin-bottom: 0;
-}
-#resume ul li img {
-  width: 100%;
+  margin: 0.5em auto 0;
   height: auto;
+}
+#resume .section-content .section-title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-family: 'Open Sans', sans-serif;
+}
+#media .media-heading {
+  font-size: 1.6em;
+  margin-top: 1.5em;
+  margin-bottom: 0.25em;
+  font-family: 'Fonjava', cursive;
+}
+#media .media-heading:first-of-type {
+  margin-top: 0;
 }
 #contact #contact-form,
 #contact #contact-info {
@@ -615,7 +608,7 @@ h6 {
   margin: 0 auto;
 }
 #contact #contact-form {
-  margin: 2em auto 3em;
+  margin: 0 auto;
 }
 #contact #contact-form input,
 #contact #contact-form textarea {
@@ -633,7 +626,7 @@ h6 {
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
-  border: 2px solid #5e7bd1;
+  border: 2px solid #40206e;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -660,7 +653,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background-color: #5e7bd1;
+  background-color: #40206e;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -738,13 +731,14 @@ h6 {
   left: -100%;
   overflow: hidden;
 }
+.ninja-forms-required-items,
+.ninja-forms-req-symbol {
+  display: none;
+}
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 @media screen and (min-width: 40em) {
-  #content .section-content {
-    padding: 3em 0;
-  }
   #top #masthead .header-content {
     width: 40%;
     min-width: 30rem;
@@ -776,31 +770,14 @@ h6 {
     width: auto;
     padding: 2em;
   }
-  #resume ul {
-    width: 70%;
-    max-width: 64rem;
-    position: relative;
-    margin: 0 auto 0 auto;
-    text-align: justify;
-    padding: 0;
-    list-style: none;
-    padding-left: 0;
+  #resume .resume-container {
+    width: 50%;
   }
-  #resume ul:after {
-    width: 100%;
-    display: inline-block;
-    content: '';
+  #resume .resume-container a {
+    display: block;
   }
-  #resume ul li {
-    width: 34%;
-    display: inline-block;
-  }
-  #resume ul li img {
-    width: 100%;
-    height: auto;
-  }
-  #contact .section-content {
-    margin: 2em auto;
+  #resume .resume-container img {
+    width: 46%;
   }
   #contact .section-content #contact-form {
     width: 60%;
@@ -812,7 +789,6 @@ h6 {
   #contact .section-content #contact-info {
     width: 30%;
     float: right;
-    margin-top: 1em;
   }
   .full-bg figcaption {
     font-size: 2em;

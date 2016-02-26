@@ -39,11 +39,9 @@ function rhd_enqueue_styles()
 	wp_register_style( 'rhd-main', RHD_THEME_DIR . '/css/main.css', array(), '1', 'all' );
 	wp_register_style( 'rhd-enhanced', RHD_THEME_DIR . '/css/enhanced.css', array(), '1', 'all' );
 	wp_register_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400' );
-	wp_register_style( 'youtube-tv', RHD_THEME_DIR . '/js/vendor/youtube-tv/src/ytv.css', array(), null, 'all' );
 
 	if ( !rhd_is_mobile() ) {
 		wp_enqueue_style( 'rhd-enhanced' );
-		wp_enqueue_style( 'youtube-tv' );
 	}
 
 	wp_register_style( 'normalize', RHD_THEME_DIR . '/css/normalize.css', null, null, 'all' );
@@ -61,7 +59,6 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
 	wp_register_script( 'cycle2', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/index.js', array(), '2', true );
 	wp_register_script( 'cycle2-carousel', RHD_THEME_DIR . '/js/vendor/jquery.cycle2.min/jquery.cycle2.carousel.js', array( 'cycle2' ), '2', true );
-	wp_register_script( 'youtube-tv', RHD_THEME_DIR . '/js/vendor/youtube-tv/src/ytv.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
 		'rhd-plugins',
@@ -74,9 +71,6 @@ function rhd_enqueue_scripts()
 
 	if ( !wp_is_mobile() )
 		$main_deps[] = 'skrollr';
-
-	if ( ! rhd_is_mobile() )
-		$main_deps[] = 'youtube-tv';
 
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
