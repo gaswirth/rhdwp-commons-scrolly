@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:25:09 PM on 04-02-2016
+* RHD Dev: Compiled at 6:14:38 PM on 26-02-2016
 ***/
 
 .unselectable {
@@ -457,7 +457,7 @@ h6 {
   text-align: center;
   margin: 0;
   position: relative;
-  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_075.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/image.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -759,13 +759,20 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_235.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/image.jpg");
 }
 #full-bg-2 {
-  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/nick-1.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/image.jpg");
 }
 #full-bg-3 {
-  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/NICK_GASWIRTH_269.jpg");
+  background-image: url("//dev.roundhouse-designs.com/SITEBASE/wp-content/uploads/2016/01/image.jpg");
+}
+.ninja-forms-required-items,
+.ninja-forms-req-symbol {
+  display: none;
+}
+.soliloquy-container .soliloquy-image {
+  max-height: 600px !important;
 }
 /* ==========================================================================
 	Media Queries
