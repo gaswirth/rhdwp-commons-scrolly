@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:49:28 PM on 26-02-2016
+* RHD Dev: Compiled at 3:02:48 PM on 26-02-2016
 ***/
 
 .unselectable {
@@ -359,12 +359,12 @@ body {
 }
 a {
   outline: 0 !important;
-  color: $color3;
+  color: #22336e;
   text-decoration: none;
 }
 a:hover,
 a:active {
-  color: $color4;
+  color: #5e7bd1;
 }
 h1,
 h2,
@@ -389,7 +389,7 @@ h6 {
 }
 #colophon {
   width: 100%;
-  background: #5e7bd1;
+  background: #22336e;
   color: #fff;
   padding: 2em 0;
   margin-bottom: 4em;
@@ -412,7 +412,7 @@ h6 {
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: $color3;
+  color: #5e7bd1;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
@@ -470,7 +470,7 @@ h6 {
   display: inline-block;
   line-height: 1;
   font-family: 'Fonjava', cursive;
-  color: #fff;
+  color: #22336e;
 }
 #top #masthead .header-content #site-navigation-container {
   width: 94%;
@@ -506,7 +506,7 @@ h6 {
 }
 #top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
 #top #masthead .header-content #site-navigation-container #site-navigation li a:active {
-  color: #5e7bd1;
+  color: #22336e;
 }
 #top #bio {
   padding: 1em 0;
@@ -551,7 +551,7 @@ h6 {
   height: 5em;
   position: absolute;
   display: block;
-  background-color: #5e7bd1;
+  background-color: #22336e;
   background-size: 40% 90%;
   background-repeat: no-repeat;
   transition: all 0.3s ease 0.1s;
@@ -626,14 +626,14 @@ h6 {
   -webkit-border-radius: 0.1em;
   -moz-border-radius: 0.1em;
   border-radius: 0.1em;
-  border: 2px solid #5e7bd1;
+  border: 2px solid #22336e;
   font-family: 'Open Sans', sans-serif;
   transition: 0.2s all;
   outline: none;
 }
 #contact #contact-form input:focus,
 #contact #contact-form textarea:focus {
-  border: 2px solid $color3;
+  border: 2px solid #5e7bd1;
 }
 #contact #contact-form input[type="email"],
 #contact #contact-form textarea[type="email"],
@@ -645,7 +645,7 @@ h6 {
 #contact #contact-form input[type="submit"],
 #contact #contact-form textarea[type="submit"] {
   width: 100%;
-  background-color: #5e7bd1;
+  background-color: #22336e;
   color: #fff;
   border: none;
   padding: 0.5em 0.2em 0.4em 0.2em;
@@ -660,7 +660,7 @@ h6 {
 #contact #contact-form textarea[type="submit"]:hover,
 #contact #contact-form input[type="submit"]:active,
 #contact #contact-form textarea[type="submit"]:active {
-  background-color: $color3;
+  background-color: #5e7bd1;
 }
 #contact #contact-form textarea {
   width: 100%;
@@ -713,7 +713,7 @@ h6 {
 }
 .full-bg .full-bg-caption a:hover,
 .full-bg .full-bg-caption a:active {
-  color: #5e7bd1;
+  color: #22336e;
 }
 .full-bg .full-bg-caption h1,
 .full-bg .full-bg-caption h2,
@@ -755,6 +755,7 @@ h6 {
   }
   #top #masthead .header-content #site-title {
     font-size: 3.7em;
+    color: #fff;
   }
   #top #bio {
     width: 45%;
