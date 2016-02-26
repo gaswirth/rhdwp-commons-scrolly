@@ -120,12 +120,10 @@ $section_args = array(
 				<div class="section-content">
 					<?php
 						if ( $section ) {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '91' ); }
-							//echo apply_filters( 'the_content', $section[0]->post_content );
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( 'media-slider', 'slug' ); }
+							// echo apply_filters( 'the_content', $section[0]->post_content );
 						}
 					?>
-
-					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'media-slider', 'slug' ); } ?>
 				</div>
 			</section>
 
