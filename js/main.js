@@ -14,17 +14,13 @@ var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
 	isMobile = ( $body.hasClass('mobile') === true ) ? true : false,
 	isTablet = ( $body.hasClass('tablet') === true ) ? true : false;
 
-// Site Data object: siteData
-
 
 /* ==========================================================================
 	Let 'er rip... (DOM Ready)
    ========================================================================== */
 
 // Init
-var skr = null;
 var cycleType = null;
-var playlistId = 'PLAYLIST_ID';
 
 (function($){
 	var toggles = $(".c-hamburger");

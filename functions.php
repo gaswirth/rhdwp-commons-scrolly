@@ -76,8 +76,10 @@ function rhd_enqueue_scripts()
 		//'fittext',
 	);
 
+	/*
 	if ( ! rhd_is_mobile() )
 		$main_deps[] = 'youtube-tv';
+	*/
 
 	wp_register_script( 'rhd-main', RHD_THEME_DIR . '/js/main.js', $main_deps, null, true );
 
