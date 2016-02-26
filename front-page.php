@@ -115,7 +115,7 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
+				<h2 class="section-title invisible"><?php echo $section[0]->post_title; ?></h2>
 
 				<div class="section-content">
 					<?php

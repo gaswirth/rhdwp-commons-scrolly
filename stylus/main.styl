@@ -136,45 +136,40 @@ h6
 
 			#site-title
 				width 100%
-				margin 0 auto
+				margin 0 auto 0.25em
 				font-size 2.5em
 				display inline-block
 				line-height 1
 				font-family $ff_headline
 				color $color2
 
-			#site-navigation-container
-				width 94%
-				margin 0 auto
-				text-align center
 
-				#site-navigation
-					list-style none
-					margin 0
-					padding-left 0
-					line-height 2
-					-flexbox()
-					line-height initial
+#site-navigation-container
+	width 94%
+	margin 0 auto
+	text-align center
 
-					li
-						-flexitem()
-						font-size 1.2em
-						text-transform uppercase
+	#site-navigation
+		list-style none
+		margin 0
+		padding-left 0
+		line-height 2
+		-flexbox()
+		line-height initial
 
-						a
-							text-decoration none
-							transition color 0.2s
+		li
+			-flexitem()
+			font-size 1.2em
+			font-family $ff_headline
 
-							&:link
-							&:visited
-								color inherit
+			a
+				text-decoration none
+				color $color2
+				transition color 0.2s
 
-							&:hover
-							&:active
-								color $color2
-
-	#bio
-		padding 1em 0
+				&:hover
+				&:active
+					color $color1
 
 
 #news
@@ -324,17 +319,12 @@ h6
 			max-width 100%
 			margin-bottom 1em
 
+		.widget-title
+			font-family $ff_headline
 
-#social
-	width 100%
-	-flexbox()
-
-	.social-item
-		width 26%
-		-flexitem()
-
-		img
-			width 100%
+		.widget-rhd-social-icons
+			.rhd-social-icon
+				margin 0 0.5em
 
 
 .full-bg
@@ -349,7 +339,7 @@ h6
 		background rgba( 255, 255, 255, 0.75 )
 		padding 1em 0
 		font-size 2em
-		color black
+		color $color1
 		text-align center
 		position absolute
 		bottom 0
@@ -393,11 +383,25 @@ h6
 	display none
 
 
+.soliloquy-container .soliloquy-image
+	max-height 600px !important
+
+
 /* ==========================================================================
 	Media Queries
    ========================================================================== */
 
 @media screen and (min-width 40em)
+	#site-navigation-container
+		#site-navigation
+			li
+				a
+					color white
+
+					&:hover
+					&:active
+						color $color2
+
 	#top
 		#masthead
 			.header-content
@@ -412,15 +416,6 @@ h6
 					font-size 3.7em
 					color white
 
-
-		#bio
-			width 45%
-			position absolute
-			bottom 0
-			left 3%
-			padding 1em
-			text-align justify
-			-border-radius(3px)
 
 	#news
 		.section-content
@@ -455,6 +450,9 @@ h6
 				input
 					&[type="submit"]
 						width 6.25rem
+						font-family $ff_headline
+						font-size 1.3em
+						letter-spacing 2px
 
 			#contact-info
 				width 30%

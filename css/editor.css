@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:12:20 PM on 26-02-2016
+* RHD Dev: Compiled at 6:13:51 PM on 26-02-2016
 ***/
 
 /**
@@ -469,19 +469,19 @@ h6 {
 }
 #top #masthead .header-content #site-title {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 0.25em;
   font-size: 2.5em;
   display: inline-block;
   line-height: 1;
   font-family: 'Fonjava', cursive;
   color: #22336e;
 }
-#top #masthead .header-content #site-navigation-container {
+#site-navigation-container {
   width: 94%;
   margin: 0 auto;
   text-align: center;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation {
+#site-navigation-container #site-navigation {
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -490,30 +490,24 @@ h6 {
   padding: 0;
   line-height: initial;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation:after {
+#site-navigation-container #site-navigation:after {
   width: 100%;
   display: inline-block;
   content: '';
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li {
+#site-navigation-container #site-navigation li {
   display: inline-block;
   font-size: 1.2em;
-  text-transform: uppercase;
+  font-family: 'Fonjava', cursive;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li a {
+#site-navigation-container #site-navigation li a {
   text-decoration: none;
+  color: #22336e;
   transition: color 0.2s;
 }
-#top #masthead .header-content #site-navigation-container #site-navigation li a:link,
-#top #masthead .header-content #site-navigation-container #site-navigation li a:visited {
-  color: inherit;
-}
-#top #masthead .header-content #site-navigation-container #site-navigation li a:hover,
-#top #masthead .header-content #site-navigation-container #site-navigation li a:active {
-  color: #22336e;
-}
-#top #bio {
-  padding: 1em 0;
+#site-navigation-container #site-navigation li a:hover,
+#site-navigation-container #site-navigation li a:active {
+  color: #000;
 }
 #news {
   background: #fff;
@@ -666,22 +660,11 @@ h6 {
   max-width: 100%;
   margin-bottom: 1em;
 }
-#social {
-  width: 100%;
-  text-align: justify;
-  padding: 0;
+#contact #contact-info .widget-title {
+  font-family: 'Fonjava', cursive;
 }
-#social:after {
-  width: 100%;
-  display: inline-block;
-  content: '';
-}
-#social .social-item {
-  width: 26%;
-  display: inline-block;
-}
-#social .social-item img {
-  width: 100%;
+#contact #contact-info .widget-rhd-social-icons .rhd-social-icon {
+  margin: 0 0.5em;
 }
 .full-bg {
   width: 100%;
@@ -735,7 +718,17 @@ h6 {
 .ninja-forms-req-symbol {
   display: none;
 }
+.soliloquy-container .soliloquy-image {
+  max-height: 600px !important;
+}
 @media screen and (min-width: 40em) {
+  #site-navigation-container #site-navigation li a {
+    color: #fff;
+  }
+  #site-navigation-container #site-navigation li a:hover,
+  #site-navigation-container #site-navigation li a:active {
+    color: #22336e;
+  }
   #top #masthead .header-content {
     width: 40%;
     min-width: 30rem;
@@ -747,17 +740,6 @@ h6 {
   #top #masthead .header-content #site-title {
     font-size: 3.7em;
     color: #fff;
-  }
-  #top #bio {
-    width: 45%;
-    position: absolute;
-    bottom: 0;
-    left: 3%;
-    padding: 1em;
-    text-align: justify;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
   }
   #news .section-content {
     position: relative;
@@ -782,6 +764,9 @@ h6 {
   }
   #contact .section-content #contact-form input[type="submit"] {
     width: 6.25rem;
+    font-family: 'Fonjava', cursive;
+    font-size: 1.3em;
+    letter-spacing: 2px;
   }
   #contact .section-content #contact-info {
     width: 30%;
