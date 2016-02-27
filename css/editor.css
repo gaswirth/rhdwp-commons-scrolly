@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 6:19:06 PM on 26-02-2016
+* RHD Dev: Compiled at 10:58:58 AM on 27-02-2016
 ***/
 
 /**
@@ -406,16 +406,16 @@ h6 {
   font-weight: 300;
 }
 #colophon .site-info a {
-  text-decoration: none;
   transition: color 0.2s;
+  color: inherit;
 }
 #colophon .site-info a:link,
 #colophon .site-info a:visited {
-  color: inherit;
+  text-decoration: none;
 }
 #colophon .site-info a:hover,
 #colophon .site-info a:active {
-  color: #40206e;
+  text-decoration: underline;
 }
 #colophon #rhd-logo-footer {
   width: 1.35em;
