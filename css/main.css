@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 10:58:58 AM on 27-02-2016
+* RHD Dev: Compiled at 1:04:06 PM on 29-02-2016
 ***/
 
 .unselectable {
@@ -451,7 +451,7 @@ h6 {
 #top #masthead {
   width: 100%;
   height: 100vh;
-  background-image: url("//dev.roundhouse-designs.com/marjoriefailoni/wp-content/uploads/2016/01/news.jpg");
+  background-image: url("//marjoriefailoni.com/wp-content/uploads/2016/01/news.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -698,15 +698,15 @@ h6 {
   margin: 0;
 }
 #full-bg-1 {
-  background-image: url("//dev.roundhouse-designs.com/marjoriefailoni/wp-content/uploads/2016/01/resume.jpg");
+  background-image: url("//marjoriefailoni.com/wp-content/uploads/2016/01/resume.jpg");
   background-position-x: left;
 }
 #full-bg-2 {
-  background-image: url("//dev.roundhouse-designs.com/marjoriefailoni/wp-content/uploads/2016/01/media.jpg");
+  background-image: url("//marjoriefailoni.com/wp-content/uploads/2016/01/media.jpg");
   background-position-x: -6em;
 }
 #full-bg-3 {
-  background-image: url("//dev.roundhouse-designs.com/marjoriefailoni/wp-content/uploads/2016/01/contact.jpg");
+  background-image: url("//marjoriefailoni.com/wp-content/uploads/2016/01/contact.jpg");
   background-position-x: -9em;
 }
 .hide-on-fallback {
