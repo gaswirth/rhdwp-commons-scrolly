@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:13:06 PM on 26-02-2016
+* RHD Dev: Compiled at 4:46:57 PM on 01-03-2016
 ***/
 
 /**
@@ -465,12 +465,7 @@ h6 {
   max-width: 100%;
   display: block;
 }
-#top {
-  position: relative;
-  border-top: none !important;
-  border-bottom: none !important;
-}
-#top #masthead {
+#masthead {
   width: 100%;
   height: 100vh;
   text-align: center;
@@ -558,12 +553,15 @@ h6 {
 #site-navigation-container #site-navigation li a:active {
   color: #5e7bd1;
 }
-#site-navigation-sb {
+#site-navigation-sb-container {
+  margin-top: 6em;
+}
+#site-navigation-sb-container #site-navigation-sb {
   font-size: 1.7em;
   font-family: 'Gabriel Sans Light', sans-serif;
-  margin-top: 1em;
   padding-left: 0;
   text-align: center;
+  line-height: 1.6;
 }
 .section-thumb {
   width: 100%;
@@ -571,6 +569,7 @@ h6 {
   background-position: center top;
   background-size: 100%;
   background-repeat: no-repeat;
+  border-bottom: 2px solid #acc3fe;
 }
 .section-thumb img {
   width: 100%;
@@ -838,6 +837,7 @@ h6 {
   #content section.thumb-right .section-thumb {
     width: 37%;
     background-size: cover;
+    border-bottom: none;
   }
   #content section.thumb-left .section-content,
   #content section.thumb-right .section-content {

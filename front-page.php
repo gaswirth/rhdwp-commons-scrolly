@@ -19,37 +19,17 @@ $section_args = array(
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
-			<section id="top">
-				<header id="masthead">
-					<div id="navbar">
-						<div class="navbar-inner">
-							<h1 id="site-title"><a href="#top"><?php bloginfo( 'name' ); ?></a></h1>
-							<?php
-								$nav_args = array(
-									'menu_location' => 'primary',
-									'menu_id' => 'site-navigation',
-									'menu_class' => 'site-navigation',
-									'container' => 'nav',
-									'container_id' => 'site-navigation-container',
-									'walker' => new RHD_Walker_Nav
-								);
-								wp_nav_menu( $nav_args );
-							?>
-
-							<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htra">
-								<span>Toggle nav</span>
-	                        </button>
-						</div>
-					</div>
-				</header>
-			</section>
+			<header id="masthead">
+				<h1 class="site-title invisible"><?php bloginfo( 'name' ); ?></h1>
+				<h2 class="description invisible"><?php bloginfo( 'description' ); ?></h2>
+			</header>
 
 			<section id="news" class="hash">
 				<header class="section-header">
 					<h2 class="section-title">Latest News</h2>
 				</header>
 
-				<div class="section-content">
+				<div id="news-content" class="section-content">
 					<?php
 					$news_args = array(
 						'post_type'			=> 'post',
@@ -107,7 +87,7 @@ $section_args = array(
 
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
-				<div class="section-content">
+				<div id="about-content" class="section-content">
 					<header class="section-header invisible">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>
@@ -126,7 +106,7 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<div class="section-content">
+				<div id="video-content" class="section-content">
 					<header class="section-header">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>
@@ -150,7 +130,7 @@ $section_args = array(
 
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
-				<div class="section-content">
+				<div id="audio-content" class="section-content">
 					<header class="section-header">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>
@@ -171,7 +151,7 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<div class="section-content">
+				<div id="photos-content" class="section-content">
 					<header class="section-header">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>
@@ -195,7 +175,7 @@ $section_args = array(
 
 				<div class="section-thumb" style="background-image: url(<?php echo $thumb_src[0]; ?>);"></div>
 
-				<div class="section-content">
+				<div id="teaching-content" class="section-content">
 					<header class="section-header">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>
@@ -214,7 +194,7 @@ $section_args = array(
 				$section = get_posts( $section_args );
 				?>
 
-				<div class="section-content">
+				<div id="contact-content" class="section-content">
 					<header class="section-header invisible">
 						<h2 class="section-title"><?php echo $section[0]->post_title; ?></h2>
 					</header>

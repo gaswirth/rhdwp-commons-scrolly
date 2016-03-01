@@ -4,6 +4,8 @@
 
 var $window = jQuery(window),
 	$body = jQuery('body'),
+	$header = jQuery('#masthead'),
+	$navbar = jQuery("#navbar"),
 	$main = jQuery('#main');
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
@@ -29,15 +31,8 @@ var cycleType = null;
 		rhdInit();
 
 
-		$(".c-hamburger").click(function(e){
-			e.preventDefault();
-			toggleBurger(toggles);
-		});
-
-
 		$("#site-navigation-sb a").on('click', function(){
 			$.slidebars.close();
-			toggleBurger(toggles);
 		});
 
 
@@ -71,7 +66,7 @@ var cycleType = null;
 			var aHref = $(this).attr('href');
 
 			if ( aHref.indexOf('#') === 0 ) {
-				var t = $(aHref).offset().top - $("#navbar").height();
+				var t = $(aHref).offset().top - $navbar.height();
 
 				console.log(aHref);
 
@@ -80,9 +75,16 @@ var cycleType = null;
 		});
 
 
-		// Scroll event
+		// Scroll events
+		//
+		// Sticky Nav when on desktops
 		if ( !isMobile && !isTablet )
-			$(window).on('scroll', rhdStickyNav);
+			$window.on('scroll', rhdStickyNav);
+
+		// Nav color change on mobile
+		if ( isMobile || isTablet )
+			$window.on('scroll', rhdNavColor);
+
 	});
 
 
@@ -132,12 +134,6 @@ var cycleType = null;
 	}
 
 
-	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
-	function toggleBurger(elem) {
-		elem.toggleClass('is-active');
-	}
-
-
 	function rhdRotateDeviceCheck() {
 		if ( $("body").hasClass("mobile") ) {
 			if ( window.innerWidth > window.innerHeight ) {
@@ -150,11 +146,10 @@ var cycleType = null;
 
 
 	function rhdStickyNav() {
-		var $navbar = $("#navbar"),
-			navHeight = $(window).height() - $navbar.height(),
-			scrollTop = $(window).scrollTop();
+		var	navHeight = $window.height() - $navbar.height(),
+			scrollTop = $window.scrollTop();
 
-		if ( scrollTop > navHeight ) {
+		if ( navHeight < scrollTop  ) {
 			$navbar
 				.prependTo('body')
 				.addClass('sticky')
@@ -164,6 +159,21 @@ var cycleType = null;
 				.removeClass('sticky')
 				.removeClass('sb-slide')
 				.prependTo('#masthead');
+		}
+	}
+
+
+	function rhdNavColor() {
+		var st = $window.scrollTop();
+
+		if ( $header.height() <= st ) {
+			$navbar.css({
+				backgroundColor: 'white'
+			});
+		} else {
+			$navbar.css({
+				backgroundColor: 'rgba(255, 255, 255, 0.7)'
+			});
 		}
 	}
 })(jQuery);

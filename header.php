@@ -72,6 +72,26 @@
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 
+		<div id="navbar">
+			<div class="navbar-inner">
+				<h1 id="site-title"><a href="#top"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php
+					$nav_args = array(
+						'menu_location' => 'primary',
+						'menu_id' => 'site-navigation',
+						'menu_class' => 'site-navigation',
+						'container' => 'nav',
+						'container_id' => 'site-navigation-container',
+						'walker' => new RHD_Walker_Nav
+					);
+					wp_nav_menu( $nav_args );
+				?>
+
+				<button id="hamburger" class="sb-toggle-right c-hamburger c-hamburger--htx">
+					<span>Toggle nav</span>
+                </button>
+			</div>
+		</div>
 
 		<div id="page" class="hfeed site sb-site-container">
 			<main id="main" class="clearfix">

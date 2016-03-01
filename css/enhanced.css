@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 2:13:06 PM on 26-02-2016
+* RHD Dev: Compiled at 4:46:57 PM on 01-03-2016
 ***/
 
 .unselectable {
@@ -14,12 +14,12 @@
   visibility: hidden;
   margin: 0;
 }
-#masthead #navbar {
+#navbar {
   position: absolute;
   bottom: 0;
   top: initial;
 }
-#masthead #navbar.sticky {
+#navbar.sticky {
   position: fixed;
   top: 0;
   z-index: 99;
