@@ -143,44 +143,9 @@ function rhd_skrollr_refresh()
 }
 add_action( 'wp_head', 'rhd_skrollr_refresh', 999 );
 
-/* ==========================================================================
-   Sidebars + Menus
-   ========================================================================== */
-
-// Sidebars
-function rhd_register_sidebars()
-{
-	register_sidebar(array(
-		'name'			=> __( 'Sidebar', 'rhd' ),
-		'id'			=> 'sidebar',
-		'before_title'	=> '<h2 class="widget-title">',
-		'after_title'	=> '</h2>',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>'
-	));
-}
-add_action( 'widgets_init', 'rhd_register_sidebars' );
-
-
-// Menus
-/**
- * RHD_Walker_Nav class.
- *
- * Adds newlines after each </li> closing tag.
- *
- * @extends Walker_Nav_Menu
- */
-class RHD_Walker_Nav extends Walker_Nav_Menu {
-	function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		$output .= "</li>\n";
-	}
-}
-
-register_nav_menu( 'primary', 'Main Site Navigation' );
-
 
 /* ==========================================================================
-   Registrations, Theme Support, Thumbnails
+   Theme Setup
    ========================================================================== */
 
 /**
@@ -209,20 +174,24 @@ function rhd_theme_setup()
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
+	add_theme_support( 'automatic-feed-links' );
+
+	register_nav_menu( 'primary', 'Main Site Navigation' );
+
+	// Allow shortcodes in widgets
+	add_filter( 'widget_text', 'do_shortcode' );
 
 	// Content Width
 	if ( ! isset( $content_width ) ) {
 		$content_width = 620;
 	}
 
+	add_filter( 'allow_minor_auto_core_updates', '__return_true' );
+
 	// Custom Admin Panel
 	//include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
-
-
-// Enable themes auto-update
-add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
 
 /**
@@ -239,9 +208,6 @@ function rhd_attachment_display_settings()
 }
 add_action( 'after_setup_theme', 'rhd_attachment_display_settings' );
 
-
-// Adds RSS feed links to for posts and comments.
-add_theme_support( 'automatic-feed-links' );
 
 function rhd_image_sizes()
 {
@@ -271,8 +237,34 @@ function rhd_add_image_sizes( $sizes )
 add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
 
 
-// Allow shortcodes in widgets
-add_filter( 'widget_text', 'do_shortcode' );
+// Sidebars
+function rhd_register_sidebars()
+{
+	register_sidebar(array(
+		'name'			=> __( 'Sidebar', 'rhd' ),
+		'id'			=> 'sidebar',
+		'before_title'	=> '<h2 class="widget-title">',
+		'after_title'	=> '</h2>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>'
+	));
+}
+add_action( 'widgets_init', 'rhd_register_sidebars' );
+
+
+// Menus
+/**
+ * RHD_Walker_Nav class.
+ *
+ * Adds newlines after each </li> closing tag.
+ *
+ * @extends Walker_Nav_Menu
+ */
+class RHD_Walker_Nav extends Walker_Nav_Menu {
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
+}
 
 
 /* ==========================================================================
