@@ -1,6 +1,6 @@
 <?php
 /**
- * RHD Base
+ * RHD "Scrolly"
  *
  * ROUNDHOUSE DESIGNS
  *
@@ -13,19 +13,20 @@
    Initialization
    ========================================================================== */
 
-function rhd_init()
-{
-	// Constants
-	define( "RHD_THEME_DIR", get_template_directory_uri() );
-	define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
+// Constants
+define( "RHD_THEME_DIR", get_template_directory_uri() );
+define( "RHD_IMG_DIR", get_template_directory_uri() . '/img' );
 
-	$updir = wp_upload_dir();
-	define( "RHD_UPLOAD_URL", $updir['baseurl'] );
-}
-add_action( 'after_setup_theme', 'rhd_init' );
+$updir = wp_upload_dir();
+define( "RHD_UPLOAD_URL", $updir['baseurl'] );
 
-/* Disable Editor */
+
+// Disable Editor
 define( 'DISALLOW_FILE_EDIT', true );
+
+
+// Globally disable WP toolbar
+// add_filter( 'show_admin_bar', '__return_false' );
 
 
 /* ==========================================================================
@@ -166,23 +167,43 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
    Registrations, Theme Support, Thumbnails
    ========================================================================== */
 
-// Theme Support
-if ( function_exists( 'add_theme_support' ) ) {
+/**
+ * rhd_init function.
+ *
+ * Description: Anything to be performed during 'init' action
+ *
+ * @access public
+ * @return void
+ */
+function rhd_init()
+{
+	// Actions Here
+}
+add_action( 'init', 'rhd_init' );
+
+
+/**
+ * rhd_theme_setup function.
+ *
+ * @access public
+ * @return void
+ */
+function rhd_theme_setup()
+{
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
+
+	// Content Width
+	if ( ! isset( $content_width ) ) {
+		$content_width = 620;
+	}
 }
+add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
 
 // Enable themes auto-update
 add_filter( 'allow_minor_auto_core_updates', '__return_true' );
-
-
-// Content Width
-if ( ! isset( $content_width ) ) {
-	$content_width = 620;
-
-}
 
 
 /**
@@ -208,6 +229,28 @@ function rhd_image_sizes()
 	add_image_size( 'news-item', 300, 300, true );
 }
 add_action( 'after_setup_theme', 'rhd_image_sizes' );
+
+
+/**
+ * rhd_add_image_sizes function.
+ *
+ * Adds images sizes to the media library.
+ *
+ * @access public
+ * @param mixed $sizes
+ * @return void
+ */
+function rhd_add_image_sizes( $sizes )
+{
+	$addsizes = array(
+		"news-item" => __( "News Item (Square)" )
+	);
+	$newsizes = array_merge( $sizes, $addsizes );
+
+	return $newsizes;
+}
+add_filter( 'image_size_names_choose', 'rhd_add_image_sizes' );
+
 
 // Allow shortcodes in widgets
 add_filter( 'widget_text', 'do_shortcode' );
@@ -253,18 +296,6 @@ function rhd_footer_admin ()
 	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
 add_filter('admin_footer_text', 'rhd_footer_admin');
-
-
-// Remove 'Editor' panel
-function rhd_remove_editor_menu()
-{
-  remove_action('admin_menu', '_add_themes_utility_last', 101);
-}
-add_action('_admin_menu', 'rhd_remove_editor_menu', 1);
-
-
-// Globally disable WP toolbar
-// add_filter( 'show_admin_bar', '__return_false' );
 
 
 /* ==========================================================================
