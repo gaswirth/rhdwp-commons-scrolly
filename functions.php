@@ -282,11 +282,12 @@ function rhd_branding_login()
 {
 	return "//roundhouse-designs.com/";
 }
-add_filter('login_headerurl', 'rhd_branding_login');
+add_filter( 'login_headerurl', 'rhd_branding_login' );
 
 
 // Site Title as "login message" (underneath RHD logo)
-function rhd_login_message() {
+function rhd_login_message()
+{
 	echo '<h1 class="rhd-login-site-title">' . get_bloginfo('name') . "</h1>\n";
 }
 add_action( 'login_message', 'rhd_login_message' );
@@ -304,7 +305,7 @@ function rhd_admin()
 {
 	wp_enqueue_style( 'rhd_admin', get_stylesheet_directory_uri() . '/rhd/rhd-admin.css' );
 }
-add_action('admin_head', 'rhd_admin');
+add_action( 'admin_head', 'rhd_admin' );
 
 
 // Custom WordPress Footer
@@ -312,7 +313,7 @@ function rhd_footer_admin ()
 {
 	return '&copy; ' . date("Y") . ' - Roundhouse <img class="rhd-admin-colophon-logo" src="//assets.roundhouse-designs.com/images/rhd-black-house.png" alt="Roundhouse Designs"> Designs';
 }
-add_filter('admin_footer_text', 'rhd_footer_admin');
+add_filter( 'admin_footer_text', 'rhd_footer_admin' );
 
 
 /* ==========================================================================
@@ -478,8 +479,8 @@ function rhd_enhance_excerpts( $text )
 	}
 	return $text;
 }
-remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-add_filter('get_the_excerpt', 'rhd_enhance_excerpts');
+remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
+add_filter( 'get_the_excerpt', 'rhd_enhance_excerpts' );
 
 
 /**
@@ -531,7 +532,8 @@ add_filter( 'body_class', 'rhd_body_class' );
  *
  * Redirects users who try to view a single post page
  */
-function rhd_redirect_post() {
+function rhd_redirect_post()
+{
 	if ( is_single() && get_post_type() == 'post' ) {
 		wp_safe_redirect( home_url(), 301 );
 	exit;
@@ -593,7 +595,8 @@ function rhd_single_pagination()
  * @access public
  * @return void
  */
-function rhd_full_bg_caption() {
+function rhd_full_bg_caption()
+{
 	$dl_post = get_posts( array( 'post_type' => 'page', 'post_status' => 'publish', 'name' => 'download-resume' ) );
 
 	echo "<div class='full-bg-caption'>" . $dl_post[0]->post_content . "</div>\n";
@@ -606,7 +609,8 @@ function rhd_full_bg_caption() {
  * @access public
  * @return void
  */
-function rhd_svg_logo() {
+function rhd_svg_logo()
+{
 	echo '
 			<svg id="PLACEHOLDER">
 				<!-- SVG CODE HERE -->
@@ -625,7 +629,8 @@ function rhd_svg_logo() {
  * @access public
  * @return void
  */
-function rhd_add_ext_link_meta_boxes() {
+function rhd_add_ext_link_meta_boxes()
+{
 	add_meta_box(
 		'rhd_ext_link_meta',
 		__( 'External Link', 'rhd' ),
@@ -644,7 +649,8 @@ add_action( 'add_meta_boxes', 'rhd_add_ext_link_meta_boxes' );
  * @param mixed $post
  * @return void
  */
-function rhd_ext_link_meta_callback( $post ) {
+function rhd_ext_link_meta_callback( $post )
+{
 
 	// Add an nonce field so we can check for it later.
 	wp_nonce_field( 'rhd_ext_link_meta_meta_box', 'rhd_ext_link_meta_meta_box_nonce' );
@@ -659,7 +665,8 @@ function rhd_ext_link_meta_callback( $post ) {
 <?php
 }
 
-function rhd_save_ext_link_meta_box_data( $post_id ) {
+function rhd_save_ext_link_meta_box_data( $post_id )
+{
 
 	// Check if our nonce is set.
 	if ( ! isset( $_POST['rhd_ext_link_meta_meta_box_nonce'] ) ) {
