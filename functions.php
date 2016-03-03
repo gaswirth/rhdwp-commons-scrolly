@@ -33,6 +33,12 @@ define( 'DISALLOW_FILE_EDIT', true );
    Scripts + Styles
    ========================================================================== */
 
+/**
+ * rhd_enqueue_styles function.
+ *
+ * @access public
+ * @return void
+ */
 function rhd_enqueue_styles()
 {
 	global $theme_opts;
@@ -55,6 +61,13 @@ function rhd_enqueue_styles()
 }
 add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
 
+
+/**
+ * rhd_enqueue_scripts function.
+ *
+ * @access public
+ * @return void
+ */
 function rhd_enqueue_scripts()
 {
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
@@ -90,6 +103,12 @@ function rhd_enqueue_scripts()
 add_action('wp_enqueue_scripts', 'rhd_enqueue_scripts');
 
 
+/**
+ * rhd_add_editor_styles function.
+ *
+ * @access public
+ * @return void
+ */
 function rhd_add_editor_styles()
 {
 	//Google Fonts in admin editor
@@ -142,6 +161,7 @@ function rhd_register_sidebars()
 }
 add_action( 'widgets_init', 'rhd_register_sidebars' );
 
+
 // Menus
 /**
  * RHD_Walker_Nav class.
@@ -159,10 +179,6 @@ class RHD_Walker_Nav extends Walker_Nav_Menu {
 register_nav_menu( 'primary', 'Main Site Navigation' );
 
 
-// Includes and Requires
-//include_once( 'includes/rhd-admin-panel.php' );
-
-
 /* ==========================================================================
    Registrations, Theme Support, Thumbnails
    ========================================================================== */
@@ -177,7 +193,8 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
  */
 function rhd_init()
 {
-	// Actions Here
+	// Custom Admin Panel
+	//include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'init', 'rhd_init' );
 
@@ -312,15 +329,15 @@ function rhd_is_mobile()
 {
 	$mobile_browser = 0;
 
-	if (preg_match('/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower($_SERVER['HTTP_USER_AGENT']))) {
-	    $mobile_browser++;
+	if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|android)/i', strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	if ((strpos(strtolower($_SERVER['HTTP_ACCEPT']),'application/vnd.wap.xhtml+xml') > 0) or ((isset($_SERVER['HTTP_X_WAP_PROFILE']) or isset($_SERVER['HTTP_PROFILE'])))) {
-	    $mobile_browser++;
+	if ( ( strpos( strtolower( $_SERVER['HTTP_ACCEPT'] ),'application/vnd.wap.xhtml+xml' ) > 0 ) or ( ( isset( $_SERVER['HTTP_X_WAP_PROFILE'] ) or isset( $_SERVER['HTTP_PROFILE'] ) ) ) ) {
+	    ++$mobile_browser;
 	}
 
-	$mobile_ua = strtolower(substr($_SERVER['HTTP_USER_AGENT'], 0, 4));
+	$mobile_ua = strtolower( substr( $_SERVER['HTTP_USER_AGENT'], 0, 4) );
 	$mobile_agents = array(
 	    'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
 	    'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -332,17 +349,17 @@ function rhd_is_mobile()
 	    'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
 	    'wapr','webc','winw','winw','xda ','xda-');
 
-	if (in_array($mobile_ua,$mobile_agents)) {
-	    $mobile_browser++;
+	if ( in_array( $mobile_ua,$mobile_agents ) ) {
+	    ++$mobile_browser;
 	}
 
 	if ( array_key_exists( 'ALL_HTTP', $_SERVER ) ) {
-		if (strpos(strtolower($_SERVER['ALL_HTTP']),'OperaMini') > 0) {
-		    $mobile_browser++;
+		if ( strpos( strtolower ($_SERVER['ALL_HTTP'] ),'OperaMini' ) > 0 ) {
+		    ++$mobile_browser;
 		}
 	}
 
-	if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows') > 0) {
+	if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ),'windows') > 0 ) {
 	    $mobile_browser = 0;
 	}
 
@@ -373,7 +390,7 @@ function get_the_slug()
 /**
  * Function: rhd_strip_thumbnail_dimensions
  *
- * Strip WP inline image dimensions
+ * Description: Strip WP inline image dimensions
  *
  * @param $html
  **/
