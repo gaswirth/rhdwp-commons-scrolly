@@ -193,8 +193,7 @@ register_nav_menu( 'primary', 'Main Site Navigation' );
  */
 function rhd_init()
 {
-	// Custom Admin Panel
-	//include_once( 'includes/rhd-admin-panel.php' );
+
 }
 add_action( 'init', 'rhd_init' );
 
@@ -215,6 +214,9 @@ function rhd_theme_setup()
 	if ( ! isset( $content_width ) ) {
 		$content_width = 620;
 	}
+
+	// Custom Admin Panel
+	//include_once( 'includes/rhd-admin-panel.php' );
 }
 add_action( 'after_setup_theme', 'rhd_theme_setup' );
 
