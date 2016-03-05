@@ -70,6 +70,7 @@ add_action( 'wp_enqueue_scripts', 'rhd_enqueue_styles' );
  */
 function rhd_enqueue_scripts()
 {
+	wp_register_script( 'modernizr', RHD_THEME_DIR . '/js/vendor/modernizr/modernizr.js', null, '3.3.1', false );
 	wp_register_script( 'rhd-plugins', RHD_THEME_DIR . '/js/plugins.js', array( 'jquery' ), null, true );
 	wp_register_script( 'skrollr', RHD_THEME_DIR . '/js/vendor/skrollr/dist/skrollr.min.js', array(), null, true );
 	wp_register_script( 'fittext', RHD_THEME_DIR . '/js/vendor/fittext/fittext.js', array(), null, true );
@@ -78,6 +79,7 @@ function rhd_enqueue_scripts()
 	wp_register_script( 'youtube-tv', RHD_THEME_DIR . '/js/vendor/youtube-tv/src/ytv.js', array( 'jquery' ), null, true );
 
 	$main_deps = array(
+		'modernizr',
 		'rhd-plugins',
 		'jquery',
 		'jquery-effects-core',
