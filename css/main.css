@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 5:14:19 PM on 14-09-2015
+* RHD Dev: Compiled at 3:57:11 PM on 20-07-2016
 ***/
 
 .unselectable {
@@ -722,6 +722,7 @@ h6 {
 }
 #full-bg-3 {
   background-image: url("../img/jenblood-media.jpg");
+  background-position: -29em;
 }
 #full-bg-4 {
   background-image: url("../img/jenblood-contact.jpg");
