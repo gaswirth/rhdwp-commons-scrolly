@@ -167,6 +167,17 @@ add_action( 'widgets_init', 'rhd_register_sidebars' );
 // Menus
 register_nav_menu( 'primary', 'Main Site Navigation' );
 
+/**
+ * RHD_Walker_Nav class.
+ * 
+ * @extends Walker_Nav_Menu
+ */
+class RHD_Walker_Nav extends Walker_Nav_Menu {
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
+}
+
 // Includes and Requires
 //include_once( 'includes/rhd-admin-panel.php' );
 
