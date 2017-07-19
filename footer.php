@@ -13,11 +13,9 @@
 	</main><!-- #main -->
 
     <footer id="colophon" role="contentinfo">
-        <?php get_sidebar( 'footer' ); ?>
         <div class="site-info">
-			<p>
-				<?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?> <?php echo ( rhd_is_mobile() ) ? '<br>' : '|&nbsp;'; ?>Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a>
-            </p>
+			<p class="copy"><?php echo '&copy;' . date( 'Y' ); ?> <?php echo bloginfo( 'name' ); ?></p>
+			<p class="rhd">Site by <a href="//roundhouse-designs.com" target="_blank">Roundhouse<img id="rhd-logo-footer" src="//assets.roundhouse-designs.com/images/rhd-white-house.png" alt="Roundhouse Designs">Designs</a> | Photos by <a href="http://www.danielmartincohen.com/" target="_blank">Daniel Martin Cohen</a></p>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->
 </div><!-- #page -->

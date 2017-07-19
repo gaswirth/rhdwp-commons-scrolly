@@ -9,8 +9,8 @@
  */
 ?>
 
-<?php if ( is_active_sidebar( 'footer-widget-area' ) ) : ?>
+<?php if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
 	<aside id="footer-widget-area" class="widget-area" role="complementary">
-		<?php dynamic_sidebar( 'footer-widget-area' ); ?>
+		<?php dynamic_sidebar( 'sidebar-footer' ); ?>
 	</aside><!-- #secondary -->
 <?php endif; ?>

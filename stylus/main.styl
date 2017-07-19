@@ -2,6 +2,7 @@
 @require "partials/_hamburger.styl"
 @require "partials/_helpers.styl"
 @require "partials/_galleries.styl"
+@require "partials/_metabar.styl"
 @require "partials/_overrides.styl"
 
 /* ==========================================================================
@@ -21,6 +22,7 @@ html
 
 body
 	@extends html
+	fill currentColor
 
 
 a
@@ -40,12 +42,69 @@ h3
 h4
 h5
 h6
-	font-weight 100
+	font-weight 300
+
+
+.sb-slidebar
+	border-left 3px solid $bluer
+
+	.sb-logo
+		height $nav-ht
+		margin 0
+		position relative
+
+		.nav-logo
+			width 90%
+			height auto
+			display block
+			position absolute
+			top 50%
+			left 50%
+			-transform(translate(-50%, -50%))
+
+
+	#site-navigation-sb-container
+		#site-navigation-sb
+			padding-left 0
+			font-size 1.6em
+			line-height 1
+			margin 0
+
+			.menu-item
+				padding 1em 0 1em 0.75em
+
+				a
+					width 100%
+					height 100%
+					display block
+					color white
+
+				&:nth-of-type(7n+1)
+					background-color $blue
+
+				&:nth-of-type(7n+2)
+					background-color $gray
+
+				&:nth-of-type(7n+3)
+					background-color $pink
+
+				&:nth-of-type(7n+4)
+					background-color $$bluer
+
+				&:nth-of-type(7n+5)
+					background-color $orange
+
+				&:nth-of-type(7n+6)
+					background-color $red
+
+				&:nth-of-type(7n+7)
+					background-color $gray
 
 
 #page
 	width 100%
 	overflow hidden
+	padding-top $nav-ht
 
 
 #main
@@ -69,8 +128,13 @@ h6
 		margin 0
 		text-align center
 		line-height 1.7
-		font-size 1.1em
-		font-weight 100
+		font-size 0.9em
+		font-weight 300
+		position relative
+
+		p
+			margin 0.25em auto
+			text-align center
 
 		a
 			text-decoration none
@@ -82,7 +146,7 @@ h6
 
 			&:hover
 			&:active
-				color $orange
+				color $bluer
 
 	#rhd-logo-footer
 		width 1.35em
@@ -139,23 +203,44 @@ h6
 			width 100%
 			height auto
 			position absolute
-			top 50%
+			top 45%
 			left 0
 			-transform(translateY(-50%))
+			fill white
 
 		#site-title-text
 			-invisible()
 
+	#downarrows
+		width 5rem
+		position absolute
+		bottom 10%
+		left 50%
+		-transform(translateX(-50%))
+		display block
+
+		img
+			width 100%
+
 
 #nav
-	height 5rem
+	width 100%
+	height $nav-ht
 	background-color $gray
+	position fixed
+	top 0
+	left 0
+	z-index 999
 
-	#nav-logo
+	.nav-logo
 		width 12%
 		min-width 10rem
 		position relative
 		margin-left 1%
+
+		path
+			fill white
+			transition fill 0.25s
 
 	#site-navigation
 		list-style none
@@ -178,88 +263,103 @@ h6
 	#site-navigation-container
 		display none
 
+
 	#hamburger
 		font-size 1.2em // relative resizing
-		background-color black // sample bg animation color
+		background-color transparent // sample bg animation color
 		position absolute
 		top 50%
 		right 0
 		-transform(translateY(-50%))
 
-		&.active
-			background-color gray // sample bg animation color
+		span
+			background-color white
 
+			&::before
+			&::after
+				background-color white
 
 #intro
 	color white
+	
+	a
+		color white
+		text-decoration underline
 
 
-#contact
-	#contact-form
-	#contact-info
-		width 90%
-		margin 0 auto
+#btm-rolldown-form
+	width 90%
+	margin 2em auto
+	-clearfix()
+	transition max-height 0.5s ease-in-out
+	overflow hidden
 
-	#contact-form
-		margin 2em auto 3em
-		-clearfix()
+	&.inactive
+		max-height 0
 
-		input
-		textarea
-			font-size 1em
-			padding-left 0.25em
-			padding-right 0.25em
-			-border-radius(0.1em)
-			border 2px solid $rust
-			font-family $ff_body
-			transition 0.2s all
+	&.active
+		max-height 310px
 
-			&:focus
-				border 2px solid $orange
+	input
+	textarea
+		max-width none
+		font-size 1em
+		padding 0.5em 0.25em
+		border-radius(0.1em)
+		border 2px solid $bluer
+		font-family $ff_body
+		transition 0.2s all
 
-			&[type="email"]
-			&[type="text"]
-				width 100%
-				height 2em
+		&:focus
+			border 2px solid $blue
+			outline none
 
-			&[type="submit"]
-				width 100%
-				background $rust
-				color white
-				border none
-				padding 0.5em 0.2em 0.4em 0.2em
-				font-size 1.1em
-				text-align center
-				font-weight 100
-				display block
-				cursor pointer
-
-				&:hover
-				&:active
-					background $orange
-
-		textarea
+		&[type="email"]
+		&[type="text"]
 			width 100%
-			padding 0.25em
+			height 2em
 
-	#contact-info
-		text-align center
-
-		img
-			max-width 100%
-			margin-bottom 1em
-
-
-#social
-	width 100%
-	-flexbox()
-
-	.social-item
-		width 26%
-		-flexitem()
-
-		img
+		&[type="submit"]
 			width 100%
+			background $bluer
+			color white
+			border none
+			padding 0.5em 1.0em 0.4em
+			font-size 1.1em
+			text-align center
+			font-weight 300
+			display block
+			cursor pointer
+			text-transform uppercase
+
+			&:hover
+			&:active
+				background $blue
+
+	textarea
+		width 100%
+		padding 0.25em
+
+	label
+		& > span
+			opacity 0.5
+			font-size 0.8em
+
+
+#rhd_social_icons-2
+	width 16.6em
+	margin 0 auto
+
+	.rhd_social_icons
+		width 100%
+		-flexbox()
+
+		li
+			width 20%
+			-flexitem()
+			background-repeat no-repeat
+			background-size 100% auto
+			background-position center
 
 
 .full-bg
@@ -272,40 +372,63 @@ h6
 
 #full-bg-1
 	background-image url($updir + '/2015/09/edge-bg-blog.jpg')
+	background-position 82% center
 
 
 #full-bg-2
 	background-image url($updir + '/2015/09/edge-bg-teaching.jpg')
+	background-position 73% center
 
 
 #full-bg-3
 	background-image url($updir + '/2015/09/edge-bg-coaching.jpg')
+	background-position 76% center
 
 
 #full-bg-4
 	background-image url($updir + '/2015/09/edge-bg-about.jpg')
+	background-position 24% center
+
+
+#btm-full-bg-top
+	height 80vh
+	background-image url($updir + '/2015/09/beyond-bg.jpg')
 
 
 .bg-white
 	background-color white
 
+
 .bg-blue
 .bg-orange
-.bg-rust
+.bg-red
 .bg-pink
+.bg-green
 	color white
+
 
 .bg-blue
 	background-color $blue
 
+
 .bg-orange
 	background-color $orange
+
+
+.bg-red
+	background-color $red
+
 
 .bg-rust
 	background-color $rust
 
+
 .bg-pink
 	background-color $pink
+
+
+.bg-green
+	background-color $green
 
 
 .section-content
@@ -349,8 +472,9 @@ h6
 
 .bg-blue
 .bg-orange
-.bg-rust
+.bg-red
 .bg-pink
+.bg-green
 	.ghost-button
 		color white
 		border-color white
@@ -374,7 +498,7 @@ h6
 			color $orange
 
 
-.bg-rust
+.bg-red
 	.ghost-button
 		&:hover
 		&:active
@@ -387,12 +511,45 @@ h6
 		&:active
 			color $pink
 
+
+.bg-green
+	.ghost-button
+		&:hover
+		&:active
+			color $green
+
+
 /* ==========================================================================
-	Blog
+	Front Page + Blog
    ========================================================================== */
 
-.front-page
+.page-title
+	text-align center
+	font-size 2em
+	margin-bottom 1em
+	text-transform uppercase
+
+
 .blog
+.single
+.page-id-27
+	#nav
+		position fixed
+		top 0
+		left 0
+
+.blog
+.single
+	#content
+		-wrapper(0,0,95%)
+
+
+.front-page
+.page-id-27
+.blog
+	.entry-header
+		text-align center
+
 	.entry-title
 		margin 0.25em 0 0 0
 		font-weight 700
@@ -402,13 +559,63 @@ h6
 		margin-top 0
 		font-size 0.9em
 
+
+.single
+	.entry-title
+		font-weight 300
+		margin-bottom 0
+
+	.entry-details
+		margin-top 0
+
+
+.blog
+	.blog-archive-thumb
+		width 100%
+		height auto
+
+		img
+			width (@width)
+			height (@height)
+
+	.entry-title
+	.entry-details
+		text-align center
+
+	.pagination
+	.single-pagination
+		-wrapper(2em, 2em)
+		margin 1em auto
+		font-size 1.1em
+		-clearfix()
+
+		.pag-next
+		[rel="next"]
+			float left
+
+		.pag-prev
+		[rel="prev"]
+			float right
+
+
 .front-page
+	#nav
+		position relative
+
+
+.front-page
+.page-id-27
+	#page
+		padding-top 0
+
 	.front-page-entry
 		-clearfix()
 
 	.front-page-entry-thumb
-		float left
-		margin-right 1em
+		width 100%
+
+		img
+			width (@width)
 
 	.ghost-button
 		margin-top 2em
@@ -420,10 +627,133 @@ h6
 
 
 /* ==========================================================================
+	Comments
+   ========================================================================== */
+
+#comments
+	margin 2em auto
+
+	.commentlist
+		list-style none
+		padding-left 0
+
+		ul
+		ol
+			@extends #comments .commentlist
+
+		.children
+			padding 0 1.5em
+
+		.comment-metadata
+			font-size 0.9em
+
+			time
+				font-style italic
+
+	.even
+		background $off-white
+
+	.odd
+		background white
+
+	.comment-body
+		padding 1em
+		box-sizing border-box
+
+	textarea
+		max-width 100%
+
+	#commentform
+		width 100%
+		min-width 18rem
+		max-width 100%
+
+		p
+			margin-bottom 0.75rem
+
+		input
+		textarea
+			width 100%
+			background-color $off-white
+			font-size 0.8em
+			border none
+			box-sizing border-box
+			padding 0.5em
+			display inline-block
+
+		#submit
+			width auto
+			padding-left 0.8em
+			cursor pointer
+			@extends .ghost-button
+
+		.comment-subscription-form
+			margin initial
+
+
+/* ==========================================================================
+	MailChimp
+   ========================================================================== */
+
+.rhd_mc_subscribe
+	margin 1em auto
+
+	input
+		width 100%
+		font-family $ff_body
+		-placeholder-props( 'Lato' )
+		margin 0.25em auto
+		border-radius 0.1em
+		outline none
+
+	.rhd_mc_fname
+	.rhd_mc_lname
+	.rhd_mc_email
+		border 2px solid white
+		transition border-color 0.25s
+
+		&:focus
+			border-color $pink
+
+	.rhd_mc_submit
+		padding 0.5em 0.25em
+		background $bluer
+		transition all 0.25s
+
+		&:hover
+		&:active
+			background $pink
+
+
+#rhd_mc_subscribe-2
+	.rhd_mc_fname
+	.rhd_mc_lname
+	.rhd_mc_email
+		border-color $bluer
+
+		&:focus
+			border-color $pink
+
+
+/* ==========================================================================
 	Media Queries
    ========================================================================== */
 
 @media screen and (min-width 40em)
+	.front-page
+	.page-id-27
+		.entry-header
+			text-align left
+
+		.front-page-entry-thumb
+			width auto
+			float left
+			margin-right 1em
+
+	#top
+		#downarrows
+			width 6rem
+
 	#content
 		.section-content
 			padding 3em 0
@@ -435,31 +765,70 @@ h6
 
 			-clearfix()
 
-			#contact-form
-				width 60%
-				float left
 
-				input
-					&[type="submit"]
-						width 6.25rem
-
-			#contact-info
-				width 30%
-				float right
-				margin-top 1em
+	.blog
+	.single
+		#content
+			width 100%
 
 
 	#primary
 		&.blog-index
 			#content
-				-wrapper(1em, 1em)
+				-wrapper(1em, 1em, 85%, 75rem)
 
 			.post
-				width 47%
+				width 48%
 				transition all 0.25s
+				margin 0
 
 			.gutter-sizer
-				width 6%
+				width 4%
+
+
+	.rhd_mc_subscribe
+		-clearfix()
+
+		input
+			float left
+			margin-top 0
+			margin-bottom 0
+
+		.rhd_mc_fname
+		.rhd_mc_lname
+		.rhd_mc_email
+			width 28%
+			margin-right 2%
+
+		.rhd_mc_submit
+			width 10%
+			margin 0
+
+
+	#colophon
+		.site-info
+			-clearfix()
+
+			p
+				display block;
+
+			.copy
+				float left
+				text-align left
+				margin-left 1em
+
+			.rhd
+				float right
+				text-align right
+				margin-right 1em
+
+
+	#btm-rolldown-form
+		width 50%
+
+		&[type="submit"]
+			width auto
+			float right
 
 
 @media screen and (min-width 60em)
@@ -467,21 +836,31 @@ h6
 		#site-navigation-container
 			width 80%
 			position absolute
-			top 50%
+			top 14%
 			right 2%
-			-transform(translateY(-50%))
 			display block
 
 			#site-navigation
 				-flexbox()
+				line-height 1
 
 				li
 					-flexitem()
 					font-size 1em
-					font-weight 100
+					font-weight 300
 
 		#hamburger
 			display none
+
+	#primary
+		&.blog-index
+			.post
+				width 31%
+				transition all 0.25s
+				margin 0
+
+			.gutter-sizer
+				width 3.5%
 
 
 @media screen and (min-width 64em)

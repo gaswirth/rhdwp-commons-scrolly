@@ -4,12 +4,15 @@
 
 var $window = jQuery(window),
 	$body = jQuery('body'),
-	$main = jQuery('#main');
+	$main = jQuery('#main'),
+	$nav = jQuery('#nav'),
+	$rolldown = jQuery('#btm-rolldown-form');
 
 
 var $packery = jQuery(".blog-index #content"),
 	packeryIsActive = false;
 
+var sb;
 
 var isSingle = ( $body.hasClass('single') ) ? true : false,
 	isGrid = ( $main.hasClass('grid') === true ) ? true : false,
@@ -27,28 +30,53 @@ var	isFrontPage = ( $body.hasClass('front-page') === true ) ? true : false,
    ========================================================================== */
 
 // Init
-var skr = null;
+var skr;
+var resizeId;
+var isStuck;
+var navTop;
 
 (function($){
 	$(document).ready(function($){
+		rhdInit();
+
 		// Fancy scrolly navigation
-		$('#site-navigation a').on('click', function(e){
-			e.preventDefault();
+		$('.site-navigation a').on('click', function(e){
+			if ( isFrontPage ) {
+				if ( $(this).attr('href').indexOf('#') > -1 ) {
+					e.preventDefault();
 
-			var $a = $( '#' + $(this).attr('href').split('#').pop() );
+					var $target = $(this).attr('href').split('#').pop();
+					var $a = $( '#' + $target );
 
-			// Set data-offset in HTML to add offset parameter
-			var offsetAttr = $a.attr('data-offset');
-			var yOffset;
+					// Set data-offset in HTML to add offset parameter
+					var offsetAttr = $nav.height();
+					var yOffset;
 
-			if ( offsetAttr )
-				yOffset = offsetAttr;
-			else
-				yOffset = 0;
+					if ( offsetAttr )
+						yOffset = offsetAttr;
+					else
+						yOffset = 0;
 
-			$('html, body').animate({
-				scrollTop: $a.offset().top - yOffset
-			}, 1000, 'easeInOutCubic');
+					$('html, body').animate({
+						scrollTop: $a.offset().top - yOffset
+					}, 1000, 'easeInOutCubic');
+
+					if ( sb.slidebars.active('right') )
+						$("#hamburger").click();
+				}
+			}
+		});
+
+
+		// Front page downarrow
+		$("#downarrows").on('click', function(e){
+			if ( !isMobile ) {
+				e.preventDefault();
+
+				$('html, body').animate({
+					scrollTop: $(window).height() - $nav.offset().top + $nav.height()
+				});
+			}
 		});
 
 
@@ -68,15 +96,38 @@ var skr = null;
 		}
 
 
+		// "Beyond the Mat" Signup form
+		$rolldown.addClass('inactive');
+		$(".btm-rolldown-button").click(function(e){
+			e.preventDefault();
+
+			if ( ! $rolldown.hasClass('active') )
+				$rolldown
+					.removeClass('inactive')
+					.addClass('active');
+			else
+				$rolldown
+					.removeClass('active')
+					.addClass('inactive');
+		});
+
+
 		// Slidebars
-		$.slidebars({
-			siteClose: false,
+		sb = new $.slidebars();
+
+
+		// Metabar dropdowns
+		$('.rhd-dropdown-title').on('click', function(e){
+			e.preventDefault();
+
+			var $this = $(this),
+				$dd = $this.siblings('ul');
+
+			$dd.slideToggle();
 		});
 
 
 		// Window resizing
-		var resizeId;
-
 		function doneResizing(){
 			if ( $window.width() < 640 ) {
 				if ( skr ) {
@@ -99,7 +150,11 @@ var skr = null;
 		if ( !isMobile )
 			packeryInit();
 
-		$(window).resize(function(){
+
+		// Resize event
+		$window.resize(function(){
+			navTop = $("#top").height();
+
 			if ( $(window).width() < 640 && packeryIsActive ) {
 				$packery.packery('destroy');
 				packeryIsActive = false;
@@ -108,9 +163,15 @@ var skr = null;
 		});
 
 
-		// Resize event
-		$window.on('resize', function(){
-
+		// Scroll event
+		$window.on('scroll', function(){
+			if ( isFrontPage ) {
+				if ( $window.scrollTop() >= navTop ) {
+					stickNav();
+				} else {
+					unstickNav();
+				}
+			}
 		});
 	});
 
@@ -118,6 +179,26 @@ var skr = null;
 	/* ==========================================================================
 		Functions
 	============================================================================= */
+
+	function rhdInit() {
+		navTop = $nav.offset().top;
+
+		if ( $window.scrollTop() >= navTop && isFrontPage ) {
+			stickNav();
+		}
+
+		toggleBurger();
+	}
+
+	// Adapted from Hamburger Icons: https://github.com/callmenick/Animating-Hamburger-Icons
+    function toggleBurger() {
+        var toggles = $(".c-hamburger");
+
+        toggles.click(function(e){
+                e.preventDefault();
+                $(this).toggleClass('is-active');
+        });
+    }
 
 	function skrollrInit() {
 		try {
@@ -140,5 +221,33 @@ var skr = null;
 		});
 
 		packeryIsActive = true;
+	}
+
+	function stickNav() {
+		if ( !isStuck ) {
+			$nav.appendTo("body");
+			$nav.css({
+				'position': 'fixed',
+				'top' : '0',
+				'left' : '0'
+			});
+			$("#page").css('paddingTop',$nav.height());
+
+			isStuck = true;
+		}
+	}
+
+	function unstickNav() {
+		if ( isStuck ) {
+			$nav.insertAfter("#top");
+			$nav.css({
+				'top': 'initial',
+				'left': 'initial',
+				'position': 'relative'
+			});
+			$("#page").css('paddingTop',0);
+
+			isStuck = false;
+		}
 	}
 })(jQuery);

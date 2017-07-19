@@ -16,10 +16,17 @@
 					<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'rhd' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 				</h2>
 			<?php endif; // is_single() ?>
-			<p class="entry-details">By <?php the_author(); ?> <span class="sep">&star;</span> <?php the_time( 'n/j/y' ); ?></p>
+
+			<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
+
+			<?php if ( has_post_thumbnail() && ! is_single() ) : ?>
+				<div class="blog-archive-thumb">
+					<?php the_post_thumbnail( 'full' ); ?>
+				</div>
+			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<?php if ( is_search() || !is_single() ) : // Only display Excerpts for Search + Archive ?>
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->

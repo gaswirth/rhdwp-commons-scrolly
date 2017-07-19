@@ -24,6 +24,7 @@ $section_args = array(
 					<h1 id="site-title-text"><?php bloginfo( 'name' ); ?></h1>
 					<?php rhd_svg_logo_main(); ?>
 				</header>
+				<a href="#nav" id="downarrows"><img src="<?php echo RHD_IMG_DIR; ?>/arrows.png" alt="Scroll down"></a>
 			</section>
 
 			<section id="nav">
@@ -40,6 +41,8 @@ $section_args = array(
 
 				<div class="section-content">
 					<?php echo apply_filters( 'the_content', $section[0]->post_content ); ?>
+
+					<?php the_widget( 'RHD_Mailchimp_Widget', array( 'button' => 'Sign Me Up!', 'fname' => true, 'lname' => true ), array() ); ?>
 				</div>
 			</section>
 
@@ -64,12 +67,12 @@ $section_args = array(
 								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 									<?php if ( has_post_thumbnail() ) : ?>
 										<div class="front-page-entry-thumb">
-											<?php the_post_thumbnail( 'medium' ); ?>
+											<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail( 'medium' ); ?></a>
 										</div>
 									<?php endif; ?>
 
 									<header class="entry-header">
-										<h3 class="entry-title"><?php the_title(); ?></h3>
+										<h3 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 										<p class="entry-details"><?php the_time( get_option( 'date_format' ) ); ?></p>
 									</header><!-- .entry-header -->
 
@@ -79,7 +82,7 @@ $section_args = array(
 								</article><!-- #post -->
 							</div>
 
-							<a class="ghost-button" href="<?php home_url( '/blog' ); ?>">Read More Blog Posts</a>
+							<a class="ghost-button" href="<?php echo home_url( '/blog' ); ?>">Read More Blog Posts</a>
 
 						<?php endwhile; ?>
 					<?php endif; ?>
@@ -138,7 +141,7 @@ $section_args = array(
 
 			<section id="full-bg-4" class="full-bg"></section>
 
-			<section id="about" class="bg-rust">
+			<section id="about" class="bg-red">
 				<?php
 				$section_args['name'] = 'about';
 				$section = get_posts( $section_args );
@@ -166,6 +169,8 @@ $section_args = array(
 						<h2 class="section-title"><?php the_title(); ?></h2>
 
 						<?php the_content(); ?>
+
+						<?php get_sidebar( 'footer' ); ?>
 					<?php endwhile; ?>
 				</div>
 			</section>

@@ -4,12 +4,18 @@
 
 // Variables
 $blue = #4465a3
+$bluer = #132f4d
 $pink = #bf4d6c
 $orange = #f89d68
+$green = #93a75f
 $rust = #c94f37
+$red = #ae2223
 $gray = #9ea4b1
+$grayer = #7e838d
 
-$updir = '//dev.roundhouse-designs.com/edgeofthemat/wp-content/uploads'
+$nav-ht = 5rem
+
+$updir = '//edgeofthemat.com/wp-content/uploads'
 
 $off-white = #e8e8e8
 
@@ -38,7 +44,6 @@ $ff_body = 'Lato', sans-serif
 
 -flexbox()
 	text-align justify
-	line-height 0
 
 	&:after
 		width 100%
@@ -49,11 +54,14 @@ $ff_body = 'Lato', sans-serif
 	display inline-block
 
 
--wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false )
+-wrapper( $topMargin = false, $bottomMargin = false, $customWidth = false, $maxWidth = null )
 	if $customWidth == false
 		$w = 85%
 	else
 		$w = $customWidth
+
+	if $maxWidth == null
+		$maxWidth = 64rem
 
 	if $topMargin == false
 		$topMargin = 0
@@ -61,7 +69,7 @@ $ff_body = 'Lato', sans-serif
 		$bottomMargin = 0
 
 	width $w
-	max-width 75rem
+	max-width $maxWidth
 	position relative
 	margin $topMargin auto $bottomMargin auto
 
@@ -101,10 +109,12 @@ $ff_body = 'Lato', sans-serif
 	transition $n
 
 
--placeholder-props( $famVal, $color, $opacity = null )
+-placeholder-props( $famVal, $color = null, $opacity = null )
 	&::-webkit-input-placeholder
 		font-family $famVal
-		color $color
+		if $color !=null
+			color $color
+
 		if $opacity != null
 			-opacity( $opacity )
 

@@ -6,9 +6,21 @@
  * @subpackage rhd
  */
 
-get_header(); ?>
+get_header();
+session_start();
+?>
 
 	<section id="primary" class="site-content <?php echo ( !is_single() ) ? 'blog-index' : 'blog-single'; ?>">
+		<?php if ( $_SESSION['blog_area'] === true ) get_template_part( 'module', 'metabar' ); ?>
+
+		<h2 class="page-title">
+			<?php if ( is_search() ) : ?>
+				<?php printf( __( 'Search Results for: <em>%s</em>', 'rhd' ), get_search_query() ); ?>
+			<?php elseif ( !is_search() && !is_single() ) : ?>
+				Blog
+			<?php endif; ?>
+		</h2>
+
 		<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>

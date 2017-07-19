@@ -20,20 +20,22 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=9" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!--												   _  _
-                                                              | || |
-                                 ____  ___   _   _  ____    _ | || | _    ___   _   _   ___   ____
-                                / ___)/ _ \ | | | ||  _ \  / || || || \  / _ \ | | | | /___) / _  )
-                               | |   | |_| || |_| || | | |( (_| || | | || |_| || |_| ||___ |( (/ /
-                               |_|    \___/  \____||_| |_| \____||_| |_| \___/  \____|(___/  \____)
+		<!--
+									   _  _
+                                      | || |
+         ____  ___   _   _  ____    _ | || | _    ___   _   _   ___   ____
+        / ___)/ _ \ | | | ||  _ \  / || || || \  / _ \ | | | | /___) / _  )
+       | |   | |_| || |_| || | | |( (_| || | | || |_| || |_| ||___ |( (/ /
+       |_|    \___/  \____||_| |_| \____||_| |_| \___/  \____|(___/  \____)
 
-                                                             _               _
-                                                            | |             (_)
-                                                          _ | |  ____   ___  _   ____  ____    ___
-                                                         / || | / _  ) /___)| | / _  ||  _ \  /___)
-                                                        ( (_| |( (/ / |___ || |( ( | || | | ||___ |
-                                                         \____| \____)(___/ |_| \_|| ||_| |_|(___/
-                                                                               (_____|
+                                     _               _
+                                    | |             (_)
+                                  _ | |  ____   ___  _   ____  ____    ___
+                                 / || | / _  ) /___)| | / _  ||  _ \  /___)
+                                ( (_| |( (/ / |___ || |( ( | || | | ||___ |
+                                 \____| \____)(___/ |_| \_|| ||_| |_|(___/
+                                                       (_____|
+
 		-->
 
 		<title><?php wp_title(); ?></title>
@@ -42,7 +44,7 @@
 
 		<?php wp_head(); ?>
 
-	</head>
+</head>
 
 	<body <?php body_class( $body_classes ); ?>>
 		<!--[if lt IE 7]>
@@ -59,17 +61,18 @@
 		);
 		?>
 
-		<div class="sb-slidebar sb-right sb-style-overlay">
+		<div class="sb-slidebar sb-right sb-style-push">
+			<div class="sb-logo">
+				<?php rhd_svg_logo_nav(); ?>
+			</div>
 			<?php wp_nav_menu( $nav_args_sb ); ?>
 		</div>
 
+		<?php if ( ! is_front_page() ) : ?>
+			<section id="nav">
+				<?php rhd_site_navigation(); ?>
+			</section>
+		<?php endif; ?>
+
 		<div id="page" class="hfeed site sb-site-container">
 			<main id="main" class="clearfix">
-
-				<?php if ( ! is_front_page() ) : ?>
-					<section id="nav">
-						<header id="masthead-blog">
-							<?php rhd_site_navigation(); ?>
-						</header>
-					</section>
-				<?php endif; ?>
