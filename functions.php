@@ -24,6 +24,9 @@ add_action( 'after_setup_theme', 'rhd_init' );
 /* Disable Editor */
 define( 'DISALLOW_FILE_EDIT', true );
 
+// Automatic updates
+add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'auto_update_plugin', '__return_true' ); 
 
 /* ==========================================================================
    Scripts + Styles
@@ -169,10 +172,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 	add_theme_support( 'infinite-scroll', array( 'container' => 'content', 'footer' => 'page' ) );
 }
-
-
-// Enable themes auto-update
-add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
 
 // Content Width

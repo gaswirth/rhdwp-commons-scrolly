@@ -90,9 +90,9 @@ $section_args = array(
 
 			<section id="full-bg-1" class="full-bg"></section>
 
-			<section id="resume">
+			<section id="media" class="full-bg">
 				<?php
-				$section_args['name'] = 'resume';
+				$section_args['name'] = 'media';
 				$section = get_posts( $section_args );
 				?>
 
@@ -109,9 +109,9 @@ $section_args = array(
 
 			<section id="full-bg-2" class="full-bg"></section>
 
-			<section id="media" class="full-bg">
+			<section id="resume">
 				<?php
-				$section_args['name'] = 'media';
+				$section_args['name'] = 'resume';
 				$section = get_posts( $section_args );
 				?>
 
