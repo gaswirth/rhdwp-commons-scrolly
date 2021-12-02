@@ -1,5 +1,5 @@
 /***
-* RHD Dev: Compiled at 11:29:37 PM on 20-07-2021
+* RHD Dev: Compiled at 1:22:09 PM on 02-12-2021
 ***/
 
 /**
@@ -460,7 +460,7 @@ h6 {
 }
 @media (max-width: 420px) {
   #top #masthead {
-    background-position: -55% center;
+    background-position: -65% center;
   }
 }
 @media (min-width: 600px) {
@@ -745,9 +745,8 @@ h6 {
 .full-bg {
   width: 100%;
   height: 100vh;
-  background-position: center top;
+  background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 .full-bg .full-bg-caption {
   position: absolute;
